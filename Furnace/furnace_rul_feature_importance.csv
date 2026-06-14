@@ -1,0 +1,7 @@
+Feature,Importance
+furnace_temp,0.057126034
+tube_skin_temp,0.30719793
+fuel_gas_flow,0.08136293
+oxygen_level,0.19655955
+stack_temp,0.34883684
+burner_efficiency,0.008916694

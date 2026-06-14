@@ -1,0 +1,74 @@
+[
+  {
+    "vendor_id": "VEND-001",
+    "name": "Tata Steel Ltd.",
+    "category": "Raw Material (Steel Coils)",
+    "contact_person": "Mr. Amit Singhal",
+    "phone": "+91-9876500001",
+    "email": "amit.s@tatasteel.com",
+    "lead_time_days": 14,
+    "rating_score": 92,
+    "status": "Approved",
+    "last_audit_date": "2025-08-20"
+  },
+  {
+    "vendor_id": "VEND-002",
+    "name": "JSW Steel Ltd.",
+    "category": "Raw Material (Steel Coils)",
+    "contact_person": "Ms. Neha Gupta",
+    "phone": "+91-9876500002",
+    "email": "neha.g@jsw.in",
+    "lead_time_days": 21,
+    "rating_score": 88,
+    "status": "Approved",
+    "last_audit_date": "2025-09-15"
+  },
+  {
+    "vendor_id": "VEND-003",
+    "name": "Bronx International",
+    "category": "OEM (Slitting Machine)",
+    "contact_person": "Mr. David Clarke",
+    "phone": "+44-1384000003",
+    "email": "service@bronx.co.uk",
+    "lead_time_days": 45,
+    "rating_score": 95,
+    "status": "Approved",
+    "last_audit_date": "N/A (OEM)"
+  },
+  {
+    "vendor_id": "VEND-004",
+    "name": "SKF India Ltd.",
+    "category": "Spares (Bearings)",
+    "contact_person": "Mr. Rahul Verma",
+    "phone": "+91-9876500004",
+    "email": "sales.jsr@skf.com",
+    "lead_time_days": 7,
+    "rating_score": 98,
+    "status": "Approved",
+    "last_audit_date": "2026-01-10"
+  },
+  {
+    "vendor_id": "VEND-005",
+    "name": "Electrotherm (India) Ltd.",
+    "category": "OEM (Furnace)",
+    "contact_person": "Mr. Sanjay Patel",
+    "phone": "+91-9876500005",
+    "email": "service@electrotherm.com",
+    "lead_time_days": 30,
+    "rating_score": 85,
+    "status": "Approved",
+    "last_audit_date": "N/A (OEM)"
+  },
+  {
+    "vendor_id": "VEND-006",
+    "name": "Metrology Labs Inc.",
+    "category": "Service (Calibration)",
+    "contact_person": "Mr. Kiran Kumar",
+    "phone": "+91-9876500006",
+    "email": "kiran@metrologylabs.in",
+    "lead_time_days": 5,
+    "rating_score": 90,
+    "status": "Approved",
+    "last_audit_date": "2025-11-05"
+  }
+]

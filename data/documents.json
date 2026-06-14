@@ -1,0 +1,152 @@
+[
+    {
+        "document_id": "DOC-0001",
+        "machine_id": "M1",
+        "title": "Buhler Mixer X-2000 Maintenance Manual",
+        "chunk_text": "Section 1.2: General Overview. The Buhler Industrial Mixer X-2000 is designed for high-capacity continuous mixing.\n\n![Buhler Mixer X-2000 Maintenance Manual Diagram](/data/documents/images/buhler_mixer_diagram_1781195551236.png)",
+        "metadata": {
+            "type": "manual",
+            "section_index": 0
+        }
+    },
+    {
+        "document_id": "DOC-0002",
+        "machine_id": "M1",
+        "title": "Buhler Mixer X-2000 Maintenance Manual",
+        "chunk_text": "Section 3.1: Bearing Maintenance. If vibration exceeds 3.0 mm/s, inspect the main shaft bearings. If vibration exceeds 4.5 mm/s, immediate replacement of the front-end bearing is required to prevent shaft misalignment.",
+        "metadata": {
+            "type": "manual",
+            "section_index": 1
+        }
+    },
+    {
+        "document_id": "DOC-0003",
+        "machine_id": "M1",
+        "title": "Buhler Mixer X-2000 Maintenance Manual",
+        "chunk_text": "Section 4.5: Cleaning Procedure. Ensure the mixer is fully powered down before entering the drum. PPE requirement: Hard hat, safety glasses, harness.",
+        "metadata": {
+            "type": "manual",
+            "section_index": 2
+        }
+    },
+    {
+        "document_id": "DOC-0004",
+        "machine_id": "M2",
+        "title": "Coperion Twin-Screw Extruder TE-90 Service Guide",
+        "chunk_text": "Section 2.1: Screw Assembly. The twin screws are co-rotating. Ensure proper alignment during reassembly.\n\n![Coperion Twin-Screw Extruder TE-90 Service Guide Diagram](/data/documents/images/coperion_extruder_diagram_1781195565742.png)",
+        "metadata": {
+            "type": "manual",
+            "section_index": 0
+        }
+    },
+    {
+        "document_id": "DOC-0005",
+        "machine_id": "M2",
+        "title": "Coperion Twin-Screw Extruder TE-90 Service Guide",
+        "chunk_text": "Section 5.4: Temperature Control. Normal operating temperature is between 45C and 65C. If the temperature spikes above 80C combined with high vibration (> 10 mm/s), this strongly indicates a bearing failure or screw jam.",
+        "metadata": {
+            "type": "manual",
+            "section_index": 1
+        }
+    },
+    {
+        "document_id": "DOC-0006",
+        "machine_id": "M2",
+        "title": "Coperion Twin-Screw Extruder TE-90 Service Guide",
+        "chunk_text": "Section 7.1: Flow Optimization. If upstream bottlenecks occur, reduce throughput by 10% to prevent barrel overloading.",
+        "metadata": {
+            "type": "manual",
+            "section_index": 2
+        }
+    },
+    {
+        "document_id": "DOC-0007",
+        "machine_id": "M3",
+        "title": "CryoCool Tunnel C-40 Operations Manual",
+        "chunk_text": "Section 1.1: System Layout. The cooling tunnel uses liquid nitrogen spray combined with high-velocity fans.\n\n![CryoCool Tunnel C-40 Operations Manual Diagram](/data/documents/images/cryocool_tunnel_diagram_1781195582740.png)",
+        "metadata": {
+            "type": "manual",
+            "section_index": 0
+        }
+    },
+    {
+        "document_id": "DOC-0008",
+        "machine_id": "M3",
+        "title": "CryoCool Tunnel C-40 Operations Manual",
+        "chunk_text": "Section 6.2: Belt Tracking. If the conveyor belt slips, check the tensioner pneumatics. Belt slippage usually causes a sudden drop in RPM without a spike in motor current.",
+        "metadata": {
+            "type": "manual",
+            "section_index": 1
+        }
+    },
+    {
+        "document_id": "DOC-0009",
+        "machine_id": "M3",
+        "title": "CryoCool Tunnel C-40 Operations Manual",
+        "chunk_text": "Section 8.0: Safety. Cryogenic burns are a high risk. Gloves and face shields are mandatory in Zone Z3.",
+        "metadata": {
+            "type": "manual",
+            "section_index": 2
+        }
+    },
+    {
+        "document_id": "DOC-0010",
+        "machine_id": "M4",
+        "title": "Urschel Precision Cutter R-5 Manual",
+        "chunk_text": "Section 3.2: Blade Replacement. Blades must be replaced every 500 hours or if vibration exceeds 3.5 mm/s due to imbalance.\n\n![Urschel Precision Cutter R-5 Manual Diagram](/data/documents/images/urschel_cutter_diagram_1781195596879.png)",
+        "metadata": {
+            "type": "manual",
+            "section_index": 0
+        }
+    },
+    {
+        "document_id": "DOC-0011",
+        "machine_id": "M4",
+        "title": "Urschel Precision Cutter R-5 Manual",
+        "chunk_text": "Section 4.1: Jam Recovery. In case of a product jam, the motor current will spike above 12 Amps. Immediately stop the feed, open the impeller cover, and manually clear the obstruction.",
+        "metadata": {
+            "type": "manual",
+            "section_index": 1
+        }
+    },
+    {
+        "document_id": "DOC-0012",
+        "machine_id": "M4",
+        "title": "Urschel Precision Cutter R-5 Manual",
+        "chunk_text": "Section 5.5: Routine Lubrication. Lubricate the main drive spindle weekly using food-grade grease.",
+        "metadata": {
+            "type": "manual",
+            "section_index": 2
+        }
+    },
+    {
+        "document_id": "DOC-0013",
+        "machine_id": "M5",
+        "title": "ABB Robotic Palletizer Pro Guide",
+        "chunk_text": "Section 1.0: Kinematics. The palletizer uses a 4-axis robotic arm with a vacuum gripper.\n\n![ABB Robotic Palletizer Pro Guide Diagram](/data/documents/images/abb_palletizer_diagram_1781195609452.png)",
+        "metadata": {
+            "type": "manual",
+            "section_index": 0
+        }
+    },
+    {
+        "document_id": "DOC-0014",
+        "machine_id": "M5",
+        "title": "ABB Robotic Palletizer Pro Guide",
+        "chunk_text": "Section 4.3: Servo Overload. If the wrist servo temperature exceeds 55C, it indicates a payload overload or a failing servo brake.",
+        "metadata": {
+            "type": "manual",
+            "section_index": 1
+        }
+    },
+    {
+        "document_id": "DOC-0015",
+        "machine_id": "M5",
+        "title": "ABB Robotic Palletizer Pro Guide",
+        "chunk_text": "Section 9.1: Zone Entry. The palletizer operates in a restricted safety cell. Any entry into Zone Z5 without breaking the light curtain correctly will trigger an emergency stop.",
+        "metadata": {
+            "type": "manual",
+            "section_index": 2
+        }
+    }
+]

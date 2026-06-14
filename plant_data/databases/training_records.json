@@ -1,0 +1,44 @@
+[
+  {
+    "record_id": "TR-2026-001", "worker_id": "EMP-035", "worker_name": "Ajay Chopra", "training_title": "Fire Safety Basic", "training_type": "safety", "date": "2023-06-15", "duration_hours": 4, "trainer": "EMP-004", "score": 82, "result": "pass", "certificate_no": "FS-2023-035", "valid_until": "2025-06-15", "renewal_status": "overdue"
+  },
+  {
+    "record_id": "TR-2026-002", "worker_id": "EMP-035", "worker_name": "Ajay Chopra", "training_title": "PPE Usage & Selection", "training_type": "safety", "date": "2023-06-16", "duration_hours": 2, "trainer": "EMP-028", "score": 88, "result": "pass", "certificate_no": "PPE-2023-035", "valid_until": null, "renewal_status": "not_required"
+  },
+  {
+    "record_id": "TR-2026-003", "worker_id": "EMP-009", "worker_name": "Ramesh Yadav", "training_title": "CNC Machine Operation — Advanced", "training_type": "technical", "date": "2024-01-20", "duration_hours": 16, "trainer": "Bronx UK Engineer", "score": 91, "result": "pass", "certificate_no": "CNC-ADV-2024-009", "valid_until": null, "renewal_status": "not_required"
+  },
+  {
+    "record_id": "TR-2026-004", "worker_id": "EMP-014", "worker_name": "Karthik Nair", "training_title": "HF Welding Specialist Certification", "training_type": "technical", "date": "2024-03-10", "duration_hours": 40, "trainer": "Thermatool Corp. USA", "score": 94, "result": "pass", "certificate_no": "HFW-SPEC-2024-014", "valid_until": "2027-03-10", "renewal_status": "valid"
+  },
+  {
+    "record_id": "TR-2026-005", "worker_id": "EMP-019", "worker_name": "Rajendra Prasad", "training_title": "Vibration Analysis Level-I", "training_type": "technical", "date": "2024-06-15", "duration_hours": 32, "trainer": "Mobius Institute (External)", "score": 87, "result": "pass", "certificate_no": "VA-L1-2024-019", "valid_until": "2029-06-15", "renewal_status": "valid"
+  },
+  {
+    "record_id": "TR-2026-006", "worker_id": "EMP-020", "worker_name": "Sunil Prasad", "training_title": "PLC Programming — Siemens S7-1500", "training_type": "technical", "date": "2024-08-20", "duration_hours": 40, "trainer": "Siemens India Training Center", "score": 92, "result": "pass", "certificate_no": "PLC-S7-2024-020", "valid_until": null, "renewal_status": "not_required"
+  },
+  {
+    "record_id": "TR-2026-007", "worker_id": "EMP-032", "worker_name": "Vivek Saxena", "training_title": "Furnace Operation Basic", "training_type": "technical", "date": "2022-04-01", "duration_hours": 16, "trainer": "EMP-016", "score": 75, "result": "pass", "certificate_no": "FRN-BAS-2022-032", "valid_until": null, "renewal_status": "not_required"
+  },
+  {
+    "record_id": "TR-2026-008", "worker_id": "EMP-032", "worker_name": "Vivek Saxena", "training_title": "Fire Safety Basic", "training_type": "safety", "date": "2022-04-05", "duration_hours": 4, "trainer": "EMP-004", "score": 78, "result": "pass", "certificate_no": "FS-2022-032", "valid_until": "2024-04-05", "renewal_status": "overdue"
+  },
+  {
+    "record_id": "TR-2026-009", "worker_id": "EMP-011", "worker_name": "Sanjay Tiwari", "training_title": "CNC Machine Operation", "training_type": "technical", "date": "2020-03-01", "duration_hours": 24, "trainer": "EMP-009", "score": 80, "result": "pass", "certificate_no": "CNC-BAS-2020-011", "valid_until": null, "renewal_status": "not_required"
+  },
+  {
+    "record_id": "TR-2026-010", "worker_id": "EMP-030", "worker_name": "Gopal Krishnan", "training_title": "Forming Mill Operation Basic", "training_type": "technical", "date": "2021-07-01", "duration_hours": 16, "trainer": "EMP-012", "score": 72, "result": "pass", "certificate_no": "FRM-BAS-2021-030", "valid_until": null, "renewal_status": "not_required"
+  },
+  {
+    "record_id": "TR-2026-011", "worker_id": "EMP-006", "worker_name": "Suresh Patil", "training_title": "Shift Handover Best Practices", "training_type": "management", "date": "2025-09-15", "duration_hours": 8, "trainer": "External — Lean Manufacturing Consultant", "score": 90, "result": "pass", "certificate_no": "SHBP-2025-006", "valid_until": null, "renewal_status": "not_required"
+  },
+  {
+    "record_id": "TR-2026-012", "worker_id": "EMP-003", "worker_name": "Arun Mehta", "training_title": "Root Cause Analysis — 5-Why and Fishbone", "training_type": "management", "date": "2025-11-20", "duration_hours": 8, "trainer": "External — Reliability Consultant", "score": 95, "result": "pass", "certificate_no": "RCA-2025-003", "valid_until": null, "renewal_status": "not_required"
+  },
+  {
+    "record_id": "TR-2026-013", "worker_id": "EMP-015", "worker_name": "Anil Reddy", "training_title": "Electrical Safety Basic", "training_type": "safety", "date": "2020-02-10", "duration_hours": 8, "trainer": "EMP-020", "score": 85, "result": "pass", "certificate_no": "ES-BAS-2020-015", "valid_until": "2023-02-10", "renewal_status": "overdue"
+  },
+  {
+    "record_id": "TR-2026-014", "worker_id": "EMP-023", "worker_name": "Pankaj Sharma", "training_title": "LOTO Procedure — Basic", "training_type": "safety", "date": "2021-02-01", "duration_hours": 4, "trainer": "EMP-003", "score": 76, "result": "pass", "certificate_no": "LOTO-BAS-2021-023", "valid_until": "2024-02-01", "renewal_status": "overdue"
+  }
+]

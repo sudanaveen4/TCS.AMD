@@ -1,0 +1,24 @@
+[
+    {
+        "incident_id": "HIST-001",
+        "machine_id": "M2",
+        "zone_id": "Z2",
+        "severity": "high",
+        "incident_type": "bearing_failure",
+        "status": "resolved",
+        "timestamp": "2026-05-23T16:34:42.054952",
+        "root_cause": "The front main bearing failed due to lack of lubrication, causing vibration to spike to 13 mm/s and temperature to reach 85C.",
+        "evidence_links": []
+    },
+    {
+        "incident_id": "HIST-002",
+        "machine_id": "M4",
+        "zone_id": "Z4",
+        "severity": "medium",
+        "incident_type": "jam",
+        "status": "resolved",
+        "timestamp": "2026-06-07T16:34:42.054952",
+        "root_cause": "Foreign object jammed the rotary cutter, causing motor current to spike to 14A. Cleared manually by maintenance.",
+        "evidence_links": []
+    }
+]

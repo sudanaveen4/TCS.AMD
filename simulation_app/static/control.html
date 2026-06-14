@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulation Controller</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .control-container {
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            height: 100vh;
+            overflow-y: auto;
+        }
+        .control-header {
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .controls-panel {
+            background-color: var(--panel-bg);
+            border: 1px solid var(--panel-border);
+            padding: 1.5rem;
+            border-radius: 8px;
+            display: flex;
+            gap: 1.5rem;
+            align-items: flex-end;
+        }
+        .control-group {
+            display: flex; flex-direction: column; gap: 0.5rem;
+            flex: 1;
+        }
+        .control-group label { color: var(--text-muted); font-size: 0.85rem; }
+        .control-group select {
+            padding: 0.6rem; background-color: var(--bg-dark); color: white;
+            border: 1px solid var(--panel-border); border-radius: 4px; outline: none;
+        }
+        .action-group {
+            display: flex; gap: 1rem;
+        }
+        .action-group button {
+            padding: 0.6rem 1.5rem; border: none; border-radius: 4px;
+            font-weight: 600; cursor: pointer; color: white;
+        }
+        .btn-inject { background-color: var(--color-danger); }
+        .btn-resolve { background-color: var(--color-success); }
+        
+        .charts-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            flex-grow: 1;
+        }
+        .chart-box {
+            background-color: var(--panel-bg);
+            border: 1px solid var(--panel-border);
+            border-radius: 8px;
+            padding: 1rem;
+            height: 350px;
+            position: relative;
+        }
+        #status-msg { margin-top: 1rem; color: var(--color-warning); font-weight: bold; }
+    </style>
+</head>
+<body>
+    <div class="control-container">
+        <div class="control-header">
+            <div>
+                <h1><i class="fa-solid fa-sliders"></i> Simulation Controller</h1>
+                <p style="color: var(--text-muted); margin-top: 0.5rem;">Inject anomalies and monitor raw telemetry signal deflections.</p>
+            </div>
+            <a href="/" style="color: var(--color-primary); text-decoration: none;"><i class="fa-solid fa-arrow-left"></i> Back to Dashboard</a>
+        </div>
+        
+        <div class="controls-panel">
+            <div class="control-group">
+                <label>Target Machine</label>
+                <select id="machine-select">
+                    <option value="">-- Select Machine --</option>
+                </select>
+            </div>
+            <div class="control-group">
+                <label>Failure Mode</label>
+                <select id="failure-select" disabled>
+                    <option value="">-- Select Failure --</option>
+                </select>
+            </div>
+            <div class="action-group">
+                <button class="btn-inject" id="btn-inject" disabled><i class="fa-solid fa-bolt"></i> Inject Anomaly</button>
+                <button class="btn-resolve" id="btn-resolve"><i class="fa-solid fa-check"></i> Resolve All</button>
+            </div>
+        </div>
+        <div id="status-msg"></div>
+
+        <div class="charts-container" id="charts-container">
+            <!-- Dynamic charts will be inserted here -->
+            <div style="color: var(--text-muted); text-align: center; padding: 2rem;">Select a machine to view raw telemetry streams.</div>
+        </div>
+    </div>
+
+    <script src="/static/js/control.js"></script>
+</body>
+</html>

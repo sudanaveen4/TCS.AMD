@@ -1,0 +1,12 @@
+Feature,Importance
+inlet_pressure,1.910426e-05
+outlet_pressure,0.07690207
+compression_ratio,0.03500508
+air_flow_rate,0.05939416
+bearing_temp,0.123197295
+oil_temp,0.078723595
+oil_pressure,0.123749055
+vibration,0.15983425
+motor_current,0.21421191
+motor_voltage,1.8316088e-05
+power_consumption,0.1289452

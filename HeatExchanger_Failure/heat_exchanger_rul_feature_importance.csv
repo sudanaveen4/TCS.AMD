@@ -1,0 +1,9 @@
+Feature,Importance
+hot_inlet_temp,0.0014601871
+hot_outlet_temp,0.009591552
+cold_inlet_temp,0.0016283257
+cold_outlet_temp,0.023403704
+pressure_drop,0.1405809
+heat_transfer_efficiency,0.13792422
+fouling_index,0.5218283
+corrosion_index,0.16358283

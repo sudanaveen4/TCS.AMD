@@ -1,0 +1,987 @@
+[
+  {
+    "incident_type": "pinch_point",
+    "machine_id": "CNC-101A",
+    "description_context": "Operator noticed strip edge curling up during slitting and coming close to his hand position. Safety guard gap was wider than specification due to wrong adjustment after blade change.",
+    "sipoc_tasks": {
+      "tasks": [
+        {
+          "id": "t1",
+          "title": "Review and update blade change checklist to include guard gap measurement.",
+          "type": "automated",
+          "status": "pending",
+          "depends_on": [
+            "previous_task_id"
+          ],
+          "sipoc": {
+            "Supplier": "Operator, night shift",
+            "Input": "Previous blade change records of CNC-101A, previous incident information",
+            "Process": "Checking guard gap and ensuring it meets specifications after the new adjustment.",
+            "Output": "Improved safety guards on all CNC-101A machines for future use",
+            "Customer": "Night shift operator and all operators using CNC-101A"
+          }
+        },
+        {
+          "id": "t2",
+          "title": "Training of the night shift operator on proper blade change procedures.",
+          "type": "automated",
+          "status": "pending",
+          "depends_on": [
+            "previous_task_id"
+          ],
+          "sipoc": {
+            "Supplier": "Night shift operator, CNC-101A machine user",
+            "Input": "Incident report and records of incorrect guard gap setting during blade change.",
+            "Process": "Blade change checklist for proper execution, including a visual check on the guards.",
+            "Output": "Correct behavior demonstrated by the night shift operator in future blade changes to prevent similar incidents.",
+            "Customer": "All operators using CNC-101A"
+          }
+        },
+        {
+          "id": "t3",
+          "title": "Visual inspection of all guard positions before each machine change.",
+          "type": "automated",
+          "status": "pending",
+          "depends_on": [
+            "previous_task_id"
+          ],
+          "sipoc": {
+            "Supplier": "Operator, night shift, all operators using CNC-101A machines",
+            "Input": "Incident report and records of incorrect guard gap setting during blade change.",
+            "Process": "Before every blade change on CNC-101A machines, check the guards for proper position according to the checklist.",
+            "Output": "Improved safety measures ensuring all guards are correctly positioned at each shift to prevent future incidents.",
+            "Customer": "All operators using CNC-101A"
+          }
+        },
+        {
+          "id": "t4",
+          "title": "Regular inspection and maintenance of safety guard systems by the night shift operator.",
+          "type": "automated",
+          "status": "pending",
+          "depends_on": [
+            "previous_task_id"
+          ],
+          "sipoc": {
+            "Supplier": "Night shift operator, CNC-101A machine user",
+            "Input": "Incident report and records of incorrect guard gap setting during blade change.",
+            "Process": "Regular inspection and maintenance of all safety guards on CNC-101A machines to ensure they are in good working condition.",
+            "Output": "Increased reliability of the entire manufacturing process due to improved guarding measures.",
+            "Customer": "All operators using CNC-101A"
+          }
+        },
+        {
+          "id": "t5",
+          "title": "Implement a system for immediate notification and response when an incident like this occurs again.",
+          "type": "automated",
+          "status": "pending",
+          "depends_on": [
+            "previous_task_id"
+          ],
+          "sipoc": {
+            "Supplier": "Operator, night shift, all operators using CNC-101A machines",
+            "Input": "Incident report and records of incorrect guard gap setting during blade change.",
+            "Process": "Develop a system for rapid response upon detection of an incident like the one reported in INC-2024-001.",
+            "Output": "Preventive measures put into place to quickly address any recurrence of similar incidents.",
+            "Customer": "All operators using CNC-101A"
+          }
+        },
+        {
+          "id": "t6",
+          "title": "Training of the shift supervisors on recognizing and managing safety issues during machine changes.",
+          "type": "automated",
+          "status": "pending",
+          "depends_on": [
+            "previous_task_id"
+          ],
+          "sipoc": {
+            "Supplier": "Shift supervisor, CNC-101A machine user",
+            "Input": "Incident report and records of incorrect guard gap setting during blade change.",
+            "Process": "Training shift supervisors on recognizing signs of potential safety issues before any incidents occur.",
+            "Output": "Shift supervisors better equipped to take prompt action in addressing operational safety concerns, including preventing future incidents.",
+            "Customer": "All operators using CNC-101A"
+          }
+        },
+        {
+          "id": "t7",
+          "title": "Establish a system for immediate review and analysis of all incident reports related to equipment modifications or changes.",
+          "type": "automated",
+          "status": "pending",
+          "depends_on": [
+            "previous_task_id"
+          ],
+          "sipoc": {
+            "Supplier": "Night shift operator, CNC-101A machine user",
+            "Input": "Incident report and records of incorrect guard gap setting during blade change.",
+            "Process": "Review all incident reports related to equipment modifications or changes for systematic analysis to identify best practices and potential solutions.",
+            "Output": "Identified lessons learned that can be applied across all manufacturing processes to improve safety measures.",
+            "Customer": "All operators using CNC-101A"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "incident_type": "sharp_edge",
+    "machine_id": "FRM-201A",
+    "description_context": "Operator Ravi Shankar got a minor cut on left hand index finger while handling formed tube sample. The tube had a sharp edge from incomplete scarfing.",
+    "sipoc_tasks": {
+      "t1": {
+        "title": "Implement Cut-Resistant Gloves for All Sample Handling",
+        "type": "automated",
+        "status": "pending",
+        "depends_on": [],
+        "sipoc": {
+          "Supplier": "Unknown",
+          "Input": "Non-specific to this incident type",
+          "Process": "Handling samples with sharp edges or tools",
+          "Output": "All sample handling areas equipped with cut-resistant gloves",
+          "Customer": "Operator, Maintenance staff"
+        }
+      },
+      "t2": {
+        "title": "Procure Sample Inspection Tongs for Each Station",
+        "type": "automated",
+        "status": "pending",
+        "depends_on": [
+          "t1"
+        ],
+        "sipoc": {
+          "Supplier": "Unknown",
+          "Input": "No input needed for procurement task",
+          "Process": "Sample inspection tongs available in designated stations",
+          "Output": "All sample handling stations equipped with Sample Inspection Tongs",
+          "Customer": "Operator, Maintenance staff"
+        }
+      }
+    }
+  },
+  {
+    "incident_type": "hot_object_hazard",
+    "machine_id": "HTR-401A",
+    "description_context": "During night shift, a hot pipe (approximately 800\u00b0C) rolled off the cooling bed onto the floor near the walkway. No person was in the immediate area at the time.",
+    "sipoc_tasks": {
+      "tasks": [
+        {
+          "id": "t1",
+          "title": "Perform initial investigation and record findings",
+          "type": "manual",
+          "status": "pending",
+          "depends_on": [],
+          "sipoc": {
+            "Supplier": "Unknown (incidents may originate from various sources)",
+            "Input": "Incident ID: INC-2024-003, Machine: HTR-401A",
+            "Process": "Cooling bed maintenance and troubleshooting process",
+            "Output": "Inspection report completed, including root cause analysis and corrective actions",
+            "Customer": "N/A (self-referential)"
+          }
+        },
+        {
+          "id": "t2",
+          "title": "Re-torque cooling bed guide roller mountings",
+          "type": "automated",
+          "status": "pending",
+          "depends_on": [
+            "t1"
+          ],
+          "sipoc": {
+            "Supplier": "Lubricant supplier",
+            "Input": "Inspection report, re-torque checklist",
+            "Process": "Cooling bed maintenance, lubrication application process",
+            "Output": "All cooling bed mountings re-torqued to specifications",
+            "Customer": "Machine Operator"
+          }
+        },
+        {
+          "id": "t3",
+          "title": "Add torque check to periodic maintenance schedule (monthly)",
+          "type": "automated",
+          "status": "pending",
+          "depends_on": [
+            "t1"
+          ],
+          "sipoc": {
+            "Supplier": "Maintenance contractor",
+            "Input": "Inspection report, PM checklist update",
+            "Process": "Machine maintenance planning and execution process",
+            "Output": "Regular torque check added to monthly scheduled tasks",
+            "Customer": "Maintenance Contractor"
+          }
+        },
+        {
+          "id": "t4",
+          "title": "Install physical barrier (steel curb) on walkway side of cooling bed",
+          "type": "manual",
+          "status": "pending",
+          "depends_on": [
+            "t1"
+          ],
+          "sipoc": {
+            "Supplier": "Steel installation contractor",
+            "Input": "Inspection report, design drawings",
+            "Process": "Security and safety system implementation process",
+            "Output": "Physical barrier installed to prevent future incidents on walkway side of cooling bed",
+            "Customer": "Safety Inspector"
+          }
+        },
+        {
+          "id": "t5",
+          "title": "Develop comprehensive incident response plan (including training, procedures)",
+          "type": "manual",
+          "status": "pending",
+          "depends_on": [],
+          "sipoc": {
+            "Supplier": "Incident Response team",
+            "Input": "Incident ID: INC-2024-003, Root Cause analysis, Corrective Actions report",
+            "Process": "Incident response planning process",
+            "Output": "Comprehensive incident response plan developed and documented",
+            "Customer": "Plant Manager"
+          }
+        },
+        {
+          "id": "t6",
+          "title": "Train personnel on corrective actions and preventive measures",
+          "type": "automated",
+          "status": "pending",
+          "depends_on": [
+            "t5"
+          ],
+          "sipoc": {
+            "Supplier": "Plant Training team",
+            "Input": "Incident ID: INC-2024-003, Root Cause analysis, Corrective Actions report",
+            "Process": "Personnel training process",
+            "Output": "All personnel in the relevant area trained on corrective actions and preventive measures for similar incidents",
+            "Customer": "Plant Personnel"
+          }
+        },
+        {
+          "id": "t7",
+          "title": "Review incident response plan with plant management team",
+          "type": "manual",
+          "status": "pending",
+          "depends_on": [],
+          "sipoc": {
+            "Supplier": "Incident Response team",
+            "Input": "Comprehensive incident response plan developed in t5",
+            "Process": "Plan review and finalization process",
+            "Output": "Review completed with plant management, approved for implementation",
+            "Customer": "Plant Management"
+          }
+        },
+        {
+          "id": "t8",
+          "title": "Implement the reviewed incident response plan immediately",
+          "type": "automated",
+          "status": "pending",
+          "depends_on": [
+            "t7"
+          ],
+          "sipoc": {
+            "Supplier": "Incident Response team, Plant Management",
+            "Input": "Comprehensive incident response plan approved in t5",
+            "Process": "Plan implementation process",
+            "Output": "Incident response plan is fully implemented and tested for effectiveness",
+            "Customer": "Plant Personnel"
+          }
+        },
+        {
+          "id": "t9",
+          "title": "Monitor the incident response plan effectiveness and make adjustments if necessary",
+          "type": "manual",
+          "status": "pending",
+          "depends_on": [
+            "t8"
+          ],
+          "sipoc": {
+            "Supplier": "Plant Management, Incident Response team",
+            "Input": "Incident ID: INC-2024-003, Root Cause analysis, Corrective Actions report, Review of incident response plan effectiveness",
+            "Process": "Plan monitoring and evaluation process",
+            "Output": "All subsequent incidents are monitored for effectiveness against the implemented plan",
+            "Customer": "Plant Management"
+          }
+        },
+        {
+          "id": "t10",
+          "title": "Document final resolution tasks and communicate to all stakeholders involved in this incident",
+          "type": "manual",
+          "status": "pending",
+          "depends_on": [
+            "t9"
+          ],
+          "sipoc": {
+            "Supplier": "Incident Resolution team, Plant Personnel, Maintenance Contractor, Steel Installation contractor, Lubricant supplier, Plant Management",
+            "Input": "All incident documentation including resolution tasks, effectiveness monitoring report",
+            "Process": "Resolution Task Documentation and Communication Process",
+            "Output": "Final resolution document signed by all stakeholders",
+            "Customer": "Stakeholders"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "incident_type": "electrical_arc",
+    "machine_id": "WLD-301A",
+    "description_context": "Arc flash at induction coil during startup. Coil-to-tube arc damaged coil surface. No personnel injury \u2014 operators were at safe distance per SOP.",
+    "sipoc_tasks": {
+      "tasks": [
+        {
+          "id": "t1",
+          "title": "Verify entry guide alignment during changeover procedures",
+          "type": "automated",
+          "status": "pending",
+          "depends_on": [
+            "previous_task_id"
+          ],
+          "sipoc": {
+            "Supplier": "Entry Guide Supplier",
+            "Input": "Previous Alignment Check",
+            "Process": "Changeover Checklist Update",
+            "Output": "Corrective Action Completion",
+            "Customer": "Operators"
+          }
+        },
+        {
+          "id": "t2",
+          "title": "Install proximity sensor for tube misalignment detection",
+          "type": "manual",
+          "status": "pending",
+          "depends_on": [
+            "previous_task_id"
+          ],
+          "sipoc": {
+            "Supplier": "...",
+            "Input": "...",
+            "Process": "...",
+            "Output": "...",
+            "Customer": "Operator"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "incident_type": "lifting_hazard",
+    "machine_id": "Overhead Crane",
+    "description_context": "During coil lifting, sling slipped on one side causing the 12-ton coil to tilt approximately 15 degrees before crane operator lowered it back safely.",
+    "sipoc_tasks": {
+      "t1": {
+        "title": "Perform Pre-use Sling Inspection and Verification",
+        "type": "automated",
+        "status": "pending",
+        "depends_on": [
+          "previous_task_id"
+        ],
+        "sipoc": {
+          "Supplier": "Suppliers provide slings for inspection, ",
+          "Input": "Sling supplier provides new slings for the task.",
+          "Process": "All slings are inspected and verified by designated personnel. Sling colors may be assigned to identify damaged slings as a safety measure.",
+          "Output": "The quality assurance department will verify that all slings meet specifications before they are used again.",
+          "Customer": "Operations Management ensures that the task is completed with proper inspection and verification."
+        }
+      },
+      "t2": {
+        "title": "Sling Removal",
+        "type": "automated",
+        "status": "pending",
+        "depends_on": [
+          "previous_task_id"
+        ],
+        "sipoc": {
+          "Supplier": "...",
+          "Input": "...",
+          "Process": "...",
+          "Output": "...",
+          "Customer": "..."
+        }
+      },
+      "t3": {
+        "title": "Implement Sling Color-Coding Inspection System",
+        "type": "automated",
+        "status": "pending",
+        "depends_on": [
+          "previous_task_id"
+        ],
+        "sipoc": {
+          "Supplier": "...",
+          "Input": "...",
+          "Process": "...",
+          "Output": "...",
+          "Customer": "..."
+        }
+      },
+      "t4": {
+        "title": "Install Dedicated Sling Storage Rack",
+        "type": "automated",
+        "status": "pending",
+        "depends_on": [
+          "previous_task_id"
+        ],
+        "sipoc": {
+          "Supplier": "...",
+          "Input": "...",
+          "Process": "...",
+          "Output": "...",
+          "Customer": "..."
+        }
+      },
+      "t5": {
+        "title": "Review and Update Training Program on Sling Use",
+        "type": "automated",
+        "status": "pending",
+        "depends_on": [
+          "previous_task_id"
+        ],
+        "sipoc": {
+          "Supplier": "...",
+          "Input": "...",
+          "Process": "...",
+          "Output": "...",
+          "Customer": "..."
+        }
+      },
+      "t6": {
+        "title": "Monitor and Evaluate Sling Inspection Process",
+        "type": "automated",
+        "status": "pending",
+        "depends_on": [
+          "previous_task_id"
+        ],
+        "sipoc": {
+          "Supplier": "...",
+          "Input": "...",
+          "Process": "...",
+          "Output": "...",
+          "Customer": "..."
+        }
+      },
+      "t7": {
+        "title": "Prepare for Next Incident with Revised Training Materials",
+        "type": "automated",
+        "status": "pending",
+        "depends_on": [
+          "previous_task_id"
+        ],
+        "sipoc": {
+          "Supplier": "...",
+          "Input": "...",
+          "Process": "...",
+          "Output": "...",
+          "Customer": "..."
+        }
+      }
+    }
+  },
+  {
+    "incident_type": "fire",
+    "machine_id": null,
+    "description_context": "Small fire in DG set room. Oil leak from DG fuel line dripped onto hot exhaust pipe, causing localized fire. Fire detected by security camera operator and responded within 2 minutes.",
+    "sipoc_tasks": {
+      "tasks": [
+        {
+          "id": "t1",
+          "title": "Review and update supplier's maintenance records for DG fuel hoses.",
+          "type": "manual",
+          "status": "pending",
+          "depends_on": [
+            ""
+          ],
+          "sipoc": {
+            "Supplier": "...",
+            "Input": "supplier's maintenance records for DG fuel hoses",
+            "Process": "review current practices and potential risks",
+            "Output": "updated supplier instructions on proper hose replacement schedule",
+            "Customer": "..."
+          }
+        },
+        {
+          "id": "t2",
+          "title": "Perform a detailed inspection of all DG fuel lines to identify any pinhole leaks.",
+          "type": "automated",
+          "status": "pending",
+          "depends_on": [
+            ""
+          ],
+          "sipoc": {
+            "Supplier": "...",
+            "Input": "all DG fuel lines for inspections",
+            "Process": "inspect each hose, including exhaust manifold connections",
+            "Output": "list of identified pinhole leaks and their locations",
+            "Customer": "..."
+          }
+        },
+        {
+          "id": "t3",
+          "title": "Replace all detected fuel hoses with new ones.",
+          "type": "automated",
+          "status": "pending",
+          "depends_on": [
+            "t2"
+          ],
+          "sipoc": {
+            "Supplier": "...",
+            "Input": "list of identified pinhole leaks and locations",
+            "Process": "replace affected hoses with new, approved ones",
+            "Output": "verified replacement hoses are installed correctly",
+            "Customer": "..."
+          }
+        },
+        {
+          "id": "t4",
+          "title": "Install a drip tray under all fuel connections.",
+          "type": "automated",
+          "status": "pending",
+          "depends_on": [
+            ""
+          ],
+          "sipoc": {
+            "Supplier": "...",
+            "Input": "all DG fuel connections for installation of drip trays",
+            "Process": "install new drip trays where necessary",
+            "Output": "confirmation that all drip trays are installed correctly and visible to maintenance staff",
+            "Customer": "..."
+          }
+        },
+        {
+          "id": "t5",
+          "title": "Install a fuel leak sensor with an alarm system.",
+          "type": "automated",
+          "status": "pending",
+          "depends_on": [
+            ""
+          ],
+          "sipoc": {
+            "Supplier": "...",
+            "Input": "new fuel leak sensor and alarm system",
+            "Process": "install the sensor on DG exhaust manifolds, ensuring it is not obstructed",
+            "Output": "sensor is installed correctly with audible alarm",
+            "Customer": "..."
+          }
+        },
+        {
+          "id": "t6",
+          "title": "Update the DG inspection schedule to include a hose condition check.",
+          "type": "automated",
+          "status": "pending",
+          "depends_on": [
+            ""
+          ],
+          "sipoc": {
+            "Supplier": "...",
+            "Input": "new or updated DG inspection schedule",
+            "Process": "revised current schedules to reflect hose replacement practices and additional condition checks",
+            "Output": "DG inspection records show updated check procedures",
+            "Customer": "..."
+          }
+        },
+        {
+          "id": "t7",
+          "title": "Schedule a maintenance workshop focusing on the DG fuel system.",
+          "type": "automated",
+          "status": "pending",
+          "depends_on": [
+            ""
+          ],
+          "sipoc": {
+            "Supplier": "...",
+            "Input": "no input required as it's an internal schedule",
+            "Process": "coordinate with supplier to ensure all equipment is prepared and ready for the workshop",
+            "Output": "workshop confirmation from supplier",
+            "Customer": "..."
+          }
+        },
+        {
+          "id": "t8",
+          "title": "Follow-up inspection of DG fuel lines after the workshop.",
+          "type": "automated",
+          "status": "pending",
+          "depends_on": [
+            "t7"
+          ],
+          "sipoc": {
+            "Supplier": "...",
+            "Input": "all DG fuel lines and hoses for inspections",
+            "Process": "inspect all replaced hoses to ensure they were correctly installed and operate as expected",
+            "Output": "verified that replacement hoses are operating properly, without leaks or issues",
+            "Customer": "..."
+          }
+        },
+        {
+          "id": "t9",
+          "title": "Train maintenance staff on the updated inspection and corrective actions.",
+          "type": "automated",
+          "status": "pending",
+          "depends_on": [
+            ""
+          ],
+          "sipoc": {
+            "Supplier": "...",
+            "Input": "training materials for maintenance staff",
+            "Process": "conduct training sessions to ensure all personnel are aware of the new inspection criteria and corrective actions",
+            "Output": "maintenance staff have received updated training on DG fuel system inspection and repairs",
+            "Customer": "..."
+          }
+        },
+        {
+          "id": "t10",
+          "title": "Notify maintenance staff about any additional tasks or reminders.",
+          "type": "automated",
+          "status": "pending",
+          "depends_on": [
+            ""
+          ],
+          "sipoc": {
+            "Supplier": "...",
+            "Input": "none",
+            "Process": "send reminder emails to all responsible parties with a list of next steps and deadlines",
+            "Output": "maintenance staff are informed about the incident details, tasks assigned, and reminders for future inspections",
+            "Customer": "..."
+          }
+        },
+        {
+          "id": "t11",
+          "title": "Monitor the effectiveness of corrective actions.",
+          "type": "automated",
+          "status": "pending",
+          "depends_on": [
+            ""
+          ],
+          "sipoc": {
+            "Supplier": "...",
+            "Input": "ongoing monitoring of DG hoses, fuel lines, and related systems for leaks or other issues",
+            "Process": "periodic checks to ensure the preventive measures are effective in preventing future incidents",
+            "Output": "results from ongoing inspections show no new instances of fuel leaks or hose-related issues",
+            "Customer": "..."
+          }
+        }
+      ]
+    }
+  },
+  {
+    "incident_type": "environmental_spill",
+    "machine_id": "FRM-201A",
+    "description_context": "Coolant oil spill from forming mill coolant tank. Approximately 200 liters leaked due to tank drain valve left open after weekend maintenance.",
+    "sipoc_tasks": {
+      "tasks": [
+        {
+          "id": "t1",
+          "title": "Implement Post-Maintenance Checklists and Valve Security Protocols",
+          "type": "automated",
+          "status": "pending",
+          "depends_on": [
+            "t2"
+          ],
+          "sipoc": {
+            "Supplier": "...",
+            "Input": "Maintenance technicians, drain valves, padlocks",
+            "Process": "Ensuring all maintenance actions are documented and following security protocols for valve access.",
+            "Output": "Properly secured and recorded post-maintenance tasks and valves status",
+            "Customer": "All maintenance teams"
+          }
+        },
+        {
+          "id": "t2",
+          "title": "Ensure Post-Maintenance Checklist is Up to Date",
+          "type": "automated",
+          "status": "pending",
+          "depends_on": [
+            "t1"
+          ],
+          "sipoc": {
+            "Supplier": "...",
+            "Input": "Maintenance teams, post-maintenance checklist template",
+            "Process": "Reviewing the existing checklists and making necessary updates to include all required elements.",
+            "Output": "Updated post-maintenance checklist with proper valve status documentation",
+            "Customer": "All maintenance teams"
+          }
+        },
+        {
+          "id": "t3",
+          "title": "Properly Place Spill Response Kit Near Coolant Tanks",
+          "type": "automated",
+          "status": "pending",
+          "depends_on": [
+            "t1"
+          ],
+          "sipoc": {
+            "Supplier": "...",
+            "Input": "Spill response kit, coolant tanks",
+            "Process": "Locating and placing the spill response kit next to all coolant tanks to be used in case of future spills.",
+            "Output": "Kit easily accessible for quick response upon discovery of any leak or spill",
+            "Customer": "All maintenance teams"
+          }
+        },
+        {
+          "id": "t4",
+          "title": "Train Maintenance Teams on Proper Valve Use and Security Practices",
+          "type": "manual",
+          "status": "pending",
+          "depends_on": [
+            "t1"
+          ],
+          "sipoc": {
+            "Supplier": "...",
+            "Input": "Maintenance teams, new post-maintenance checklists and drill scripts",
+            "Process": "Training sessions are conducted to educate maintenance staff on the correct use of valves and how to react in case of an incident.",
+            "Output": "Maintainers trained with updated skills and knowledge of spill response procedures",
+            "Customer": "All maintenance teams"
+          }
+        },
+        {
+          "id": "t5",
+          "title": "Conduct a Review Meeting to Confirm Resolution Implementation",
+          "type": "automated",
+          "status": "pending",
+          "depends_on": [
+            "t1"
+          ],
+          "sipoc": {
+            "Supplier": "...",
+            "Input": "Reviewed and confirmed resolution details with all stakeholders (suppliers, teams, customers)",
+            "Process": "A review meeting is held to ensure that the implemented solutions are understood and agreed upon by all parties.",
+            "Output": "All stakeholders understand the new process for handling spills and securing valves effectively",
+            "Customer": "All maintenance teams"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "incident_type": "vehicle_pedestrian",
+    "machine_id": "PKG-501A",
+    "description_context": "Forklift nearly struck a pedestrian worker (EMP-036) at the intersection of packaging bay and finished goods yard. Forklift operator did not sound horn at blind corner.",
+    "sipoc_tasks": {
+      "tasks": [
+        {
+          "id": "t1",
+          "title": "Install convex mirror at blind corner Z6/FG yard intersection",
+          "type": "automated",
+          "status": "pending"
+        },
+        {
+          "id": "t2",
+          "title": "Install speed bump at all intersections",
+          "type": "automated",
+          "status": "pending"
+        },
+        {
+          "id": "t3",
+          "title": "Mandatory horn use policy in all operations",
+          "type": "manual",
+          "status": "pending",
+          "depends_on": [
+            "t1",
+            "t2"
+          ]
+        },
+        {
+          "id": "t4",
+          "title": "Mark pedestrian-only walkway with floor paint re-identification",
+          "type": "automated",
+          "status": "pending"
+        }
+      ]
+    }
+  },
+  {
+    "incident_type": "ppe_violation",
+    "machine_id": "HTR-401A",
+    "description_context": "Operator EMP-016 noticed that a co-worker (EMP-035, helper) entered Zone Z5 heat treatment area without wearing the required aluminized jacket and face shield.",
+    "sipoc_tasks": {
+      "t1": {
+        "title": "Display Zone-Entry PPE Matrix",
+        "type": "automated",
+        "status": "pending",
+        "depends_on": [],
+        "sipoc": {
+          "Supplier": null,
+          "Input": null,
+          "Process": "System updates and displays the zone-entry PPE matrix at all zone entrances.",
+          "Output": null,
+          "Customer": null
+        }
+      },
+      "t2": {
+        "title": "New Workers Receive Zone-Specific PPE Briefing",
+        "type": "automated",
+        "status": "pending",
+        "depends_on": [
+          "t1"
+        ],
+        "sipoc": {
+          "Supplier": null,
+          "Input": null,
+          "Process": "The company ensures all new workers are briefed on zone-specific PPE requirements including aluminized jackets and face shields before assignment.",
+          "Output": null,
+          "Customer": null
+        }
+      },
+      "t3": {
+        "title": "Install PPE Check Station at Zone Entry",
+        "type": "automated",
+        "status": "pending",
+        "depends_on": [
+          "t1",
+          "t2"
+        ],
+        "sipoc": {
+          "Supplier": null,
+          "Input": null,
+          "Process": "The company installs a PPE check station prominently visible at the entrance of Zone Z5.",
+          "Output": null,
+          "Customer": null
+        }
+      },
+      "t4": {
+        "title": "Train Safety Officers on Incident Prevention",
+        "type": "automated",
+        "status": "pending",
+        "depends_on": [
+          "t1",
+          "t2",
+          "t3"
+        ],
+        "sipoc": {
+          "Supplier": null,
+          "Input": null,
+          "Process": "Safety officers are trained to recognize and respond effectively to incidents like this involving new workers.",
+          "Output": null,
+          "Customer": null
+        }
+      },
+      "t5": {
+        "title": "Conduct Regular Safety Check Visits",
+        "type": "automated",
+        "status": "pending",
+        "depends_on": [
+          "t1",
+          "t2",
+          "t3"
+        ],
+        "sipoc": {
+          "Supplier": null,
+          "Input": null,
+          "Process": "Safety teams visit zones regularly to ensure compliance with PPE and safety protocols.",
+          "Output": null,
+          "Customer": null
+        }
+      },
+      "t6": {
+        "title": "Review Incident Report",
+        "type": "automated",
+        "status": "pending",
+        "depends_on": [
+          "incident_report"
+        ],
+        "sipoc": {
+          "Supplier": null,
+          "Input": "Incident data for INC-2026-001",
+          "Process": "The company reviews the incident report to identify lessons learned and improvements needed.",
+          "Output": null,
+          "Customer": null
+        }
+      },
+      "t7": {
+        "title": "Update Employee Training Manual",
+        "type": "automated",
+        "status": "pending",
+        "depends_on": [
+          "incident_report"
+        ],
+        "sipoc": {
+          "Supplier": null,
+          "Input": null,
+          "Process": "The company updates the employee training manual to include new information on PPE requirements and safety procedures.",
+          "Output": null,
+          "Customer": null
+        }
+      },
+      "t8": {
+        "title": "Notify Zone Managers",
+        "type": "automated",
+        "status": "pending",
+        "depends_on": [
+          "incident_report"
+        ],
+        "sipoc": {
+          "Supplier": null,
+          "Input": null,
+          "Process": "Zone managers are informed about the incident and its resolution measures.",
+          "Output": null,
+          "Customer": null
+        }
+      },
+      "t9": {
+        "title": "Document Resolution Plan",
+        "type": "automated",
+        "status": "pending",
+        "depends_on": [
+          "incident_report"
+        ],
+        "sipoc": {
+          "Supplier": null,
+          "Input": null,
+          "Process": "A resolution plan is documented that includes all the tasks identified and their interdependencies.",
+          "Output": null,
+          "Customer": null
+        }
+      },
+      "t10": {
+        "title": "Close Incident",
+        "type": "automated",
+        "status": "pending",
+        "depends_on": [
+          "incident_report"
+        ],
+        "sipoc": {
+          "Supplier": null,
+          "Input": null,
+          "Process": "The incident is officially closed based on the resolution plan.",
+          "Output": null,
+          "Customer": null
+        }
+      },
+      "t11": {
+        "title": "Review and Update Employee Policies",
+        "type": "automated",
+        "status": "pending",
+        "depends_on": [
+          "incident_report"
+        ],
+        "sipoc": {
+          "Supplier": null,
+          "Input": null,
+          "Process": "A review of the incident report leads to an update on employee policies related to PPE and safety compliance.",
+          "Output": null,
+          "Customer": null
+        }
+      }
+    }
+  },
+  {
+    "incident_type": "fire_exit_obstruction",
+    "machine_id": null,
+    "description_context": "Fire exit B path was blocked by stacked empty pallets for approximately 13 minutes during B-shift. Supervisor noticed during routine round.",
+    "sipoc_tasks": {
+      "tasks": [
+        {
+          "id": "t1",
+          "title": "Reinspect and repaint floor markings for fire exit B path in red with 'FIRE EXIT \u2014 KEEP CLEAR' text.",
+          "type": "automated",
+          "status": "pending"
+        },
+        {
+          "id": "t2",
+          "title": "Create designated pallet storage zone with physical barriers.",
+          "type": "automated",
+          "status": "pending"
+        },
+        {
+          "id": "t3",
+          "title": "Update safety round checklist to include fire exit check as a mandatory task every hour.",
+          "type": "automated",
+          "status": "pending"
+        }
+      ]
+    }
+  }
+]

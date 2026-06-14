@@ -1,0 +1,27 @@
+[
+    {
+        "zone_id": "Z1",
+        "name": "Pre-Heat Train (HEN)",
+        "risk_score": 15.0
+    },
+    {
+        "zone_id": "Z2",
+        "name": "Desalter Unit",
+        "risk_score": 20.0
+    },
+    {
+        "zone_id": "Z3",
+        "name": "Fired Heater (Furnace)",
+        "risk_score": 85.0
+    },
+    {
+        "zone_id": "Z4",
+        "name": "Atmospheric Distillation",
+        "risk_score": 60.0
+    },
+    {
+        "zone_id": "Z5",
+        "name": "Overhead Recovery",
+        "risk_score": 45.0
+    }
+]

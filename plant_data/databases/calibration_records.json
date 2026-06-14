@@ -1,0 +1,80 @@
+[
+  {
+    "calibration_id": "CAL-2026-001",
+    "instrument_id": "INST-PYRO-01",
+    "description": "Raytek Marathon IR Pyrometer - Furnace Entry",
+    "machine_id": "HTR-401A",
+    "last_calibrated": "2026-04-10",
+    "next_calibration_due": "2026-10-10",
+    "calibration_frequency": "6 Months",
+    "calibrated_by": "External - Metrology Labs Inc.",
+    "certificate_no": "CERT-2604-889",
+    "status": "Valid",
+    "remarks": "Reading offset +2°C at 900°C. Adjusted via PLC scaling."
+  },
+  {
+    "calibration_id": "CAL-2026-002",
+    "instrument_id": "INST-PYRO-02",
+    "description": "Raytek Marathon IR Pyrometer - Furnace Exit",
+    "machine_id": "HTR-401A",
+    "last_calibrated": "2026-04-10",
+    "next_calibration_due": "2026-10-10",
+    "calibration_frequency": "6 Months",
+    "calibrated_by": "External - Metrology Labs Inc.",
+    "certificate_no": "CERT-2604-890",
+    "status": "Valid",
+    "remarks": "No adjustment required."
+  },
+  {
+    "calibration_id": "CAL-2026-003",
+    "instrument_id": "INST-LASER-01",
+    "description": "Keyence LS-9000 Laser OD Gauge",
+    "machine_id": "PKG-501A",
+    "last_calibrated": "2026-05-15",
+    "next_calibration_due": "2026-08-15",
+    "calibration_frequency": "3 Months",
+    "calibrated_by": "EMP-025 (Internal QC)",
+    "certificate_no": "INT-2605-01",
+    "status": "Valid",
+    "remarks": "Calibrated against certified master cylinder (50.00mm). Pass."
+  },
+  {
+    "calibration_id": "CAL-2026-004",
+    "instrument_id": "INST-UT-01",
+    "description": "Olympus 38DL Plus UT Thickness Gauge",
+    "machine_id": "PKG-501A",
+    "last_calibrated": "2026-01-20",
+    "next_calibration_due": "2027-01-20",
+    "calibration_frequency": "12 Months (External)",
+    "calibrated_by": "External - Olympus India",
+    "certificate_no": "CERT-2601-112",
+    "status": "Valid",
+    "remarks": "Daily verification block check mandatory before shift."
+  },
+  {
+    "calibration_id": "CAL-2026-005",
+    "instrument_id": "INST-PG-01",
+    "description": "Wika 0-100 Bar Pressure Gauge - Hydro Tester",
+    "machine_id": "PKG-501A",
+    "last_calibrated": "2026-03-05",
+    "next_calibration_due": "2026-09-05",
+    "calibration_frequency": "6 Months",
+    "calibrated_by": "External - FluidCal Services",
+    "certificate_no": "CERT-2603-45",
+    "status": "Valid",
+    "remarks": "Used as reference for pressure transducer."
+  },
+  {
+    "calibration_id": "CAL-2026-006",
+    "instrument_id": "INST-SCALE-01",
+    "description": "Mettler Toledo 5T Platform Scale",
+    "machine_id": "PKG-501A",
+    "last_calibrated": "2025-11-10",
+    "next_calibration_due": "2026-05-10",
+    "calibration_frequency": "6 Months",
+    "calibrated_by": "External - Weights & Measures Dept.",
+    "certificate_no": "GOVT-2511-89",
+    "status": "Overdue",
+    "remarks": "Scheduled for calibration next week. Temporary internal check OK."
+  }
+]

@@ -1,0 +1,103 @@
+{
+  "shift_configuration": {
+    "plant_code": "TBSP-JSR-001",
+    "pattern": "3-shift continuous (24/7)",
+    "shifts": [
+      {
+        "shift_id": "A",
+        "name": "Morning Shift",
+        "start_time": "06:00",
+        "end_time": "14:00",
+        "duration_hours": 8,
+        "break": { "start": "10:00", "end": "10:30", "type": "tea_break" },
+        "meal_break": { "start": "12:00", "end": "12:30", "type": "lunch" },
+        "color_code": "#4CAF50"
+      },
+      {
+        "shift_id": "B",
+        "name": "Afternoon Shift",
+        "start_time": "14:00",
+        "end_time": "22:00",
+        "duration_hours": 8,
+        "break": { "start": "18:00", "end": "18:30", "type": "tea_break" },
+        "meal_break": { "start": "20:00", "end": "20:30", "type": "dinner" },
+        "color_code": "#FF9800"
+      },
+      {
+        "shift_id": "C",
+        "name": "Night Shift",
+        "start_time": "22:00",
+        "end_time": "06:00",
+        "duration_hours": 8,
+        "break": { "start": "02:00", "end": "02:30", "type": "tea_break" },
+        "meal_break": { "start": "00:00", "end": "00:30", "type": "midnight_meal" },
+        "color_code": "#3F51B5"
+      },
+      {
+        "shift_id": "G",
+        "name": "General Shift",
+        "start_time": "09:00",
+        "end_time": "17:30",
+        "duration_hours": 8.5,
+        "break": { "start": "11:00", "end": "11:15", "type": "tea_break" },
+        "meal_break": { "start": "13:00", "end": "13:45", "type": "lunch" },
+        "color_code": "#9C27B0"
+      }
+    ],
+    "rotation_pattern": "Weekly rotation (A→B→C→Off→A...)",
+    "weekly_off": "Sunday (rotating for shift workers)"
+  },
+  "crew_assignments": [
+    {
+      "crew_id": "CREW-A",
+      "shift_id": "A",
+      "supervisor": "EMP-006",
+      "members": [
+        { "worker_id": "EMP-009", "machine": "CNC-101A", "zone": "Z2", "role": "Primary Operator" },
+        { "worker_id": "EMP-012", "machine": "FRM-201A", "zone": "Z3", "role": "Primary Operator" },
+        { "worker_id": "EMP-014", "machine": "WLD-301A", "zone": "Z4", "role": "Primary Operator" },
+        { "worker_id": "EMP-016", "machine": "HTR-401A", "zone": "Z5", "role": "Primary Operator" },
+        { "worker_id": "EMP-018", "machine": "PKG-501A", "zone": "Z6", "role": "Primary Operator / QC" },
+        { "worker_id": "EMP-026", "machine": "Overhead Crane", "zone": "Z1", "role": "Crane Operator" },
+        { "worker_id": "EMP-027", "machine": "Forklift", "zone": "Z1/Z6", "role": "Material Handler" },
+        { "worker_id": "EMP-035", "machine": null, "zone": "Floating", "role": "General Helper" },
+        { "worker_id": "EMP-019", "machine": null, "zone": "Z7/All", "role": "Maintenance (Mech)" },
+        { "worker_id": "EMP-020", "machine": null, "zone": "Z7/All", "role": "Maintenance (Elec)" }
+      ],
+      "total_strength": 10,
+      "minimum_required": 7
+    },
+    {
+      "crew_id": "CREW-B",
+      "shift_id": "B",
+      "supervisor": "EMP-007",
+      "members": [
+        { "worker_id": "EMP-010", "machine": "CNC-101A", "zone": "Z2", "role": "Primary Operator" },
+        { "worker_id": "EMP-013", "machine": "FRM-201A", "zone": "Z3", "role": "Primary Operator" },
+        { "worker_id": "EMP-015", "machine": "WLD-301A", "zone": "Z4", "role": "Primary Operator" },
+        { "worker_id": "EMP-017", "machine": "HTR-401A", "zone": "Z5", "role": "Primary Operator" },
+        { "worker_id": "EMP-033", "machine": "PKG-501A", "zone": "Z6", "role": "QC Inspector / Operator" },
+        { "worker_id": "EMP-021", "machine": null, "zone": "Z7/All", "role": "Maintenance (Mech)" },
+        { "worker_id": "EMP-022", "machine": null, "zone": "Z7/All", "role": "Maintenance (Elec)" },
+        { "worker_id": "EMP-036", "machine": null, "zone": "Floating", "role": "General Helper" }
+      ],
+      "total_strength": 8,
+      "minimum_required": 6
+    },
+    {
+      "crew_id": "CREW-C",
+      "shift_id": "C",
+      "supervisor": "EMP-008",
+      "members": [
+        { "worker_id": "EMP-011", "machine": "CNC-101A", "zone": "Z2", "role": "Primary Operator" },
+        { "worker_id": "EMP-030", "machine": "FRM-201A", "zone": "Z3", "role": "Primary Operator" },
+        { "worker_id": "EMP-031", "machine": "WLD-301A", "zone": "Z4", "role": "Primary Operator" },
+        { "worker_id": "EMP-032", "machine": "HTR-401A", "zone": "Z5", "role": "Primary Operator" },
+        { "worker_id": "EMP-034", "machine": "PKG-501A", "zone": "Z6", "role": "QC Inspector / Operator" },
+        { "worker_id": "EMP-023", "machine": null, "zone": "Z7/All", "role": "Maintenance (Mech)" }
+      ],
+      "total_strength": 6,
+      "minimum_required": 5
+    }
+  ]
+}

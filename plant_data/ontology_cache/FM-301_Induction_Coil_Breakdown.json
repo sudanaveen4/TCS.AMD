@@ -1,0 +1,134 @@
+[
+    {
+        "title": "Replace Induction Coil",
+        "type": "manual",
+        "status": "pending",
+        "assigned_to": "",
+        "depends_on": [],
+        "sipoc": {
+            "Supplier": "Thematool Corp. (Inductotherm Group, USA)",
+            "Input": [
+                "WLD-301A: THM-2018-HAZ-05621 / WLD-301B: THM-2024-HAZ-09187"
+            ],
+            "Process": [
+                "Replace the damaged induction coil with a new one.",
+                "Ensure that the installation is done correctly to prevent further issues."
+            ],
+            "Output": [
+                "Log the replacement in maintenance records and inform the supplier about any potential damage or corrosion."
+            ],
+            "Customer": "Maintenance team and Inductotherm Group"
+        },
+        "id": "t1"
+    },
+    {
+        "title": "Replace Squeeze Roller Bearings",
+        "type": "manual",
+        "status": "pending",
+        "assigned_to": "",
+        "depends_on": [],
+        "sipoc": {
+            "Supplier": "SKF",
+            "Input": [
+                "Model 23120 CC/W33"
+            ],
+            "Process": [
+                "Remove the faulty bearings, inspect for damage or wear, and replace them with new ones.",
+                "Ensure proper alignment of the bearing to prevent misalignment issues."
+            ],
+            "Output": [
+                "Record the replacement in maintenance records and notify SKF about any replacements needed."
+            ],
+            "Customer": "SKF and Inductotherm Group"
+        },
+        "id": "t2"
+    },
+    {
+        "title": "Replace DI Water Resin Cartridges",
+        "type": "manual",
+        "status": "pending",
+        "assigned_to": "",
+        "depends_on": [],
+        "sipoc": {
+            "Supplier": "Specific water filter supplier or retailer",
+            "Input": [
+                "WLD-301A: 2018 / WLD-301B: 2023"
+            ],
+            "Process": [
+                "Replace the defective DI water resin cartridges with new ones.",
+                "Ensure that the installation is done correctly to maintain system efficiency."
+            ],
+            "Output": [
+                "Log the replacements in maintenance records and inform the supplier about any replacements needed."
+            ],
+            "Customer": "Water filter supplier or retailer, Inductotherm Group"
+        },
+        "id": "t3"
+    },
+    {
+        "title": "Full Inverter Inspection",
+        "type": "automated",
+        "status": "pending",
+        "assigned_to": "",
+        "depends_on": [],
+        "sipoc": {
+            "Supplier": "Thematool Corp. (Inductotherm Group, USA)",
+            "Input": [
+                "WLD-301A: 2018 / WLD-301B: 2023"
+            ],
+            "Process": [
+                "Perform a comprehensive inspection of all inverter components and IGBT gate drivers.",
+                "Test the capacitor ESR (Equivalent Series Resistance) to ensure proper functionality."
+            ],
+            "Output": [
+                "Generate an audit report detailing findings, indicating any potential issues that need attention."
+            ],
+            "Customer": "Maintenance team"
+        },
+        "id": "t4"
+    },
+    {
+        "title": "Calibrate All Temperature and Pressure Sensors",
+        "type": "manual",
+        "status": "pending",
+        "assigned_to": "",
+        "depends_on": [],
+        "sipoc": {
+            "Supplier": "Specific sensor manufacturer or retailer",
+            "Input": [
+                "WLD-301A: 2018 / WLD-301B: 2023"
+            ],
+            "Process": [
+                "Calibrate all temperature and pressure sensors in the system.",
+                "Ensure that calibration is done correctly to maintain accurate readings."
+            ],
+            "Output": [
+                "Log the calibrations in maintenance records and notify the supplier about any replacements needed if there are issues with the sensor accuracy."
+            ],
+            "Customer": "Maintenance team"
+        },
+        "id": "t5"
+    },
+    {
+        "title": "Root Cause Analysis",
+        "type": "automated",
+        "status": "pending",
+        "assigned_to": "",
+        "depends_on": [],
+        "sipoc": {
+            "Supplier": "Thematool Corp. (Inductotherm Group, USA)",
+            "Input": [
+                "WLD-301A: 2018 / WLD-301B: 2023"
+            ],
+            "Process": [
+                "Perform a root cause analysis on the failure mode 'Induction coil insulation breakdown' to identify any underlying causes."
+            ],
+            "Output": [
+                "Generate a detailed report with identified issues and recommended solutions.",
+                "Collaborate with suppliers, engineers, or maintenance team to ensure effective resolution."
+            ],
+            "Customer": "Maintenance team"
+        },
+        "id": "t6"
+    }
+]

@@ -1,0 +1,138 @@
+[
+  {
+    "inspection_id": "QI-2026-06-11-001",
+    "date": "2026-06-11",
+    "shift": "A",
+    "inspector": "EMP-018",
+    "product_code": "SP-ERW-50",
+    "pipe_batch": "PB-2026-0611A-001",
+    "heat_number": "HN-2026-CR-1542",
+    "quantity_inspected": 50,
+    "sample_size": 5,
+    "hydro_test": {
+      "pressure_bar": 50,
+      "hold_time_sec": 10,
+      "result": "PASS",
+      "failures": 0
+    },
+    "dimensional": {
+      "od_nominal_mm": 50.0,
+      "od_measured": [50.02, 49.98, 50.05, 50.01, 49.97],
+      "od_result": "PASS",
+      "wall_thickness_nominal_mm": 3.2,
+      "wt_measured": [3.22, 3.18, 3.25, 3.20, 3.15],
+      "wt_result": "PASS",
+      "length_nominal_m": 6.0,
+      "length_measured": [6.01, 6.00, 6.02, 5.99, 6.00],
+      "length_result": "PASS",
+      "ovality_pct": [0.8, 0.6, 1.2, 0.5, 0.9],
+      "ovality_result": "PASS"
+    },
+    "visual": {
+      "surface_finish": "acceptable",
+      "weld_bead": "smooth_scarfed",
+      "end_condition": "square_cut",
+      "marking": "legible",
+      "result": "PASS"
+    },
+    "ect_weld_test": {
+      "max_signal_mv": 35,
+      "threshold_mv": 80,
+      "result": "PASS"
+    },
+    "overall_result": "PASS",
+    "remarks": "All tests within specification. Good quality batch."
+  },
+  {
+    "inspection_id": "QI-2026-06-11-002",
+    "date": "2026-06-11",
+    "shift": "A",
+    "inspector": "EMP-018",
+    "product_code": "SP-ERW-50",
+    "pipe_batch": "PB-2026-0611A-002",
+    "heat_number": "HN-2026-CR-1543",
+    "quantity_inspected": 50,
+    "sample_size": 5,
+    "hydro_test": {
+      "pressure_bar": 50,
+      "hold_time_sec": 10,
+      "result": "PASS",
+      "failures": 0
+    },
+    "dimensional": {
+      "od_nominal_mm": 50.0,
+      "od_measured": [50.08, 50.12, 49.88, 50.15, 49.85],
+      "od_result": "PASS",
+      "wall_thickness_nominal_mm": 3.2,
+      "wt_measured": [3.24, 3.19, 3.28, 3.16, 3.22],
+      "wt_result": "PASS",
+      "length_nominal_m": 6.0,
+      "length_measured": [6.00, 6.01, 5.99, 6.00, 6.02],
+      "length_result": "PASS",
+      "ovality_pct": [1.6, 2.1, 2.4, 1.1, 0.8],
+      "ovality_result": "PARTIAL_FAIL"
+    },
+    "visual": {
+      "surface_finish": "acceptable",
+      "weld_bead": "smooth_scarfed",
+      "end_condition": "square_cut",
+      "marking": "legible",
+      "result": "PASS"
+    },
+    "ect_weld_test": {
+      "max_signal_mv": 42,
+      "threshold_mv": 80,
+      "result": "PASS"
+    },
+    "overall_result": "CONDITIONAL_PASS",
+    "remarks": "3 pipes rejected for ovality >2%. Likely caused by FRM-201A fin pass roll gap deviation. Gap adjusted at 13:00.",
+    "rejected_pipes": 3,
+    "reject_details": "Ovality 2.1%, 2.4% on pipes #23, #37 — exceed 1.5% limit per IS 1239. 1 more borderline at 1.6%."
+  },
+  {
+    "inspection_id": "QI-2026-06-11-003",
+    "date": "2026-06-11",
+    "shift": "B",
+    "inspector": "EMP-033",
+    "product_code": "SP-ERW-50",
+    "pipe_batch": "PB-2026-0611B-001",
+    "heat_number": "HN-2026-CR-1547",
+    "quantity_inspected": 40,
+    "sample_size": 5,
+    "hydro_test": {
+      "pressure_bar": 50,
+      "hold_time_sec": 10,
+      "result": "PASS",
+      "failures": 0
+    },
+    "dimensional": {
+      "od_nominal_mm": 50.0,
+      "od_measured": [50.04, 49.96, 50.02, 50.08, 49.94],
+      "od_result": "PASS",
+      "wall_thickness_nominal_mm": 3.2,
+      "wt_measured": [3.14, 3.08, 3.22, 3.18, 3.10],
+      "wt_result": "PARTIAL_FAIL",
+      "length_nominal_m": 6.0,
+      "length_measured": [6.00, 6.01, 6.00, 5.99, 6.00],
+      "length_result": "PASS",
+      "ovality_pct": [0.9, 0.7, 1.0, 0.6, 0.8],
+      "ovality_result": "PASS"
+    },
+    "visual": {
+      "surface_finish": "acceptable",
+      "weld_bead": "smooth_scarfed",
+      "end_condition": "square_cut",
+      "marking": "legible",
+      "result": "PASS"
+    },
+    "ect_weld_test": {
+      "max_signal_mv": 55,
+      "threshold_mv": 80,
+      "result": "PASS"
+    },
+    "overall_result": "CONDITIONAL_PASS",
+    "remarks": "1 pipe rejected — wall thickness 3.08mm (below min 3.10mm per IS 1239 -12.5% tolerance on 3.2mm nominal). Coil CR-2026-1547 has quality issues (also had edge crack). Remaining coil quarantined.",
+    "rejected_pipes": 1,
+    "reject_details": "Wall thickness 3.08mm on pipe #28 — below minimum 3.10mm. Coil material may have thickness variation."
+  }
+]

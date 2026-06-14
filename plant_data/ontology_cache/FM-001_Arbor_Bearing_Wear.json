@@ -1,0 +1,48 @@
+[
+    {
+        "id": "t1",
+        "title": "Acknowledge Failure",
+        "type": "automated",
+        "status": "pending",
+        "depends_on": [],
+        "sipoc": {
+            "Supplier": "System",
+            "Input": "Alert",
+            "Process": "Log",
+            "Output": "Ack",
+            "Customer": "Manager"
+        }
+    },
+    {
+        "id": "t2",
+        "title": "Visual Inspection",
+        "type": "manual",
+        "status": "pending",
+        "depends_on": [
+            "t1"
+        ],
+        "sipoc": {
+            "Supplier": "Technician",
+            "Input": "Sight",
+            "Process": "Inspect",
+            "Output": "Report",
+            "Customer": "Agent"
+        }
+    },
+    {
+        "id": "t3",
+        "title": "Generate RCA",
+        "type": "automated",
+        "status": "pending",
+        "depends_on": [
+            "t2"
+        ],
+        "sipoc": {
+            "Supplier": "Agent",
+            "Input": "Timeline",
+            "Process": "Analyze",
+            "Output": "RCA",
+            "Customer": "Database"
+        }
+    }
+]

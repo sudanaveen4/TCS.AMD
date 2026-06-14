@@ -1,0 +1,28 @@
+[
+    {
+        "incident_id": "INC-5A37A15D",
+        "machine_id": "PUMP-101",
+        "zone_id": "Z1",
+        "severity": "high",
+        "incident_type": "Cavitation",
+        "failure_probability": 92.5,
+        "rul_days": 8,
+        "status": "open",
+        "timestamp": "2026-06-11T17:09:07.127797",
+        "root_cause": null,
+        "evidence_links": []
+    },
+    {
+        "incident_id": "INC-CAF9708B",
+        "machine_id": "PUMP-101",
+        "zone_id": "Z1",
+        "severity": "high",
+        "incident_type": "Cavitation",
+        "failure_probability": 92.5,
+        "rul_days": 8,
+        "status": "open",
+        "timestamp": "2026-06-11T17:52:43.605496",
+        "root_cause": null,
+        "evidence_links": []
+    }
+]

@@ -1,0 +1,67 @@
+[
+    {
+        "machine_id": "PUMP-101",
+        "name": "Main Crude Charge Pump",
+        "manufacturer": "Flowserve",
+        "machine_type": "Centrifugal Pump",
+        "zone_id": "Z1",
+        "status": "active",
+        "health_score": 100.0,
+        "throughput": 0.0,
+        "failure_probability": 0.0,
+        "rul_days": 999,
+        "predicted_failure_mode": "none"
+    },
+    {
+        "machine_id": "HEX-201",
+        "name": "Crude/Residue Heat Exchanger",
+        "manufacturer": "Alfa Laval",
+        "machine_type": "Shell and Tube Exchanger",
+        "zone_id": "Z1",
+        "status": "active",
+        "health_score": 100.0,
+        "throughput": 0.0,
+        "failure_probability": 0.0,
+        "rul_days": 999,
+        "predicted_failure_mode": "none"
+    },
+    {
+        "machine_id": "FURN-301",
+        "name": "Atmospheric Fired Heater",
+        "manufacturer": "Zeeco",
+        "machine_type": "Fired Heater",
+        "zone_id": "Z3",
+        "status": "active",
+        "health_score": 100.0,
+        "throughput": 0.0,
+        "failure_probability": 0.0,
+        "rul_days": 999,
+        "predicted_failure_mode": "none"
+    },
+    {
+        "machine_id": "COL-401",
+        "name": "Atmospheric Distillation Column",
+        "manufacturer": "Sulzer",
+        "machine_type": "Fractionation Tower",
+        "zone_id": "Z4",
+        "status": "active",
+        "health_score": 100.0,
+        "throughput": 0.0,
+        "failure_probability": 0.0,
+        "rul_days": 999,
+        "predicted_failure_mode": "none"
+    },
+    {
+        "machine_id": "COMP-501",
+        "name": "Overhead Gas Compressor",
+        "manufacturer": "Ariel",
+        "machine_type": "Reciprocating Compressor",
+        "zone_id": "Z5",
+        "status": "active",
+        "health_score": 100.0,
+        "throughput": 0.0,
+        "failure_probability": 0.0,
+        "rul_days": 999,
+        "predicted_failure_mode": "none"
+    }
+]
