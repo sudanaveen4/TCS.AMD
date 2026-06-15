@@ -1,0 +1,43 @@
+[
+    {
+        "id": "t7",
+        "title": "Automate Root Cause Analysis (RCA) of Machine Failures",
+        "type": "automated",
+        "status": "pending",
+        "assigned_to": "Automation Specialist",
+        "sipoc": {
+            "Supplier": "Machine Manufacturer",
+            "Input": "Incident reports, machine data, and historical failure logs.",
+            "Process": "Automate the RCA process by integrating new sensors or enhancing existing systems with artificial intelligence for real-time analysis of failures.",
+            "Output": "The system will automatically detect potential root causes based on pattern recognition from past incidents. Alerts can be generated to immediate maintenance teams.",
+            "Customer": "Machine Maintenance Team"
+        }
+    },
+    {
+        "id": "t9",
+        "title": "Review and Update Operator Training Program",
+        "type": "manual",
+        "status": "pending",
+        "assigned_to": "Training Coordinator",
+        "sipoc": {
+            "Supplier": "Operators or Users of the Machine",
+            "Input": "Previous task results, operator feedback on training sessions.",
+            "Process": "Review and update the operator's training program to ensure they understand proper inspection techniques for bearings, including signs of wear such as vibration, scoring, and leaks.",
+            "Output": "Operator training will be updated, focusing on identifying potential root causes and preventive maintenance tasks. Log entries will show improvements in operator skills."
+        }
+    },
+    {
+        "id": "Root Cause Analysis",
+        "title": "Automated Root Cause Analysis (RCA) of Machine Failures",
+        "type": "automated",
+        "status": "complete",
+        "assigned_to": null,
+        "sipoc": {
+            "Supplier": "Machine Manufacturer",
+            "Input": "Incident reports, machine data, and historical failure logs.",
+            "Process": "Automate the RCA process by integrating new sensors or enhancing existing systems with artificial intelligence for real-time analysis of failures.",
+            "Output": "The system will automatically detect potential root causes based on pattern recognition from past incidents. Alerts can be generated to immediate maintenance teams.",
+            "Customer": "Machine Maintenance Team"
+        }
+    }
+]

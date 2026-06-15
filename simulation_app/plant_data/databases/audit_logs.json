@@ -1,0 +1,86 @@
+[
+  {
+    "audit_id": "AUD-2025-Q4-001",
+    "type": "safety_audit",
+    "title": "Quarterly HSE Audit — Q4 2025",
+    "auditor": "EMP-004",
+    "audit_date": "2025-12-15",
+    "scope": "All zones (Z1-Z10)",
+    "findings": [
+      { "id": "F-001", "zone": "Z2", "observation": "One E-stop button on CNC-101A panel faded — difficult to locate in emergency", "severity": "medium", "action": "E-stop button replaced with new high-visibility unit", "status": "closed", "closed_date": "2025-12-20" },
+      { "id": "F-002", "zone": "Z4", "observation": "RF warning sign at Z4 entry door partially damaged", "severity": "low", "action": "New sign installed with durable material", "status": "closed", "closed_date": "2025-12-18" },
+      { "id": "F-003", "zone": "Z5", "observation": "Aluminized jacket #3 has a tear on right sleeve — still in use rack", "severity": "medium", "action": "Jacket removed and replaced with new one", "status": "closed", "closed_date": "2025-12-16" },
+      { "id": "F-004", "zone": "Z8", "observation": "DG room housekeeping poor — oil stains on floor, rags near hot exhaust", "severity": "high", "action": "Deep cleaning done. Daily housekeeping checklist created for Z8", "status": "closed", "closed_date": "2025-12-22" },
+      { "id": "F-005", "zone": "Z7", "observation": "Grinding wheel guard missing on bench grinder", "severity": "high", "action": "Guard procured and installed. Machine tagged out until guard fitted", "status": "closed", "closed_date": "2025-12-17" }
+    ],
+    "overall_score": 82,
+    "max_score": 100,
+    "grade": "B",
+    "next_audit_date": "2026-03-15"
+  },
+  {
+    "audit_id": "AUD-2026-Q1-001",
+    "type": "safety_audit",
+    "title": "Quarterly HSE Audit — Q1 2026",
+    "auditor": "EMP-004",
+    "audit_date": "2026-03-15",
+    "scope": "All zones (Z1-Z10)",
+    "findings": [
+      { "id": "F-001", "zone": "Z1", "observation": "Sling inspection log not updated for February", "severity": "medium", "action": "Log updated. Monthly reminder set in system", "status": "closed", "closed_date": "2026-03-18" },
+      { "id": "F-002", "zone": "Z3", "observation": "Coolant spillage near FRM-201A — slippery floor", "severity": "medium", "action": "Leak fixed. Anti-slip mat placed. Spill kit nearby", "status": "closed", "closed_date": "2026-03-17" },
+      { "id": "F-003", "zone": "Z6", "observation": "Forklift reverse alarm not working on FLT-02", "severity": "high", "action": "Alarm replaced same day", "status": "closed", "closed_date": "2026-03-15" }
+    ],
+    "overall_score": 88,
+    "max_score": 100,
+    "grade": "B+",
+    "next_audit_date": "2026-06-15"
+  },
+  {
+    "audit_id": "AUD-2025-ISO-001",
+    "type": "iso_surveillance",
+    "title": "ISO 9001:2015 Surveillance Audit",
+    "auditor": "External — TUV SUD",
+    "audit_date": "2025-10-20",
+    "scope": "Quality Management System",
+    "findings": [
+      { "id": "NC-001", "type": "minor_nc", "clause": "8.5.1", "observation": "Process parameters for heat treatment not documented for new pipe size SP-STR-100 (100×100mm square tube)", "action": "Process sheet created and approved. Training given to operators.", "status": "closed", "closed_date": "2025-11-05" },
+      { "id": "OFI-001", "type": "observation", "clause": "7.1.5", "observation": "Calibration records for laser OD gauge not linked to production batch records for traceability", "action": "Calibration certificate number now recorded in batch inspection report", "status": "closed", "closed_date": "2025-11-10" }
+    ],
+    "result": "Certification continued. 1 Minor NC. 1 OFI. No Major NC.",
+    "certificate_valid_until": "2027-04-15"
+  },
+  {
+    "audit_id": "AUD-2026-ENV-001",
+    "type": "environmental_audit",
+    "title": "Half-Yearly Environmental Compliance Audit",
+    "auditor": "EMP-024",
+    "audit_date": "2026-01-20",
+    "scope": "Air emissions, water discharge, waste management",
+    "findings": [
+      { "id": "E-001", "observation": "Stack emission test for furnace fume extraction overdue by 2 weeks", "severity": "high", "action": "Test conducted on 2026-01-25. Results within limits (PM: 45 mg/Nm³ vs limit 100)", "status": "closed", "closed_date": "2026-01-25" },
+      { "id": "E-002", "observation": "Hazardous waste (used hydraulic oil) storage area not labelled as per rules", "severity": "medium", "action": "Labels installed as per JSPCB requirements", "status": "closed", "closed_date": "2026-01-22" },
+      { "id": "E-003", "observation": "Coolant waste disposal manifest for November missing", "severity": "medium", "action": "Manifest recovered from transporter and filed", "status": "closed", "closed_date": "2026-01-28" }
+    ],
+    "overall_compliance": "92%",
+    "next_audit_date": "2026-07-20"
+  },
+  {
+    "audit_id": "AUD-2026-MAINT-001",
+    "type": "maintenance_audit",
+    "title": "Monthly Maintenance Compliance Review — May 2026",
+    "auditor": "EMP-003",
+    "audit_date": "2026-06-01",
+    "scope": "PM compliance, spare parts, work order closure",
+    "findings": [
+      { "id": "M-001", "observation": "PM compliance for May: 87% (target: 95%). 3 weekly PMs missed on CNC-101B due to production pressure.", "severity": "high", "action": "Rescheduled missed PMs. Discussed with Production Manager about PM priority.", "status": "open" },
+      { "id": "M-002", "observation": "Spare parts stock: 2 critical items below minimum (impeder rods and hydraulic filter elements)", "severity": "medium", "action": "PO raised for replenishment. ETA: 1 week.", "status": "open" },
+      { "id": "M-003", "observation": "3 work orders from April still open (documentation pending)", "severity": "low", "action": "Technicians instructed to close WOs within 48 hours of completion", "status": "open" }
+    ],
+    "pm_compliance_pct": 87,
+    "target_pct": 95,
+    "open_work_orders": 5,
+    "overdue_work_orders": 2,
+    "mtbf_hours": { "CNC-101A": 720, "FRM-201A": 580, "WLD-301A": 650, "HTR-401A": 890, "PKG-501A": 1100 },
+    "mttr_hours": { "CNC-101A": 2.5, "FRM-201A": 3.2, "WLD-301A": 2.0, "HTR-401A": 4.5, "PKG-501A": 1.5 }
+  }
+]

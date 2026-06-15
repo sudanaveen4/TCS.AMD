@@ -69,6 +69,35 @@ Return ONLY raw JSON, no markdown."""
                 inc_list.append(f"- {inc['id']}: {inc['machine_id']} | {inc['failure_mode']} | Status: {inc['status']} | Tasks: {completed}/{total} done")
             incidents_summary = "\n".join(inc_list)
 
+        # ===== STEP 4a: RCA & SHIFT HANDOVER CONTEXT =====
+        rca_summary = ""
+        shift_summary = ""
+        try:
+            rca_dir = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'plant_data', 'rca_documents')
+            if os.path.exists(rca_dir):
+                rca_files = sorted([f for f in os.listdir(rca_dir) if f.endswith('.md')], reverse=True)[:3]
+                rca_parts = []
+                for rf in rca_files:
+                    with open(os.path.join(rca_dir, rf), 'r', encoding='utf-8') as fh:
+                        rca_parts.append(f"[{rf}] {fh.read()[:500]}...")
+                if rca_parts:
+                    rca_summary = "\n".join(rca_parts)
+        except Exception as e:
+            print(f"RCA context load error: {e}")
+        
+        try:
+            shift_dir = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'plant_data', 'shift_documents')
+            if os.path.exists(shift_dir):
+                shift_files = sorted([f for f in os.listdir(shift_dir) if f.endswith('.md')], reverse=True)[:2]
+                shift_parts = []
+                for sf in shift_files:
+                    with open(os.path.join(shift_dir, sf), 'r', encoding='utf-8') as fh:
+                        shift_parts.append(f"[{sf}] {fh.read()[:500]}...")
+                if shift_parts:
+                    shift_summary = "\n".join(shift_parts)
+        except Exception as e:
+            print(f"Shift context load error: {e}")
+
         # ===== STEP 4: SYNTHESIZER =====
         persona_instructions = {
             "Plant Manager": "Focus on operational KPIs, overall plant health, production impact, cost implications, and strategic decisions. Give executive-level summaries with data tables when relevant.",
@@ -108,6 +137,12 @@ CRITICAL RULES:
 # Active Incidents
 {incidents_summary if incidents_summary else "No active incidents."}
 
+# Recent RCA Reports (Summary)
+{rca_summary if rca_summary else "No RCA reports available."}
+
+# Recent Shift Handover Notes
+{shift_summary if shift_summary else "No shift handover documents available."}
+
 # Instructions
 Provide a comprehensive, professional, and data-driven response. 
 Include specific numbers and facts from the data above.
@@ -128,6 +163,10 @@ Format everything in clean Markdown."""
             sources.append("Live Telemetry")
         if incidents_summary:
             sources.append("Incident Tracker")
+        if rca_summary:
+            sources.append("RCA Documents")
+        if shift_summary:
+            sources.append("Shift Handover Docs")
             
         return {
             "response": response, 
@@ -139,7 +178,7 @@ Format everything in clean Markdown."""
         """
         Executes a background automated task node using the appropriate Agent tool.
         """
-        time.sleep(0.5)
+        time.sleep(3.0)
         
         output_note = ""
         title = task.get("title", "")
@@ -163,6 +202,60 @@ Format everything in clean Markdown."""
             output_note = f"Automated execution completed successfully at {time.strftime('%H:%M:%S')}."
             
         self.incidents.resolve_task(incident["id"], task["id"], output_note)
+
+    def generate_incident_svg(self, telemetry_slice, machine_id):
+        if not telemetry_slice:
+            return ""
+            
+        # Draw background grid
+        svg = ['<svg viewBox="0 0 500 200" width="100%" height="200" xmlns="http://www.w3.org/2000/svg" style="background:#0d131f; border-radius:8px; border:1px solid #232d45; padding:10px;">']
+        
+        # Draw axes
+        svg.append('<line x1="40" y1="30" x2="40" y2="170" stroke="#232d45" stroke-width="1" />')
+        svg.append('<line x1="40" y1="170" x2="480" y2="170" stroke="#232d45" stroke-width="1" />')
+        
+        # Grid lines
+        for y_val in [30, 65, 100, 135, 170]:
+            svg.append(f'<line x1="40" y1="{y_val}" x2="480" y2="{y_val}" stroke="#1e293b" stroke-dasharray="3,3" stroke-width="1" />')
+            
+        # Gather sensor data
+        sensor_trends = {}
+        for entry in telemetry_slice:
+            sensors = entry.get("sensors", {})
+            for k, v in sensors.items():
+                if k not in sensor_trends:
+                    sensor_trends[k] = []
+                sensor_trends[k].append(v)
+                
+        colors = ["#ef4444", "#3b82f6", "#10b981", "#f59e0b"]
+        color_idx = 0
+        
+        for s_name, values in sensor_trends.items():
+            if not values:
+                continue
+            color = colors[color_idx % len(colors)]
+            color_idx += 1
+            
+            min_v = min(values)
+            max_v = max(values)
+            r_v = max_v - min_v if max_v != min_v else 1.0
+            
+            points = []
+            for i, val in enumerate(values):
+                x = 40 + (i * 440 / (len(values) - 1 if len(values) > 1 else 1))
+                y = 160 - ((val - min_v) / r_v * 120)
+                points.append(f"{x},{y}")
+                
+            path_d = "M " + " L ".join(points)
+            svg.append(f'<path d="{path_d}" fill="none" stroke="{color}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />')
+            
+            # Draw label in top margin
+            label_x = 45 + ((color_idx - 1) * 220)
+            svg.append(f'<rect x="{label_x}" y="5" width="8" height="8" rx="2" fill="{color}" />')
+            svg.append(f'<text x="{label_x + 12}" y="12" fill="#94a3b8" font-family="sans-serif" font-size="9">{s_name.replace("_", " ").title()}: {values[-1]:.1f}</text>')
+            
+        svg.append('</svg>')
+        return "\n".join(svg)
 
     def generate_rca(self, incident):
         """
@@ -204,24 +297,54 @@ Generate a complete Root Cause Analysis (RCA) report. Synthesize the Telemetry a
         
         report = self.ollama.generate(prompt, system=system, timeout=60)
         
+        # Generate and save SVG chart for this incident
+        svg_chart = self.generate_incident_svg(incident.get('telemetry_slice', []), incident['machine_id'])
+        
+        rca_dir = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'plant_data', 'rca_documents')
+        images_dir = os.path.join(rca_dir, 'images')
+        os.makedirs(images_dir, exist_ok=True)
+        
+        chart_filename = f"chart_{incident['id']}.svg"
+        chart_filepath = os.path.join(images_dir, chart_filename)
+        if svg_chart:
+            try:
+                with open(chart_filepath, "w", encoding="utf-8") as f:
+                    f.write(svg_chart)
+            except Exception as e:
+                print(f"Error saving RCA chart: {e}")
+            
+        # Append the telemetry chart directly to the Markdown report
+        report_with_chart = report
+        if svg_chart:
+            report_with_chart += f"\n\n## Telemetry Trend Analysis\n![Incident Telemetry Trend](/api/document/rca_documents/images/{chart_filename})\n\n"
+        
+        # If this is a PPE safety incident, append the detection image
+        if incident.get('incident_type') == 'safety_ppe':
+            annotated_img = incident.get('annotated_image', '')
+            original_img = incident.get('original_image', '')
+            missing_ppe = incident.get('missing_ppe', [])
+            
+            report_with_chart += f"\n\n## PPE Safety Detection Evidence\n\n"
+            report_with_chart += f"**Camera Zone:** {incident.get('camera_zone', 'Unknown')}\n\n"
+            report_with_chart += f"**Missing PPE Items:** {', '.join(missing_ppe)}\n\n"
+            if original_img:
+                report_with_chart += f"### Original Camera Image\n![Original Camera Image](/api/document/{original_img})\n\n"
+            if annotated_img:
+                report_with_chart += f"### AI-Annotated Detection Image\n![PPE Detection Results](/api/document/{annotated_img})\n\n"
+        
         self.incidents.rca_reports.append({
             "incident_id": incident['id'],
             "machine_id": incident['machine_id'],
             "failure_mode": incident['failure_mode'],
-            "report": report,
+            "report": report_with_chart,
             "timestamp": time.strftime("%Y-%m-%d %H:%M:%S")
         })
         
-        # Save to filesystem
-        rca_dir = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'plant_data', 'rca_documents')
-        if not os.path.exists(rca_dir):
-            os.makedirs(rca_dir)
-            
         filename = f"{incident['id']}_RCA.md"
         filepath = os.path.join(rca_dir, filename)
         try:
             with open(filepath, "w", encoding="utf-8") as f:
-                f.write(report)
+                f.write(report_with_chart)
         except Exception as e:
             print(f"Error saving RCA document: {e}")
             

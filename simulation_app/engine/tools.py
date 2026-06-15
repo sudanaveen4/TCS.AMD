@@ -7,7 +7,7 @@ or the RAG vector store. The AI planner decides which tools to invoke based on t
 import os
 import json
 
-PLANT_DATA_DIR = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(__file__))), 'plant_data')
+PLANT_DATA_DIR = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'plant_data')
 DB_DIR = os.path.join(PLANT_DATA_DIR, 'databases')
 
 

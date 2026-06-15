@@ -1,0 +1,45 @@
+{
+  "image": "test_image3.jpg",
+  "camera_zone": "Zone A - Assembly Line",
+  "timestamp": "2026-06-15 21:16:25",
+  "ppe_status": {
+    "glove": true,
+    "helmet": true,
+    "shoes": true,
+    "welding-glass": true
+  },
+  "missing_ppe": [],
+  "compliant": true,
+  "violations_count": 0,
+  "detections": [
+    {
+      "class": "safety-glove",
+      "confidence": 0.721,
+      "bbox": [],
+      "safe": true
+    },
+    {
+      "class": "safety-helmet",
+      "confidence": 0.71,
+      "bbox": [],
+      "safe": true
+    },
+    {
+      "class": "safety-shoes",
+      "confidence": 0.896,
+      "bbox": [],
+      "safe": true
+    },
+    {
+      "class": "safety-welding-glass",
+      "confidence": 0.78,
+      "bbox": [],
+      "safe": true
+    }
+  ],
+  "annotated_image": "OpenCV/results/annotated_20260615_211621_test_image3.jpg",
+  "original_image": "OpenCV/test_image3.jpg",
+  "model": "Heuristic Fallback (YOLO + LLM unavailable)",
+  "inference_device": "N/A",
+  "analysis_method": "heuristic"
+}

@@ -28,12 +28,16 @@ class IncidentManager:
                 pass
                 
         if not tasks:
-            # Fallback if ontology hasn't been generated yet
+            # Fallback if Task Generator flow hasn't been generated yet
             tasks = [
-                {"id": "t1", "title": "Acknowledge Alert", "type": "automated", "status": "pending", "depends_on": [], "sipoc": {"Supplier": "Telemetry", "Input": "Alert", "Process": "Log", "Output": "Ack", "Customer": "System"}},
-                {"id": "t2", "title": "Manual Verification", "type": "manual", "status": "pending", "depends_on": ["t1"], "sipoc": {"Supplier": "Operator", "Input": "Sight", "Process": "Verify", "Output": "Clearance", "Customer": "Manager"}},
-                {"id": "t3", "title": "Root Cause Analysis", "type": "automated", "status": "pending", "depends_on": ["t2"], "sipoc": {"Supplier": "Logs", "Input": "Data", "Process": "Analyze", "Output": "RCA", "Customer": "DB"}}
+                {"id": "t1", "title": "Acknowledge Alert", "type": "automated", "status": "pending", "depends_on": [], "assigned_to": "System Agent", "sipoc": {"Input": "Telemetry Sensor Data & Active Alerts", "Process": "Log the alert in the system database and acknowledge the warning code.", "Output": "Alert logged & acknowledged"}},
+                {"id": "t2", "title": "Manual Verification", "type": "manual", "status": "pending", "depends_on": ["t1"], "assigned_to": "Maintenance Engineer", "sipoc": {"Input": "Machine location & sensor specifications", "Process": "Conduct visual inspection of the machine to check for wear, heat, or abnormal vibration.", "Output": "Visual inspection verified & logged"}},
+                {"id": "t3", "title": "Root Cause Analysis", "type": "automated", "status": "pending", "depends_on": ["t2"], "assigned_to": "AI Agent", "sipoc": {"Input": "Historical data & inspection notes", "Process": "Generate comprehensive Root Cause Analysis detailing findings and recommendations.", "Output": "RCA report generated"}}
             ]
+        else:
+            # Enforce strict sequential order: each task depends on the previous one
+            for i in range(1, len(tasks)):
+                tasks[i]["depends_on"] = [tasks[i-1]["id"]]
         
         incident = {
             "id": incident_id,
@@ -49,7 +53,81 @@ class IncidentManager:
         
         self.incidents[incident_id] = incident
         return incident_id
+
+    def trigger_safety_incident(self, camera_zone, missing_ppe, original_image, annotated_image, detections=None):
+        """Create a PPE safety violation incident from camera/vision analysis."""
+        incident_id = f"INC-{int(time.time())}"
         
+        failure_mode = f"PPE Safety Violation - Missing: {', '.join(missing_ppe)}"
+        
+        tasks = [
+            {
+                "id": "t1", "title": "Log Safety Alert",
+                "type": "automated", "status": "pending", "depends_on": [],
+                "assigned_to": "System Agent",
+                "sipoc": {
+                    "Input": f"Camera feed from {camera_zone}, detection report",
+                    "Process": "Log the PPE violation alert to the safety incident database. Record the camera zone, timestamp, and list of missing PPE items.",
+                    "Output": "Safety alert logged to incident_reports.json"
+                }
+            },
+            {
+                "id": "t2", "title": "Visual Verification by Safety Officer",
+                "type": "manual", "status": "pending", "depends_on": ["t1"],
+                "assigned_to": "Safety Officer",
+                "image_path": annotated_image,
+                "original_image_path": original_image,
+                "sipoc": {
+                    "Input": f"Annotated image showing PPE violations. Missing items: {', '.join(missing_ppe)}",
+                    "Process": "Review the annotated detection image. Verify that the PPE violations detected by the AI model are accurate. Confirm or override the findings. Write notes about the situation.",
+                    "Output": "Verification report with officer's review notes"
+                }
+            },
+            {
+                "id": "t3", "title": "Issue PPE to Non-Compliant Personnel",
+                "type": "manual", "status": "pending", "depends_on": ["t2"],
+                "assigned_to": "Safety Officer",
+                "sipoc": {
+                    "Input": f"List of missing PPE: {', '.join(missing_ppe)}",
+                    "Process": "Identify the non-compliant personnel from the camera image. Issue the required PPE items. Brief personnel on safety requirements. Document the corrective action taken.",
+                    "Output": "PPE issued, personnel briefed"
+                }
+            },
+            {
+                "id": "t4", "title": "Generate Safety RCA Report",
+                "type": "automated", "status": "pending", "depends_on": ["t3"],
+                "assigned_to": "AI Agent",
+                "sipoc": {
+                    "Input": "Detection results, officer review, corrective actions",
+                    "Process": "Generate a comprehensive Root Cause Analysis for the PPE safety violation using AI. Include the detection image, officer's notes, and recommendations.",
+                    "Output": "RCA report saved to rca_documents/"
+                }
+            }
+        ]
+        
+        incident = {
+            "id": incident_id,
+            "machine_id": f"CAM-{camera_zone}",
+            "failure_mode": failure_mode,
+            "status": "open",
+            "started_at": time.strftime("%Y-%m-%d %H:%M:%S"),
+            "start_time": time.strftime("%Y-%m-%d %H:%M:%S"),
+            "resolved_at": None,
+            "tasks": tasks,
+            "logs": [f"[{time.strftime('%H:%M:%S')}] PPE Safety Incident created from vision analysis."],
+            "telemetry_slice": [],
+            "original_image": original_image,
+            "annotated_image": annotated_image,
+            "missing_ppe": missing_ppe,
+            "detections": detections or [],
+            "camera_zone": camera_zone,
+            "incident_type": "safety_ppe"
+        }
+        
+        self.incidents[incident_id] = incident
+        print(f"[Safety] Created PPE incident {incident_id} for {camera_zone}")
+        return incident_id
+
     def get_incident(self, incident_id):
         return self.incidents.get(incident_id)
         
@@ -80,8 +158,8 @@ class IncidentManager:
             incident["logs"].append(f"[{time.strftime('%H:%M:%S')}] Incident Closed. Triggering Agentic RCA...")
             
             # Guarantee RCA is generated
-            from engine.agents import MultiAgentEngine
-            agents_engine = MultiAgentEngine(self)
+            from engine.agents import get_agents_engine
+            agents_engine = get_agents_engine()
             import threading
             threading.Thread(target=agents_engine.generate_rca, args=(incident,), daemon=True).start()
 

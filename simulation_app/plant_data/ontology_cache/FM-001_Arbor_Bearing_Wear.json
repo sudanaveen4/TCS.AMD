@@ -1,0 +1,136 @@
+[
+    {
+        "id": "t1",
+        "title": "Automate Root Cause Analysis (RCA)",
+        "type": "automated",
+        "status": "pending",
+        "depends_on": [],
+        "assigned_to": "Root Cause Analysis Team",
+        "sipoc": {
+            "Supplier": "Root Cause Analysis Team",
+            "Input": "INC-1781383172_RCA.md, Failure Modes documentation",
+            "Process": "Perform comprehensive root cause analysis using the provided document and any additional historical data for reliability-based insights.",
+            "Output": "Identify the exact root causes leading to the failure of the main slitting arbor bearing (FAG 6210-2RS) in the CNC-101A machine.",
+            "Customer": "Engineering Department, Maintenance Team"
+        }
+    },
+    {
+        "id": "t2",
+        "title": "Implement Immediate Stop and LOTO Procedures",
+        "type": "automated",
+        "status": "pending",
+        "depends_on": [
+            "t1"
+        ],
+        "assigned_to": "Operator",
+        "sipoc": {
+            "Supplier": "N/A",
+            "Input": "N/A",
+            "Process": "Stop the machine immediately, apply Level of Trouble Out (LOTO), remove blade assembly, extract old bearings using a bearing puller, clean the arbor shaft, press-fit new bearings, reassemble blades with spacers, verify alignment.",
+            "Output": "Ensure the slitting process can resume without interruption.",
+            "Customer": "N/A"
+        }
+    },
+    {
+        "id": "t3",
+        "title": "Reorder and Reinstall Bearings",
+        "type": "automated",
+        "status": "pending",
+        "depends_on": [
+            "t1"
+        ],
+        "assigned_to": "Maintenance Team",
+        "sipoc": {
+            "Supplier": "N/A",
+            "Input": "Replacement bearings (FAG 6210-2RS) \u00d7 4, SKF LGMT 2 grease, arbor locknut",
+            "Process": "Order replacement bearings and replace the old ones, install lubricant, reassemble all components.",
+            "Output": "Ensure that the slitting process resumes without any bearing-related issues.",
+            "Customer": "Engineering Department"
+        }
+    },
+    {
+        "id": "t4",
+        "title": "Review and Update Maintenance Schedule",
+        "type": "automated",
+        "status": "pending",
+        "depends_on": [
+            "t1"
+        ],
+        "assigned_to": "Maintenance Team",
+        "sipoc": {
+            "Supplier": "N/A",
+            "Input": "Past maintenance records, current machine status, historical failure data.",
+            "Process": "Review past maintenance history to identify trends and update the periodicity of bearing replacements in the maintenance schedule.",
+            "Output": "Ensure that future bearings are replaced when 5000 operating hours have passed, regardless of condition.",
+            "Customer": "Maintenance Team"
+        }
+    },
+    {
+        "id": "t5",
+        "title": "Run Test Strip at Low Speed to Verify Correct Operation",
+        "type": "automated",
+        "status": "pending",
+        "depends_on": [
+            "t1"
+        ],
+        "assigned_to": "Operator/Personnel, Maintenance Team",
+        "sipoc": {
+            "Supplier": "N/A",
+            "Input": "The slitting machine's test strip function can be accessed via the control panel or through software interface.",
+            "Process": "Run a test strip at low speed to verify that all bearings are functioning correctly and to ensure there are no issues related to the vibration, hydraulic pressure, temperature, noise, or other factors identified during RCA that might have caused the failure in the past.",
+            "Output": "Ensure that the slitting process returns to normal operation without any bearing-related failures. Any deviations from standard procedures need immediate attention.",
+            "Customer": "Engineering Department and Maintenance Team"
+        }
+    },
+    {
+        "id": "t6",
+        "title": "Update Documentation for Future Reference",
+        "type": "automated",
+        "status": "pending",
+        "depends_on": [
+            "t1"
+        ],
+        "assigned_to": "Documentation Reviewer",
+        "sipoc": {
+            "Supplier": "N/A",
+            "Input": "Updated failure modes documentation, including the RCA report.",
+            "Process": "Review and update the 'Failure Modes' section in the existing documentation with all identified root causes of FM-001 Arbor Bearing Wear to ensure continuous improvement.",
+            "Output": "The updated documentation will be used as a reference for new failures and should include preventive measures based on this analysis.",
+            "Customer": "Engineering Department, Maintenance Team"
+        }
+    },
+    {
+        "id": "t7",
+        "title": "Prepare for Next Routine Inspection",
+        "type": "automated",
+        "status": "pending",
+        "depends_on": [
+            "t1"
+        ],
+        "assigned_to": "Inspection Team",
+        "sipoc": {
+            "Supplier": "N/A",
+            "Input": "None (only need to perform the next scheduled inspection based on the existing schedule for routine maintenance and monitoring of bearings).",
+            "Process": "Prepare for the next machine inspection, focusing specifically on arbor bearings, to prevent any future instances of FM-001 Arbor Bearing Wear.",
+            "Output": "The inspection will cover all arbor bearings in the slitting head area and will include checking for vibration anomalies, temperature rises, noise levels, etc., using existing tools such as vibration meters, temperature gauges, or specific software monitoring systems.",
+            "Customer": "Maintenance Team"
+        }
+    },
+    {
+        "id": "t8",
+        "title": "Root Cause Analysis",
+        "type": "automated",
+        "status": "completed",
+        "depends_on": [
+            "All Previous Tasks"
+        ],
+        "assigned_to": "Engineering Department, Maintenance Team",
+        "sipoc": {
+            "Supplier": "N/A",
+            "Input": "The root cause analysis report produced by the Root Cause Analysis team (t1) and verified by a third-party auditor.",
+            "Process": "Analyze the root cause of FM-001 Arbor Bearing Wear, which includes reiterating that the wear was due to inadequate lubrication, contamination from metal fines, overloading, age-related fatigue, and ongoing vibration caused by machinery operation. Identify preventive measures such as regular lubrication, timely maintenance, and proper monitoring tools like vibration sensors.",
+            "Output": "The report should be communicated to all stakeholders involved in the failure analysis process, providing clear steps for preventing future occurrences of this specific failure mode.",
+            "Customer": "Engineering Department, Maintenance Team"
+        }
+    }
+]

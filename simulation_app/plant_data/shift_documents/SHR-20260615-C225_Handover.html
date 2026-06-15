@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Shift Handover - Day Shift - 2026-06-15</title>
+    <style>
+        body {
+            background-color: #090e17;
+            color: #f8fafc;
+            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+            margin: 0;
+            padding: 1.5rem;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #141b2d;
+            border: 1px solid #232d45;
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+        .header {
+            border-bottom: 2px solid #232d45;
+            padding-bottom: 1rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 1.6rem;
+            color: #3b82f6;
+        }
+        .meta-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            background-color: #0d131f;
+            padding: 0.8rem;
+            border-radius: 6px;
+            border: 1px solid #232d45;
+        }
+        .meta-item h4 {
+            margin: 0 0 0.2rem 0;
+            color: #94a3b8;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+        }
+        .meta-item p {
+            margin: 0;
+            font-size: 0.95rem;
+            font-weight: 600;
+        }
+        .section {
+            margin-bottom: 2rem;
+        }
+        .section h2 {
+            font-size: 1.2rem;
+            border-bottom: 1px solid #232d45;
+            padding-bottom: 0.4rem;
+            margin-bottom: 0.8rem;
+            color: #8b5cf6;
+        }
+        .summary-box {
+            background-color: rgba(59, 130, 246, 0.05);
+            border-left: 4px solid #3b82f6;
+            padding: 1rem;
+            border-radius: 4px;
+            line-height: 1.5;
+            font-size: 0.9rem;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 0.5rem;
+            font-size: 0.85rem;
+        }
+        th, td {
+            padding: 0.6rem 0.8rem;
+            text-align: left;
+            border-bottom: 1px solid #232d45;
+        }
+        th {
+            background-color: #0d131f;
+            color: #94a3b8;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+        }
+        .badge {
+            padding: 0.15rem 0.5rem;
+            border-radius: 12px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            display: inline-block;
+        }
+        .badge-green { background-color: rgba(16, 185, 129, 0.15); color: #10b981; border: 1px solid rgba(16, 185, 129, 0.3); }
+        .badge-red { background-color: rgba(239, 68, 68, 0.15); color: #ef4444; border: 1px solid rgba(239, 68, 68, 0.3); }
+        .badge-orange { background-color: rgba(245, 158, 11, 0.15); color: #f59e0b; border: 1px solid rgba(245, 158, 11, 0.3); }
+        .chart-container {
+            margin-top: 1rem;
+            text-align: center;
+        }
+        ul {
+            padding-left: 1.2rem;
+            line-height: 1.5;
+            font-size: 0.9rem;
+        }
+        li {
+            margin-bottom: 0.4rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Shift Handover Report</h1>
+            <span class="badge badge-green">SHR-20260615-C225</span>
+        </div>
+        
+        <div class="meta-grid">
+            <div class="meta-item">
+                <h4>Shift Name</h4>
+                <p>Day Shift</p>
+            </div>
+            <div class="meta-item">
+                <h4>Date</h4>
+                <p>2026-06-15</p>
+            </div>
+            <div class="meta-item">
+                <h4>Supervisor</h4>
+                <p>Supervisor (Plant Manager)</p>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>Executive Summary</h2>
+            <div class="summary-box">
+                The Day Shift completed with 3 incident(s) logged. Machine statuses are mostly stable, but alert conditions on FRM-201A required technician interventions. 1 incident(s) remain open and need immediate follow-up.
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Machine Status & Health</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Machine ID</th>
+                        <th>Alias & Unit</th>
+                        <th>Status</th>
+                        <th>Latest Read</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+            <tr>
+                <td><strong>CNC-101A</strong></td>
+                <td>M1 (Conveyor A)</td>
+                <td><span class="badge badge-green">Normal</span></td>
+                <td>Vibration Slitting Head: 1.51</td>
+            </tr>
+            <tr>
+                <td><strong>FRM-201A</strong></td>
+                <td>M2 (Motor Unit)</td>
+                <td><span class="badge badge-red">Critical Failure</span></td>
+                <td>Vibration Main Drive: 4.60</td>
+            </tr>
+            <tr>
+                <td><strong>WLD-301A</strong></td>
+                <td>M3 (Pump Unit)</td>
+                <td><span class="badge badge-green">Normal</span></td>
+                <td>Vibration Squeeze Stand: 1.18</td>
+            </tr>
+            <tr>
+                <td><strong>HTR-401A</strong></td>
+                <td>M4 (Compressor)</td>
+                <td><span class="badge badge-green">Normal</span></td>
+                <td>Pipe Exit Temperature: 902.19</td>
+            </tr>
+            <tr>
+                <td><strong>PKG-501A</strong></td>
+                <td>M5 (Packaging)</td>
+                <td><span class="badge badge-green">Normal</span></td>
+                <td>Hydro Test Pressure: 49.68</td>
+            </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="section">
+            <h2>Shift Telemetry Trends (Line Chart)</h2>
+            <div class="chart-container">
+                <svg viewBox="0 0 650 250" width="100%" height="250" xmlns="http://www.w3.org/2000/svg" style="background:#0d131f; border-radius:8px; border:1px solid #232d45; padding: 10px;">
+<line x1="40" y1="30" x2="40" y2="210" stroke="#232d45" stroke-width="1" />
+<line x1="40" y1="210" x2="620" y2="210" stroke="#232d45" stroke-width="1" />
+<line x1="40" y1="30" x2="620" y2="30" stroke="#1e293b" stroke-dasharray="3,3" stroke-width="1" />
+<line x1="40" y1="75" x2="620" y2="75" stroke="#1e293b" stroke-dasharray="3,3" stroke-width="1" />
+<line x1="40" y1="120" x2="620" y2="120" stroke="#1e293b" stroke-dasharray="3,3" stroke-width="1" />
+<line x1="40" y1="165" x2="620" y2="165" stroke="#1e293b" stroke-dasharray="3,3" stroke-width="1" />
+<line x1="40" y1="210" x2="620" y2="210" stroke="#1e293b" stroke-dasharray="3,3" stroke-width="1" />
+<path d="M 40.0,159.67954063858082 L 49.83050847457627,187.02551253909067 L 59.66101694915254,109.47048841975557 L 69.49152542372882,151.6689741037308 L 79.32203389830508,158.29740824175929 L 89.15254237288136,131.9795406454494 L 98.98305084745763,86.15339219333288 L 108.8135593220339,116.6076891512946 L 118.64406779661017,113.99043986557658 L 128.47457627118644,76.67464007042953 L 138.3050847457627,192.28303921243779 L 148.135593220339,44.38215839619494 L 157.96610169491527,96.52197559574311 L 167.79661016949154,97.16398204812617 L 177.6271186440678,130.61609086914868 L 187.45762711864407,186.4591764589556 L 197.28813559322035,155.9257187894534 L 207.11864406779662,93.78223316671068 L 216.94915254237287,45.225256486980896 L 226.77966101694915,59.180202614427 L 236.61016949152543,90.45724743174671 L 246.4406779661017,121.26441718058328 L 256.271186440678,155.8038798607924 L 266.10169491525426,175.27852198665818 L 275.93220338983053,118.51249358694035 L 285.7627118644068,161.71551772293236 L 295.5932203389831,128.40388629825742 L 305.4237288135593,126.79792878752286 L 315.2542372881356,102.42851335792281 L 325.08474576271186,134.22342429153122 L 334.91525423728814,174.91836343404103 L 344.7457627118644,162.9636420480804 L 354.5762711864407,172.71615531236418 L 364.40677966101697,77.1719253353791 L 374.23728813559325,102.6238976398034 L 384.06779661016947,162.18171150225731 L 393.89830508474574,162.77721976916294 L 403.728813559322,142.660518639038 L 413.5593220338983,121.33893878067985 L 423.3898305084746,144.18251116063414 L 433.22033898305085,124.04244856232711 L 443.0508474576271,151.65311335702876 L 452.8813559322034,101.19380735107842 L 462.7118644067797,200.0 L 472.54237288135596,135.11933403331258 L 482.3728813559322,82.00697334424765 L 492.20338983050846,93.13314545308963 L 502.03389830508473,156.86588635258278 L 511.864406779661,125.31269669030506 L 521.6949152542372,152.59325952809553 L 531.5254237288136,40.0 L 541.3559322033898,115.83568150256056 L 551.1864406779662,46.65857176160611 L 561.0169491525423,164.32581970387065 L 570.8474576271186,152.42542247510352 L 580.6779661016949,94.27801908046067 L 590.5084745762712,84.00947656274039 L 600.3389830508474,114.06664567395595 L 610.1694915254237,74.02987523794566 L 620.0,95.51323560916566" fill="none" stroke="#3b82f6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+<path d="M 40.0,197.73630752606485 L 49.83050847457627,196.98503460132108 L 59.66101694915254,197.59018461007818 L 69.49152542372882,199.48667059617887 L 79.32203389830508,195.14292086018656 L 89.15254237288136,198.6111374003235 L 98.98305084745763,198.41796612986855 L 108.8135593220339,196.0388163449421 L 118.64406779661017,199.10681740147874 L 128.47457627118644,197.3835298485791 L 138.3050847457627,198.55469902812175 L 148.135593220339,195.53368450631865 L 157.96610169491527,196.46933466902996 L 167.79661016949154,196.4350725666642 L 177.6271186440678,198.68764794309178 L 187.45762711864407,197.76896616726575 L 197.28813559322035,197.38244992731748 L 207.11864406779662,197.21278253548246 L 216.94915254237287,197.2416582534058 L 226.77966101694915,196.82826676278512 L 236.61016949152543,197.22904797329903 L 246.4406779661017,197.63563957595608 L 256.271186440678,198.8841280317502 L 266.10169491525426,198.73520281882742 L 275.93220338983053,196.00795733679672 L 285.7627118644068,197.44241214652584 L 295.5932203389831,200.0 L 305.4237288135593,197.98640476707223 L 315.2542372881356,196.09297909947904 L 325.08474576271186,195.76946233150585 L 334.91525423728814,196.33619273494048 L 344.7457627118644,198.36707661204156 L 354.5762711864407,198.87936763073918 L 364.40677966101697,96.00244070687711 L 374.23728813559325,138.84736872414345 L 384.06779661016947,40.0 L 393.89830508474574,66.60774835029531 L 403.728813559322,89.4164443772699 L 413.5593220338983,60.783703031962034 L 423.3898305084746,95.42055944253667 L 433.22033898305085,81.97919712897915 L 443.0508474576271,93.73943994927906 L 452.8813559322034,92.7949886266027 L 462.7118644067797,94.06621649971932 L 472.54237288135596,110.98297561410988 L 482.3728813559322,84.1334988546229 L 492.20338983050846,119.0541105856266 L 502.03389830508473,109.5335455720429 L 511.864406779661,109.64628802609967 L 521.6949152542372,94.9531985743299 L 531.5254237288136,87.17356266560016 L 541.3559322033898,83.28930066309152 L 551.1864406779662,72.06164095246399 L 561.0169491525423,77.17878662215904 L 570.8474576271186,89.59151367521108 L 580.6779661016949,89.0888509116712 L 590.5084745762712,72.66332443418135 L 600.3389830508474,86.57028559267154 L 610.1694915254237,109.4615835409175 L 620.0,86.95011782375713" fill="none" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+<path d="M 40.0,93.01003665848093 L 49.83050847457627,144.75505839351814 L 59.66101694915254,115.0634769547357 L 69.49152542372882,183.22113148200802 L 79.32203389830508,129.02624221766843 L 89.15254237288136,145.12755277143668 L 98.98305084745763,139.4691079067885 L 108.8135593220339,128.31301393890698 L 118.64406779661017,145.84358462091728 L 128.47457627118644,182.5921321945867 L 138.3050847457627,141.51325576024544 L 148.135593220339,104.02192568339237 L 157.96610169491527,134.11446267815398 L 167.79661016949154,119.62876670607702 L 177.6271186440678,146.02688899932508 L 187.45762711864407,124.33187934932258 L 197.28813559322035,117.94547344629655 L 207.11864406779662,157.88845336843082 L 216.94915254237287,40.0 L 226.77966101694915,123.20424275499052 L 236.61016949152543,152.1167443074902 L 246.4406779661017,146.61471686376208 L 256.271186440678,112.05786998560215 L 266.10169491525426,61.313201083791796 L 275.93220338983053,200.0 L 285.7627118644068,116.02315610859449 L 295.5932203389831,126.118400070575 L 305.4237288135593,92.55139047100673 L 315.2542372881356,73.31138469191359 L 325.08474576271186,106.40880136132148 L 334.91525423728814,56.007725513859356 L 344.7457627118644,101.16304906661722 L 354.5762711864407,137.15042871256932 L 364.40677966101697,99.72898790270085 L 374.23728813559325,49.307939326207475 L 384.06779661016947,102.09719854731675 L 393.89830508474574,185.0105275488073 L 403.728813559322,105.5074785624648 L 413.5593220338983,117.28221589490717 L 423.3898305084746,117.83155030082143 L 433.22033898305085,146.41431133724785 L 443.0508474576271,118.0856241866421 L 452.8813559322034,92.95406416724036 L 462.7118644067797,128.21019516249356 L 472.54237288135596,91.24713726050012 L 482.3728813559322,108.6892475757338 L 492.20338983050846,120.00009566042931 L 502.03389830508473,76.45901366365467 L 511.864406779661,133.33896157038 L 521.6949152542372,96.3831282182734 L 531.5254237288136,76.5344010037952 L 541.3559322033898,89.88560353869596 L 551.1864406779662,124.77200495436654 L 561.0169491525423,79.65356248719999 L 570.8474576271186,121.28134579952945 L 580.6779661016949,130.9017848545183 L 590.5084745762712,78.2321900782961 L 600.3389830508474,89.63139530332028 L 610.1694915254237,155.1063002031305 L 620.0,78.01213981680101" fill="none" stroke="#f59e0b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+<path d="M 40.0,127.39457314644321 L 49.83050847457627,87.2891304651403 L 59.66101694915254,80.78693679871336 L 69.49152542372882,157.6664009253222 L 79.32203389830508,93.84498839598167 L 89.15254237288136,182.72352478150205 L 98.98305084745763,104.73799619124739 L 108.8135593220339,133.8439440993395 L 118.64406779661017,197.36387064838632 L 128.47457627118644,110.58354515495046 L 138.3050847457627,101.42007874944575 L 148.135593220339,154.40975969639626 L 157.96610169491527,181.0534355033454 L 167.79661016949154,135.02624743088248 L 177.6271186440678,115.79046399372432 L 187.45762711864407,134.21977176264795 L 197.28813559322035,40.004079742479036 L 207.11864406779662,154.73234684737062 L 216.94915254237287,168.2712972619999 L 226.77966101694915,193.42961065656945 L 236.61016949152543,77.63184913550634 L 246.4406779661017,62.39738088641093 L 256.271186440678,192.34544821528104 L 266.10169491525426,116.19874869340363 L 275.93220338983053,95.0866674998062 L 285.7627118644068,119.2593031482269 L 295.5932203389831,179.06448090743567 L 305.4237288135593,107.90182894754889 L 315.2542372881356,90.45640148362483 L 325.08474576271186,153.81315649977864 L 334.91525423728814,85.56326461208624 L 344.7457627118644,71.93507397157364 L 354.5762711864407,143.76089492047868 L 364.40677966101697,135.70199477718035 L 374.23728813559325,150.52171046153993 L 384.06779661016947,101.55738053763193 L 393.89830508474574,88.36294511951019 L 403.728813559322,133.30444919294658 L 413.5593220338983,107.26898628936702 L 423.3898305084746,138.09861342705932 L 433.22033898305085,174.22292196678194 L 443.0508474576271,81.25506083500747 L 452.8813559322034,87.79038474329774 L 462.7118644067797,143.11655339078627 L 472.54237288135596,142.71487038096978 L 482.3728813559322,145.0487250841773 L 492.20338983050846,68.03433539610444 L 502.03389830508473,180.90460928959413 L 511.864406779661,119.53008025471371 L 521.6949152542372,146.96322748015308 L 531.5254237288136,175.9913922516896 L 541.3559322033898,200.0 L 551.1864406779662,82.46088787529749 L 561.0169491525423,60.45679309350663 L 570.8474576271186,126.59620112010673 L 580.6779661016949,123.41051523928836 L 590.5084745762712,108.93348355763993 L 600.3389830508474,82.06298553696445 L 610.1694915254237,40.0 L 620.0,103.47164883684387" fill="none" stroke="#8b5cf6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+<path d="M 40.0,96.05653761608949 L 49.83050847457627,124.12702036501021 L 59.66101694915254,142.28084775138205 L 69.49152542372882,106.4899290998389 L 79.32203389830508,94.13900905580871 L 89.15254237288136,95.74597301805296 L 98.98305084745763,40.0 L 108.8135593220339,114.0963642666717 L 118.64406779661017,83.55561012380835 L 128.47457627118644,78.0777338202367 L 138.3050847457627,65.90154880710412 L 148.135593220339,172.90268570325873 L 157.96610169491527,94.85737889025737 L 167.79661016949154,94.6217360720827 L 177.6271186440678,52.01118795614238 L 187.45762711864407,134.70846985313824 L 197.28813559322035,92.13200203002509 L 207.11864406779662,149.0627930343091 L 216.94915254237287,67.4387877295228 L 226.77966101694915,78.4555856228789 L 236.61016949152543,100.73220100697192 L 246.4406779661017,131.39150077293402 L 256.271186440678,132.6916385322051 L 266.10169491525426,130.87953192435756 L 275.93220338983053,179.72808015319757 L 285.7627118644068,46.11623845272473 L 295.5932203389831,107.37885764548011 L 305.4237288135593,97.89041997420742 L 315.2542372881356,133.34565376091146 L 325.08474576271186,158.74888971777705 L 334.91525423728814,133.8357270385924 L 344.7457627118644,134.18049874953766 L 354.5762711864407,156.37646464117816 L 364.40677966101697,130.7573917772111 L 374.23728813559325,151.5717876046056 L 384.06779661016947,190.9887202419635 L 393.89830508474574,99.06104394358391 L 403.728813559322,149.94523799268944 L 413.5593220338983,145.21834772408056 L 423.3898305084746,62.57194445201503 L 433.22033898305085,49.68984886470079 L 443.0508474576271,142.126797802605 L 452.8813559322034,63.98621952315662 L 462.7118644067797,114.80403778961544 L 472.54237288135596,166.1914170341874 L 482.3728813559322,65.11622412519773 L 492.20338983050846,59.62535946704213 L 502.03389830508473,200.0 L 511.864406779661,98.9735130148191 L 521.6949152542372,132.08794886362995 L 531.5254237288136,129.78969461578117 L 541.3559322033898,98.17010427438734 L 551.1864406779662,120.30077658010805 L 561.0169491525423,56.98498594984633 L 570.8474576271186,119.66021129996358 L 580.6779661016949,131.4362727191973 L 590.5084745762712,180.6415289423927 L 600.3389830508474,88.36911848993749 L 610.1694915254237,143.93104149801957 L 620.0,163.51571793588704" fill="none" stroke="#0ea5e9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+<rect x="45" y="5" width="10" height="10" rx="2" fill="#3b82f6" />
+<text x="60" y="14" fill="#94a3b8" font-family="Inter, sans-serif" font-size="10">M1 (Conveyor A)</text>
+<rect x="160" y="5" width="10" height="10" rx="2" fill="#10b981" />
+<text x="175" y="14" fill="#94a3b8" font-family="Inter, sans-serif" font-size="10">M2 (Motor Unit)</text>
+<rect x="275" y="5" width="10" height="10" rx="2" fill="#f59e0b" />
+<text x="290" y="14" fill="#94a3b8" font-family="Inter, sans-serif" font-size="10">M3 (Pump Unit)</text>
+<rect x="390" y="5" width="10" height="10" rx="2" fill="#8b5cf6" />
+<text x="405" y="14" fill="#94a3b8" font-family="Inter, sans-serif" font-size="10">M4 (Compressor)</text>
+<rect x="505" y="5" width="10" height="10" rx="2" fill="#0ea5e9" />
+<text x="520" y="14" fill="#94a3b8" font-family="Inter, sans-serif" font-size="10">M5 (Packaging)</text>
+</svg>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>Alerts Logged (26)</h2>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Time</th>
+                        <th>Machine</th>
+                        <th>Sensor</th>
+                        <th>Value</th>
+                        <th>SLM Risk Warning</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                <tr>
+                    <td>18:06:17</td>
+                    <td>FRM-201A</td>
+                    <td>Vibration Main Drive</td>
+                    <td>4.85</td>
+                    <td><em>Warning: Abnormal behavior detected on vibration_main_drive. Inspect machine FRM-201A immediately.</em></td>
+                </tr>
+                <tr>
+                    <td>18:06:21</td>
+                    <td>FRM-201A</td>
+                    <td>Vibration Main Drive</td>
+                    <td>3.65</td>
+                    <td><em>Warning: Abnormal behavior detected on vibration_main_drive. Inspect machine FRM-201A immediately.</em></td>
+                </tr>
+                <tr>
+                    <td>18:06:25</td>
+                    <td>FRM-201A</td>
+                    <td>Vibration Main Drive</td>
+                    <td>6.43</td>
+                    <td><em>Warning: Abnormal behavior detected on vibration_main_drive. Inspect machine FRM-201A immediately.</em></td>
+                </tr>
+                <tr>
+                    <td>18:06:29</td>
+                    <td>FRM-201A</td>
+                    <td>Vibration Main Drive</td>
+                    <td>5.68</td>
+                    <td><em>Warning: Abnormal behavior detected on vibration_main_drive. Inspect machine FRM-201A immediately.</em></td>
+                </tr>
+                <tr>
+                    <td>18:06:33</td>
+                    <td>FRM-201A</td>
+                    <td>Vibration Main Drive</td>
+                    <td>5.04</td>
+                    <td><em>Warning: Abnormal behavior detected on vibration_main_drive. Inspect machine FRM-201A immediately.</em></td>
+                </tr>
+                <tr>
+                    <td>18:06:37</td>
+                    <td>FRM-201A</td>
+                    <td>Vibration Main Drive</td>
+                    <td>5.84</td>
+                    <td><em>Warning: Abnormal behavior detected on vibration_main_drive. Inspect machine FRM-201A immediately.</em></td>
+                </tr>
+                <tr>
+                    <td>18:06:42</td>
+                    <td>FRM-201A</td>
+                    <td>Vibration Main Drive</td>
+                    <td>4.87</td>
+                    <td><em>Warning: Abnormal behavior detected on vibration_main_drive. Inspect machine FRM-201A immediately.</em></td>
+                </tr>
+                <tr>
+                    <td>18:06:46</td>
+                    <td>FRM-201A</td>
+                    <td>Vibration Main Drive</td>
+                    <td>5.25</td>
+                    <td><em>Warning: Abnormal behavior detected on vibration_main_drive. Inspect machine FRM-201A immediately.</em></td>
+                </tr>
+                <tr>
+                    <td>18:06:50</td>
+                    <td>FRM-201A</td>
+                    <td>Vibration Main Drive</td>
+                    <td>4.92</td>
+                    <td><em>Warning: Abnormal behavior detected on vibration_main_drive. Inspect machine FRM-201A immediately.</em></td>
+                </tr>
+                <tr>
+                    <td>18:06:54</td>
+                    <td>FRM-201A</td>
+                    <td>Vibration Main Drive</td>
+                    <td>4.94</td>
+                    <td><em>Warning: Abnormal behavior detected on vibration_main_drive. Inspect machine FRM-201A immediately.</em></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="section">
+            <h2>Incidents Tracked (3)</h2>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Incident ID</th>
+                        <th>Machine</th>
+                        <th>Failure Mode</th>
+                        <th>Status</th>
+                        <th>Started At</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                <tr>
+                    <td><strong>INC-1781526977</strong></td>
+                    <td>FRM-201A</td>
+                    <td>FM-101 Motor Bearing Failure</td>
+                    <td><span class="badge badge-green">CLOSED</span></td>
+                    <td>2026-06-15 18:06:17</td>
+                </tr>
+                <tr>
+                    <td><strong>INC-1781527014</strong></td>
+                    <td>FRM-201A</td>
+                    <td>FM-101 Motor Bearing Failure</td>
+                    <td><span class="badge badge-green">CLOSED</span></td>
+                    <td>2026-06-15 18:06:54</td>
+                </tr>
+                <tr>
+                    <td><strong>INC-1781527048</strong></td>
+                    <td>FRM-201A</td>
+                    <td>FM-101 Motor Bearing Failure</td>
+                    <td><span class="badge badge-red">OPEN</span></td>
+                    <td>2026-06-15 18:07:28</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="section">
+            <h2>Instructions for Next Shift</h2>
+            <ul>
+                <li>Monitor the forming mill and welding stand telemetry closely.</li><li>Verify LOTO status on any machines flagged during maintenance inspections.</li><li>Conduct routine visual inspections of hydraulic pumps and bearings at shift start.</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

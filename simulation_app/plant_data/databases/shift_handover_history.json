@@ -1,0 +1,2918 @@
+[
+  {
+    "report_id": "SHR-2026-0611-A",
+    "shift_id": "A",
+    "date": "2026-06-11",
+    "shift_start": "2026-06-11T06:00:00",
+    "shift_end": "2026-06-11T14:00:00",
+    "supervisor": "EMP-006",
+    "supervisor_name": "Suresh Patil",
+    "crew_present": [
+      "EMP-009",
+      "EMP-012",
+      "EMP-014",
+      "EMP-016",
+      "EMP-018",
+      "EMP-026",
+      "EMP-019",
+      "EMP-020",
+      "EMP-035"
+    ],
+    "crew_absent": [
+      "EMP-027"
+    ],
+    "absence_reason": "EMP-027 (Rahul Desai) \u2014 Casual leave. Material handling done by helper EMP-035.",
+    "production_summary": {
+      "line_a": {
+        "product": "SP-ERW-50 (50mm OD, Medium, 3.2mm wall)",
+        "coils_processed": 8,
+        "pipes_produced": 1240,
+        "total_length_meters": 7440,
+        "total_weight_mt": 18.2,
+        "target_mt": 20,
+        "achievement_pct": 91
+      },
+      "line_b": {
+        "status": "not_running",
+        "reason": "Roll changeover scheduled"
+      }
+    },
+    "machine_status": [
+      {
+        "machine_id": "CNC-101A",
+        "status": "running",
+        "health_notes": "Operating normally. Vibration slitting head: 2.1 mm/s. New coil batch loaded at 11:30 \u2014 good quality.",
+        "issues": []
+      },
+      {
+        "machine_id": "FRM-201A",
+        "status": "running",
+        "health_notes": "Running well. Speed 55 m/min. Motor current 165A (normal).",
+        "issues": [
+          "UJ shaft #4 showing slight play \u2014 monitor next shift. Not critical yet."
+        ]
+      },
+      {
+        "machine_id": "WLD-301A",
+        "status": "running",
+        "health_notes": "Weld quality good. ECT signal: 25 mV (well within limits). RF power: 220 kW.",
+        "issues": [
+          "Impeder replaced at 09:15 (cracked ferrite \u2014 normal wear). New one installed, took 20 min."
+        ]
+      },
+      {
+        "machine_id": "HTR-401A",
+        "status": "running",
+        "health_notes": "Furnace temperature stable at 895\u00b0C. All 6 coils balanced.",
+        "issues": [
+          "Cooling bed roller #18 making slight noise. Bearing may need attention within 1-2 weeks."
+        ]
+      },
+      {
+        "machine_id": "PKG-501A",
+        "status": "running",
+        "health_notes": "Hydro test: 50 bar (Medium class). All tests passed. 3 pipes rejected for ovality.",
+        "issues": []
+      }
+    ],
+    "alarms_events": [
+      {
+        "time": "2026-06-11T07:23:00",
+        "machine_id": "CNC-101A",
+        "alarm": "Accumulator pit full (downstream stopped for 3 min)",
+        "severity": "low",
+        "resolved": true,
+        "resolution": "FRM-201A had a brief roll adjustment stop. Resolved in 3 min."
+      },
+      {
+        "time": "2026-06-11T09:15:00",
+        "machine_id": "WLD-301A",
+        "alarm": "Impeder temperature high (280\u00b0C)",
+        "severity": "medium",
+        "resolved": true,
+        "resolution": "Impeder cracked. Replaced with new ferrite rod. Back in production by 09:35."
+      },
+      {
+        "time": "2026-06-11T12:45:00",
+        "machine_id": "HTR-401A",
+        "alarm": "Pyrometer #1 reading fluctuation (\u00b120\u00b0C)",
+        "severity": "low",
+        "resolved": true,
+        "resolution": "Lens cleaned. Reading stabilized."
+      }
+    ],
+    "safety_observations": [
+      "All personnel wearing correct PPE \u2014 verified at 08:00 round.",
+      "Fire extinguisher #Z4-02 pressure gauge showing yellow zone \u2014 reported to HSE for replacement.",
+      "Near-miss: Loose strapping band on floor near PKG-501A at 11:20. Cleaned immediately."
+    ],
+    "quality_issues": [
+      "3 pipes rejected at QC for ovality >2% (1.5% limit). Root cause: FRM-201A fin pass roll gap slightly off. Adjusted at 13:00."
+    ],
+    "pending_maintenance": [
+      "FRM-201A UJ shaft #4 \u2014 monitor play, may need spider replacement next week.",
+      "HTR-401A cooling bed roller #18 \u2014 bearing noise, schedule replacement in next planned downtime."
+    ],
+    "instructions_for_next_shift": [
+      "Continue with SP-ERW-50 production on Line A. 4 more coils in queue.",
+      "Watch FRM-201A UJ shaft #4 \u2014 report if vibration increases.",
+      "Fire extinguisher Z4-02 has been reported \u2014 do not rely on it until replaced.",
+      "Material handler absent today \u2014 helper Ajay is handling material with crane operator."
+    ],
+    "handover_to": "EMP-007",
+    "handover_acknowledged": true,
+    "handover_time": "2026-06-11T13:50:00"
+  },
+  {
+    "report_id": "SHR-2026-0611-B",
+    "shift_id": "B",
+    "date": "2026-06-11",
+    "shift_start": "2026-06-11T14:00:00",
+    "shift_end": "2026-06-11T22:00:00",
+    "supervisor": "EMP-007",
+    "supervisor_name": "Mohammed Rizwan",
+    "crew_present": [
+      "EMP-010",
+      "EMP-013",
+      "EMP-015",
+      "EMP-017",
+      "EMP-033",
+      "EMP-021",
+      "EMP-022",
+      "EMP-036"
+    ],
+    "crew_absent": [],
+    "absence_reason": null,
+    "production_summary": {
+      "line_a": {
+        "product": "SP-ERW-50 (50mm OD, Medium, 3.2mm wall)",
+        "coils_processed": 7,
+        "pipes_produced": 1085,
+        "total_length_meters": 6510,
+        "total_weight_mt": 15.9,
+        "target_mt": 20,
+        "achievement_pct": 79.5
+      },
+      "line_b": {
+        "status": "not_running",
+        "reason": "Roll changeover in progress"
+      }
+    },
+    "machine_status": [
+      {
+        "machine_id": "CNC-101A",
+        "status": "running",
+        "health_notes": "Normal operation. Vibration: 2.3 mm/s. Processed 4 coils from morning queue.",
+        "issues": [
+          "Coil #CR-2026-1547 had edge crack \u2014 strip broke at 16:45. Re-threaded in 20 min. Remaining coil used at reduced tension (15 kN vs 20 kN)."
+        ]
+      },
+      {
+        "machine_id": "FRM-201A",
+        "status": "running",
+        "health_notes": "Speed reduced to 45 m/min after UJ shaft #4 play increased (reported by morning shift). Vibration: 3.2 mm/s (monitoring).",
+        "issues": [
+          "UJ shaft #4 play is worse than morning. Vibration now 3.2 mm/s (was 2.4 in morning). Recommend spider replacement ASAP."
+        ]
+      },
+      {
+        "machine_id": "WLD-301A",
+        "status": "running",
+        "health_notes": "Weld quality OK. ECT: 30 mV. Power: 225 kW.",
+        "issues": [
+          "Noticed slight increase in weld bead height \u2014 scarfing tool may be wearing. Will measure tomorrow."
+        ]
+      },
+      {
+        "machine_id": "HTR-401A",
+        "status": "running",
+        "health_notes": "Temperature: 892\u00b0C (stable). All coils OK.",
+        "issues": [
+          "Cooling bed roller #18 noise louder than morning shift reported. Maintenance notified."
+        ]
+      },
+      {
+        "machine_id": "PKG-501A",
+        "status": "running",
+        "health_notes": "All hydro tests passed. 1 pipe rejected for wall thickness (3.5mm vs min 3.6mm required).",
+        "issues": []
+      }
+    ],
+    "alarms_events": [
+      {
+        "time": "2026-06-11T16:45:00",
+        "machine_id": "CNC-101A",
+        "alarm": "Strip tension zero \u2014 strip break detected",
+        "severity": "medium",
+        "resolved": true,
+        "resolution": "Edge crack in coil. Re-threaded. Continued at reduced tension."
+      },
+      {
+        "time": "2026-06-11T19:30:00",
+        "machine_id": "FRM-201A",
+        "alarm": "Vibration warning \u2014 main drive 3.2 mm/s",
+        "severity": "medium",
+        "resolved": false,
+        "resolution": "Speed reduced to 45 m/min as precaution. Spider replacement needed."
+      }
+    ],
+    "safety_observations": [
+      "PPE check at 16:00 \u2014 all OK.",
+      "EMP-036 (Mukesh) reminded to use ear plugs near forming mill.",
+      "Fire exit B path partially blocked by empty pallets for 13 minutes (19:10-19:23). Cleared by helper."
+    ],
+    "quality_issues": [
+      "1 pipe rejected for wall thickness variation. Material from coil #CR-2026-1547 (same coil with edge crack) \u2014 quarantined for review."
+    ],
+    "pending_maintenance": [
+      "URGENT: FRM-201A UJ shaft #4 spider \u2014 replacement needed within 24 hrs. Speed reduced as interim.",
+      "HTR-401A cooling bed roller #18 \u2014 noise increasing. Schedule ASAP.",
+      "WLD-301A scarfing tool wear \u2014 measure and replace if >2.5mm."
+    ],
+    "instructions_for_next_shift": [
+      "FRM-201A running at reduced speed (45 m/min) due to UJ #4 issue. DO NOT increase speed.",
+      "Coil #CR-2026-1547 quarantined in bay 3. Do not use.",
+      "Fire exit B was blocked briefly \u2014 ensure pallets are stored in designated area only.",
+      "Line B roll changeover 60% complete \u2014 mechanical team will continue tomorrow morning."
+    ],
+    "handover_to": "EMP-008",
+    "handover_acknowledged": true,
+    "handover_time": "2026-06-11T21:50:00"
+  },
+  {
+    "report_id": "SHR-2026-0611-C",
+    "shift_id": "C",
+    "date": "2026-06-11",
+    "shift_start": "2026-06-11T22:00:00",
+    "shift_end": "2026-06-12T06:00:00",
+    "supervisor": "EMP-008",
+    "supervisor_name": "Ganesh Naidu",
+    "crew_present": [
+      "EMP-011",
+      "EMP-030",
+      "EMP-031",
+      "EMP-032",
+      "EMP-034",
+      "EMP-023"
+    ],
+    "crew_absent": [],
+    "absence_reason": null,
+    "production_summary": {
+      "line_a": {
+        "product": "SP-ERW-50 (50mm OD, Medium, 3.2mm wall)",
+        "coils_processed": 5,
+        "pipes_produced": 820,
+        "total_length_meters": 4920,
+        "total_weight_mt": 12.1,
+        "target_mt": 20,
+        "achievement_pct": 60.5
+      },
+      "line_b": {
+        "status": "not_running",
+        "reason": "Roll changeover pending"
+      }
+    },
+    "machine_status": [
+      {
+        "machine_id": "CNC-101A",
+        "status": "running",
+        "health_notes": "Normal. Vibration: 2.0 mm/s. Good coils processed tonight.",
+        "issues": []
+      },
+      {
+        "machine_id": "FRM-201A",
+        "status": "running_reduced",
+        "health_notes": "Running at 40 m/min (further reduced from 45). UJ #4 vibration: 3.8 mm/s. Getting worse.",
+        "issues": [
+          "CRITICAL: UJ shaft #4 vibration 3.8 mm/s. Spider must be replaced first thing in morning shift. Reduced speed to 40 m/min at 02:00.",
+          "Production rate significantly affected due to speed reduction."
+        ]
+      },
+      {
+        "machine_id": "WLD-301A",
+        "status": "running",
+        "health_notes": "Weld OK. ECT: 28 mV. Scarfing tool measured at shift start: 2.2mm wear (limit: 3mm). Has some life left but should be replaced soon.",
+        "issues": []
+      },
+      {
+        "machine_id": "HTR-401A",
+        "status": "running",
+        "health_notes": "Furnace stable at 890\u00b0C.",
+        "issues": [
+          "Cooling bed roller #18 bearing making grinding sound now. EMP-023 applied grease but noise persists. Needs replacement."
+        ]
+      },
+      {
+        "machine_id": "PKG-501A",
+        "status": "running",
+        "health_notes": "All pipes tested OK this shift. No rejects.",
+        "issues": []
+      }
+    ],
+    "alarms_events": [
+      {
+        "time": "2026-06-12T01:45:00",
+        "machine_id": "FRM-201A",
+        "alarm": "Vibration warning \u2014 main drive UJ area 3.8 mm/s",
+        "severity": "high",
+        "resolved": false,
+        "resolution": "Speed reduced to 40 m/min. Spider replacement scheduled for morning."
+      },
+      {
+        "time": "2026-06-12T03:10:00",
+        "machine_id": "HTR-401A",
+        "alarm": "Cooling bed roller #18 \u2014 abnormal noise detected by operator",
+        "severity": "medium",
+        "resolved": false,
+        "resolution": "Grease applied but noise persists. Bearing replacement needed."
+      },
+      {
+        "time": "2026-06-12T04:30:00",
+        "machine_id": null,
+        "alarm": "Power fluctuation \u2014 voltage dip on main bus (390V for 0.5 sec)",
+        "severity": "low",
+        "resolved": true,
+        "resolution": "Grid fluctuation. UPS protected control systems. No machine trips."
+      }
+    ],
+    "safety_observations": [
+      "Night safety round at 00:30 \u2014 all OK.",
+      "EMP-032 (Vivek) was not wearing face shield near furnace at 03:15 \u2014 reminded immediately. Wore shield after.",
+      "Emergency lighting tested during power dip \u2014 all working.",
+      "All fire exits clear."
+    ],
+    "quality_issues": [
+      "No quality rejects this shift."
+    ],
+    "pending_maintenance": [
+      "URGENT \u2014 CARRY OVER: FRM-201A UJ #4 spider replacement. Vibration 3.8 mm/s. Must be done today.",
+      "CARRY OVER: HTR-401A cooling bed roller #18 bearing. Grinding noise. Schedule today.",
+      "WLD-301A scarfing tool at 2.2mm wear. Replace before it reaches 3mm limit."
+    ],
+    "instructions_for_next_shift": [
+      "FRM-201A at 40 m/min ONLY. UJ #4 vibration 3.8 mm/s. Maintenance manager EMP-003 informed. Spider replacement first priority.",
+      "HTR-401A roller #18 bearing needs replacement today.",
+      "WLD-301A scarfing tool wear at 2.2mm \u2014 keep spare ready.",
+      "Line B changeover still pending \u2014 check with maintenance for ETA.",
+      "Production behind target due to FRM-201A speed reduction \u2014 total today: 46.2 MT vs 60 MT target."
+    ],
+    "handover_to": "EMP-006",
+    "handover_acknowledged": true,
+    "handover_time": "2026-06-12T05:50:00"
+  },
+  {
+    "report_id": "SHR-2026-0612-A",
+    "shift_id": "A",
+    "date": "2026-06-12",
+    "shift_start": "2026-06-12T06:00:00",
+    "shift_end": "2026-06-12T14:00:00",
+    "supervisor": "EMP-006",
+    "supervisor_name": "Suresh Patil",
+    "crew_present": [
+      "EMP-009",
+      "EMP-012",
+      "EMP-014",
+      "EMP-016",
+      "EMP-018",
+      "EMP-026",
+      "EMP-027",
+      "EMP-019",
+      "EMP-020",
+      "EMP-035"
+    ],
+    "crew_absent": [],
+    "absence_reason": null,
+    "production_summary": {
+      "line_a": {
+        "product": "SP-ERW-50 (50mm OD, Medium, 3.2mm wall)",
+        "coils_processed": 6,
+        "pipes_produced": 980,
+        "total_length_meters": 5880,
+        "total_weight_mt": 14.4,
+        "target_mt": 20,
+        "achievement_pct": 72
+      },
+      "line_b": {
+        "status": "not_running",
+        "reason": "Roll changeover completed. Trial run scheduled for B-shift."
+      }
+    },
+    "machine_status": [
+      {
+        "machine_id": "CNC-101A",
+        "status": "running",
+        "health_notes": "Normal operation. Vibration: 1.9 mm/s.",
+        "issues": []
+      },
+      {
+        "machine_id": "FRM-201A",
+        "status": "maintenance_completed",
+        "health_notes": "UJ shaft #4 spider replaced by EMP-019 between 06:30-08:30 (2 hrs downtime). Post-repair vibration: 1.6 mm/s. Speed restored to 60 m/min.",
+        "issues": [
+          "2 hours downtime for UJ repair. But machine now running perfectly."
+        ]
+      },
+      {
+        "machine_id": "WLD-301A",
+        "status": "running",
+        "health_notes": "Scarfing tool replaced at 07:00 (preventive \u2014 wear was 2.2mm). New tool installed. Weld quality excellent.",
+        "issues": []
+      },
+      {
+        "machine_id": "HTR-401A",
+        "status": "running",
+        "health_notes": "Furnace OK. Cooling bed roller #18 bearing replaced by EMP-019 at 10:00 (1 hour downtime during production gap). Noise eliminated.",
+        "issues": []
+      },
+      {
+        "machine_id": "PKG-501A",
+        "status": "running",
+        "health_notes": "All tests passing. 2 pipes rejected for length (5.98m vs 6.0m minimum).",
+        "issues": []
+      }
+    ],
+    "alarms_events": [],
+    "safety_observations": [
+      "All PPE compliance checked \u2014 100%.",
+      "Fire extinguisher Z4-02 replaced by HSE team at 09:00.",
+      "Safety toolbox talk conducted at 06:15 \u2014 topic: Proper LOTO procedure."
+    ],
+    "quality_issues": [
+      "2 pipes short by 2cm \u2014 flying shear timing slightly off. Calibrated at 12:00."
+    ],
+    "pending_maintenance": [
+      "Line B roll changeover complete. Trial run scheduled for B-shift today.",
+      "All urgent items from previous shifts resolved."
+    ],
+    "instructions_for_next_shift": [
+      "FRM-201A repaired \u2014 UJ #4 replaced. Running at 60 m/min. All good.",
+      "HTR-401A roller #18 replaced. No more noise.",
+      "WLD-301A scarfing tool replaced.",
+      "Line B changeover done \u2014 please conduct trial run with test pipes.",
+      "Flying shear calibrated \u2014 verify first 10 pipe lengths."
+    ],
+    "handover_to": "EMP-007",
+    "handover_acknowledged": true,
+    "handover_time": "2026-06-12T13:50:00"
+  },
+  {
+    "report_id": "SHR-20260615-C225",
+    "shift_id": "A",
+    "date": "2026-06-15",
+    "shift_start": "2026-06-15T06:00:00",
+    "shift_end": "2026-06-15T18:00:00",
+    "supervisor": "EMP-006",
+    "supervisor_name": "Supervisor (Plant Manager)",
+    "crew_present": [
+      "EMP-009",
+      "EMP-012",
+      "EMP-014",
+      "EMP-016"
+    ],
+    "crew_absent": [],
+    "absence_reason": null,
+    "production_summary": {
+      "line_a": {
+        "product": "SP-ERW-50 (50mm OD, Medium)",
+        "coils_processed": 5,
+        "pipes_produced": 850,
+        "achievement_pct": 90
+      }
+    },
+    "machine_status": [
+      {
+        "machine_id": "CNC-101A",
+        "status": "running",
+        "health_notes": "Monitored during Day Shift.",
+        "issues": []
+      },
+      {
+        "machine_id": "FRM-201A",
+        "status": "critical",
+        "health_notes": "Monitored during Day Shift.",
+        "issues": [
+          "FM-101 Motor Bearing Failure",
+          "FM-101 Motor Bearing Failure",
+          "FM-101 Motor Bearing Failure"
+        ]
+      },
+      {
+        "machine_id": "WLD-301A",
+        "status": "running",
+        "health_notes": "Monitored during Day Shift.",
+        "issues": []
+      },
+      {
+        "machine_id": "HTR-401A",
+        "status": "running",
+        "health_notes": "Monitored during Day Shift.",
+        "issues": []
+      },
+      {
+        "machine_id": "PKG-501A",
+        "status": "running",
+        "health_notes": "Monitored during Day Shift.",
+        "issues": []
+      }
+    ],
+    "alarms_events": [
+      {
+        "time": "18:06:17",
+        "machine_id": "FRM-201A",
+        "alarm": "Warning: Abnormal behavior detected on vibration_main_drive. Inspect machine FRM-201A immediately.",
+        "severity": "medium",
+        "resolved": true,
+        "resolution": "System normalized."
+      },
+      {
+        "time": "18:06:21",
+        "machine_id": "FRM-201A",
+        "alarm": "Warning: Abnormal behavior detected on vibration_main_drive. Inspect machine FRM-201A immediately.",
+        "severity": "medium",
+        "resolved": true,
+        "resolution": "System normalized."
+      },
+      {
+        "time": "18:06:25",
+        "machine_id": "FRM-201A",
+        "alarm": "Warning: Abnormal behavior detected on vibration_main_drive. Inspect machine FRM-201A immediately.",
+        "severity": "medium",
+        "resolved": true,
+        "resolution": "System normalized."
+      },
+      {
+        "time": "18:06:29",
+        "machine_id": "FRM-201A",
+        "alarm": "Warning: Abnormal behavior detected on vibration_main_drive. Inspect machine FRM-201A immediately.",
+        "severity": "medium",
+        "resolved": true,
+        "resolution": "System normalized."
+      },
+      {
+        "time": "18:06:33",
+        "machine_id": "FRM-201A",
+        "alarm": "Warning: Abnormal behavior detected on vibration_main_drive. Inspect machine FRM-201A immediately.",
+        "severity": "medium",
+        "resolved": true,
+        "resolution": "System normalized."
+      }
+    ],
+    "safety_observations": [
+      "All PPE compliance checked \u2014 100%."
+    ],
+    "quality_issues": [],
+    "pending_maintenance": [
+      "FM-101 Motor Bearing Failure"
+    ],
+    "instructions_for_next_shift": [
+      "Monitor the forming mill and welding stand telemetry closely.",
+      "Verify LOTO status on any machines flagged during maintenance inspections.",
+      "Conduct routine visual inspections of hydraulic pumps and bearings at shift start."
+    ],
+    "handover_to": "EMP-007",
+    "handover_acknowledged": true,
+    "handover_time": "2026-06-15T18:08:09.251717"
+  },
+  {
+    "report_id": "SHR-20260615-2709",
+    "shift_id": "A",
+    "date": "2026-06-15",
+    "shift_start": "2026-06-15T06:00:00",
+    "shift_end": "2026-06-15T18:00:00",
+    "supervisor": "EMP-006",
+    "supervisor_name": "Supervisor (Plant Manager)",
+    "crew_present": [
+      "EMP-009",
+      "EMP-012",
+      "EMP-014",
+      "EMP-016"
+    ],
+    "crew_absent": [],
+    "absence_reason": null,
+    "production_summary": {
+      "line_a": {
+        "product": "SP-ERW-50 (50mm OD, Medium)",
+        "coils_processed": 5,
+        "pipes_produced": 850,
+        "achievement_pct": 90
+      }
+    },
+    "machine_status": [
+      {
+        "machine_id": "CNC-101A",
+        "status": "running",
+        "health_notes": "Monitored during Day Shift.",
+        "issues": []
+      },
+      {
+        "machine_id": "FRM-201A",
+        "status": "critical",
+        "health_notes": "Monitored during Day Shift.",
+        "issues": [
+          "FM-101 Motor Bearing Failure"
+        ]
+      },
+      {
+        "machine_id": "WLD-301A",
+        "status": "running",
+        "health_notes": "Monitored during Day Shift.",
+        "issues": []
+      },
+      {
+        "machine_id": "HTR-401A",
+        "status": "running",
+        "health_notes": "Monitored during Day Shift.",
+        "issues": []
+      },
+      {
+        "machine_id": "PKG-501A",
+        "status": "running",
+        "health_notes": "Monitored during Day Shift.",
+        "issues": []
+      }
+    ],
+    "alarms_events": [
+      {
+        "time": "18:08:07",
+        "machine_id": "FRM-201A",
+        "alarm": "Warning: Abnormal behavior detected on vibration_main_drive. Inspect machine FRM-201A immediately.",
+        "severity": "medium",
+        "resolved": true,
+        "resolution": "System normalized."
+      },
+      {
+        "time": "18:08:11",
+        "machine_id": "FRM-201A",
+        "alarm": "Warning: Abnormal behavior detected on vibration_main_drive. Inspect machine FRM-201A immediately.",
+        "severity": "medium",
+        "resolved": true,
+        "resolution": "System normalized."
+      },
+      {
+        "time": "18:08:15",
+        "machine_id": "FRM-201A",
+        "alarm": "Warning: Abnormal behavior detected on vibration_main_drive. Inspect machine FRM-201A immediately.",
+        "severity": "medium",
+        "resolved": true,
+        "resolution": "System normalized."
+      },
+      {
+        "time": "18:08:20",
+        "machine_id": "FRM-201A",
+        "alarm": "Warning: Abnormal behavior detected on vibration_main_drive. Inspect machine FRM-201A immediately.",
+        "severity": "medium",
+        "resolved": true,
+        "resolution": "System normalized."
+      },
+      {
+        "time": "18:08:24",
+        "machine_id": "FRM-201A",
+        "alarm": "Warning: Abnormal behavior detected on vibration_main_drive. Inspect machine FRM-201A immediately.",
+        "severity": "medium",
+        "resolved": true,
+        "resolution": "System normalized."
+      }
+    ],
+    "safety_observations": [
+      "All PPE compliance checked \u2014 100%."
+    ],
+    "quality_issues": [],
+    "pending_maintenance": [
+      "FM-101 Motor Bearing Failure"
+    ],
+    "instructions_for_next_shift": [
+      "Monitor the forming mill and welding stand telemetry closely.",
+      "Verify LOTO status on any machines flagged during maintenance inspections.",
+      "Conduct routine visual inspections of hydraulic pumps and bearings at shift start."
+    ],
+    "handover_to": "EMP-007",
+    "handover_acknowledged": true,
+    "handover_time": "2026-06-15T18:09:55.463212"
+  },
+  {
+    "report_id": "SHR-20260615-444A",
+    "shift_id": "A",
+    "date": "2026-06-15",
+    "shift_start": "2026-06-15T06:00:00",
+    "shift_end": "2026-06-15T18:00:00",
+    "supervisor": "EMP-006",
+    "supervisor_name": "Supervisor (Plant Manager)",
+    "crew_present": [
+      "EMP-009",
+      "EMP-012",
+      "EMP-014",
+      "EMP-016"
+    ],
+    "crew_absent": [],
+    "absence_reason": null,
+    "production_summary": {
+      "line_a": {
+        "product": "SP-ERW-50 (50mm OD, Medium)",
+        "coils_processed": 5,
+        "pipes_produced": 850,
+        "achievement_pct": 90
+      }
+    },
+    "machine_status": [
+      {
+        "machine_id": "CNC-101A",
+        "status": "running",
+        "health_notes": "Monitored during Day Shift.",
+        "issues": []
+      },
+      {
+        "machine_id": "FRM-201A",
+        "status": "critical",
+        "health_notes": "Monitored during Day Shift.",
+        "issues": [
+          "FM-101 Motor Bearing Failure"
+        ]
+      },
+      {
+        "machine_id": "WLD-301A",
+        "status": "running",
+        "health_notes": "Monitored during Day Shift.",
+        "issues": []
+      },
+      {
+        "machine_id": "HTR-401A",
+        "status": "running",
+        "health_notes": "Monitored during Day Shift.",
+        "issues": []
+      },
+      {
+        "machine_id": "PKG-501A",
+        "status": "running",
+        "health_notes": "Monitored during Day Shift.",
+        "issues": []
+      }
+    ],
+    "alarms_events": [
+      {
+        "time": "18:09:54",
+        "machine_id": "FRM-201A",
+        "alarm": "Warning: Abnormal behavior detected on vibration_main_drive. Inspect machine FRM-201A immediately.",
+        "severity": "medium",
+        "resolved": true,
+        "resolution": "System normalized."
+      },
+      {
+        "time": "18:09:58",
+        "machine_id": "FRM-201A",
+        "alarm": "Warning: Abnormal behavior detected on vibration_main_drive. Inspect machine FRM-201A immediately.",
+        "severity": "medium",
+        "resolved": true,
+        "resolution": "System normalized."
+      },
+      {
+        "time": "18:10:02",
+        "machine_id": "FRM-201A",
+        "alarm": "Warning: Abnormal behavior detected on vibration_main_drive. Inspect machine FRM-201A immediately.",
+        "severity": "medium",
+        "resolved": true,
+        "resolution": "System normalized."
+      },
+      {
+        "time": "18:10:06",
+        "machine_id": "FRM-201A",
+        "alarm": "Warning: Abnormal behavior detected on vibration_main_drive. Inspect machine FRM-201A immediately.",
+        "severity": "medium",
+        "resolved": true,
+        "resolution": "System normalized."
+      },
+      {
+        "time": "18:10:10",
+        "machine_id": "FRM-201A",
+        "alarm": "Warning: Abnormal behavior detected on vibration_main_drive. Inspect machine FRM-201A immediately.",
+        "severity": "medium",
+        "resolved": true,
+        "resolution": "System normalized."
+      }
+    ],
+    "safety_observations": [
+      "All PPE compliance checked \u2014 100%."
+    ],
+    "quality_issues": [],
+    "pending_maintenance": [
+      "FM-101 Motor Bearing Failure"
+    ],
+    "instructions_for_next_shift": [
+      "Monitor the forming mill and welding stand telemetry closely.",
+      "Verify LOTO status on any machines flagged during maintenance inspections.",
+      "Conduct routine visual inspections of hydraulic pumps and bearings at shift start."
+    ],
+    "handover_to": "EMP-007",
+    "handover_acknowledged": true,
+    "handover_time": "2026-06-15T18:14:19.977034"
+  },
+  {
+    "report_id": "SHR-20260615-B061",
+    "shift_id": "B",
+    "date": "2026-06-15",
+    "shift_start": "2026-06-15T18:00:00",
+    "shift_end": "2026-06-15T06:00:00",
+    "supervisor": "EMP-006",
+    "supervisor_name": "Supervisor (Plant Manager)",
+    "crew_present": [
+      "EMP-009",
+      "EMP-012",
+      "EMP-014",
+      "EMP-016"
+    ],
+    "crew_absent": [],
+    "absence_reason": null,
+    "production_summary": {
+      "line_a": {
+        "product": "SP-ERW-50 (50mm OD, Medium)",
+        "coils_processed": 5,
+        "pipes_produced": 850,
+        "achievement_pct": 90
+      }
+    },
+    "machine_status": [
+      {
+        "machine_id": "CNC-101A",
+        "status": "running",
+        "health_notes": "Monitored during Night Shift.",
+        "issues": []
+      },
+      {
+        "machine_id": "FRM-201A",
+        "status": "critical",
+        "health_notes": "Monitored during Night Shift.",
+        "issues": [
+          "FM-101 Motor Bearing Failure"
+        ]
+      },
+      {
+        "machine_id": "WLD-301A",
+        "status": "running",
+        "health_notes": "Monitored during Night Shift.",
+        "issues": []
+      },
+      {
+        "machine_id": "HTR-401A",
+        "status": "running",
+        "health_notes": "Monitored during Night Shift.",
+        "issues": []
+      },
+      {
+        "machine_id": "PKG-501A",
+        "status": "running",
+        "health_notes": "Monitored during Night Shift.",
+        "issues": []
+      }
+    ],
+    "alarms_events": [
+      {
+        "time": "18:14:19",
+        "machine_id": "FRM-201A",
+        "alarm": "Warning: Abnormal behavior detected on vibration_main_drive. Inspect machine FRM-201A immediately.",
+        "severity": "medium",
+        "resolved": true,
+        "resolution": "System normalized."
+      },
+      {
+        "time": "18:14:23",
+        "machine_id": "FRM-201A",
+        "alarm": "Warning: Abnormal behavior detected on vibration_main_drive. Inspect machine FRM-201A immediately.",
+        "severity": "medium",
+        "resolved": true,
+        "resolution": "System normalized."
+      },
+      {
+        "time": "18:14:27",
+        "machine_id": "FRM-201A",
+        "alarm": "Warning: Abnormal behavior detected on vibration_main_drive. Inspect machine FRM-201A immediately.",
+        "severity": "medium",
+        "resolved": true,
+        "resolution": "System normalized."
+      },
+      {
+        "time": "18:14:31",
+        "machine_id": "FRM-201A",
+        "alarm": "Warning: Abnormal behavior detected on vibration_main_drive. Inspect machine FRM-201A immediately.",
+        "severity": "medium",
+        "resolved": true,
+        "resolution": "System normalized."
+      },
+      {
+        "time": "18:14:35",
+        "machine_id": "FRM-201A",
+        "alarm": "Warning: Abnormal behavior detected on vibration_main_drive. Inspect machine FRM-201A immediately.",
+        "severity": "medium",
+        "resolved": true,
+        "resolution": "System normalized."
+      }
+    ],
+    "safety_observations": [
+      "All PPE compliance checked \u2014 100%."
+    ],
+    "quality_issues": [],
+    "pending_maintenance": [
+      "FM-101 Motor Bearing Failure"
+    ],
+    "instructions_for_next_shift": [
+      "Monitor the forming mill and welding stand telemetry closely.",
+      "Verify LOTO status on any machines flagged during maintenance inspections.",
+      "Conduct routine visual inspections of hydraulic pumps and bearings at shift start."
+    ],
+    "handover_to": "EMP-007",
+    "handover_acknowledged": true,
+    "handover_time": "2026-06-15T18:19:56.747054"
+  },
+  {
+    "report_id": "SHR-20260615-4E35",
+    "shift_id": "A",
+    "date": "2026-06-15",
+    "shift_start": "2026-06-15T06:00:00",
+    "shift_end": "2026-06-15T18:00:00",
+    "supervisor": "EMP-006",
+    "supervisor_name": "Supervisor (Plant Manager)",
+    "crew_present": [
+      "EMP-009",
+      "EMP-012",
+      "EMP-014",
+      "EMP-016"
+    ],
+    "crew_absent": [],
+    "absence_reason": null,
+    "production_summary": {
+      "line_a": {
+        "product": "SP-ERW-50 (50mm OD, Medium)",
+        "coils_processed": 5,
+        "pipes_produced": 850,
+        "achievement_pct": 90
+      }
+    },
+    "machine_status": [
+      {
+        "machine_id": "CNC-101A",
+        "status": "running",
+        "health_notes": "Monitored during Day Shift.",
+        "issues": []
+      },
+      {
+        "machine_id": "FRM-201A",
+        "status": "critical",
+        "health_notes": "Monitored during Day Shift.",
+        "issues": [
+          "FM-101 Motor Bearing Failure"
+        ]
+      },
+      {
+        "machine_id": "WLD-301A",
+        "status": "running",
+        "health_notes": "Monitored during Day Shift.",
+        "issues": []
+      },
+      {
+        "machine_id": "HTR-401A",
+        "status": "running",
+        "health_notes": "Monitored during Day Shift.",
+        "issues": []
+      },
+      {
+        "machine_id": "PKG-501A",
+        "status": "running",
+        "health_notes": "Monitored during Day Shift.",
+        "issues": []
+      }
+    ],
+    "alarms_events": [
+      {
+        "time": "18:14:19",
+        "machine_id": "FRM-201A",
+        "alarm": "Warning: Abnormal behavior detected on vibration_main_drive. Inspect machine FRM-201A immediately.",
+        "severity": "medium",
+        "resolved": true,
+        "resolution": "System normalized."
+      },
+      {
+        "time": "18:14:23",
+        "machine_id": "FRM-201A",
+        "alarm": "Warning: Abnormal behavior detected on vibration_main_drive. Inspect machine FRM-201A immediately.",
+        "severity": "medium",
+        "resolved": true,
+        "resolution": "System normalized."
+      },
+      {
+        "time": "18:14:27",
+        "machine_id": "FRM-201A",
+        "alarm": "Warning: Abnormal behavior detected on vibration_main_drive. Inspect machine FRM-201A immediately.",
+        "severity": "medium",
+        "resolved": true,
+        "resolution": "System normalized."
+      },
+      {
+        "time": "18:14:31",
+        "machine_id": "FRM-201A",
+        "alarm": "Warning: Abnormal behavior detected on vibration_main_drive. Inspect machine FRM-201A immediately.",
+        "severity": "medium",
+        "resolved": true,
+        "resolution": "System normalized."
+      },
+      {
+        "time": "18:14:35",
+        "machine_id": "FRM-201A",
+        "alarm": "Warning: Abnormal behavior detected on vibration_main_drive. Inspect machine FRM-201A immediately.",
+        "severity": "medium",
+        "resolved": true,
+        "resolution": "System normalized."
+      }
+    ],
+    "safety_observations": [
+      "All PPE compliance checked \u2014 100%."
+    ],
+    "quality_issues": [],
+    "pending_maintenance": [
+      "FM-101 Motor Bearing Failure"
+    ],
+    "instructions_for_next_shift": [
+      "Monitor the forming mill and welding stand telemetry closely.",
+      "Verify LOTO status on any machines flagged during maintenance inspections.",
+      "Conduct routine visual inspections of hydraulic pumps and bearings at shift start."
+    ],
+    "handover_to": "EMP-007",
+    "handover_acknowledged": true,
+    "handover_time": "2026-06-15T18:19:57.539779"
+  },
+  {
+    "report_id": "SHR-20260615-8852",
+    "shift_id": "B",
+    "date": "2026-06-15",
+    "shift_start": "2026-06-15T18:00:00",
+    "shift_end": "2026-06-15T06:00:00",
+    "supervisor": "EMP-006",
+    "supervisor_name": "Supervisor (Plant Manager)",
+    "crew_present": [
+      "EMP-009",
+      "EMP-012",
+      "EMP-014",
+      "EMP-016"
+    ],
+    "crew_absent": [],
+    "absence_reason": null,
+    "production_summary": {
+      "line_a": {
+        "product": "SP-ERW-50 (50mm OD, Medium)",
+        "coils_processed": 5,
+        "pipes_produced": 850,
+        "achievement_pct": 90
+      }
+    },
+    "machine_status": [
+      {
+        "machine_id": "CNC-101A",
+        "status": "running",
+        "health_notes": "Monitored during Break Handover.",
+        "issues": []
+      },
+      {
+        "machine_id": "FRM-201A",
+        "status": "critical",
+        "health_notes": "Monitored during Break Handover.",
+        "issues": [
+          "FM-101 Motor Bearing Failure"
+        ]
+      },
+      {
+        "machine_id": "WLD-301A",
+        "status": "running",
+        "health_notes": "Monitored during Break Handover.",
+        "issues": []
+      },
+      {
+        "machine_id": "HTR-401A",
+        "status": "running",
+        "health_notes": "Monitored during Break Handover.",
+        "issues": []
+      },
+      {
+        "machine_id": "PKG-501A",
+        "status": "running",
+        "health_notes": "Monitored during Break Handover.",
+        "issues": []
+      }
+    ],
+    "alarms_events": [
+      {
+        "time": "18:19:59",
+        "machine_id": "FRM-201A",
+        "alarm": "Warning: Abnormal behavior detected on vibration_main_drive. Inspect machine FRM-201A immediately.",
+        "severity": "medium",
+        "resolved": true,
+        "resolution": "System normalized."
+      },
+      {
+        "time": "18:20:03",
+        "machine_id": "FRM-201A",
+        "alarm": "Warning: Abnormal behavior detected on vibration_main_drive. Inspect machine FRM-201A immediately.",
+        "severity": "medium",
+        "resolved": true,
+        "resolution": "System normalized."
+      },
+      {
+        "time": "18:20:07",
+        "machine_id": "FRM-201A",
+        "alarm": "Warning: Abnormal behavior detected on vibration_main_drive. Inspect machine FRM-201A immediately.",
+        "severity": "medium",
+        "resolved": true,
+        "resolution": "System normalized."
+      },
+      {
+        "time": "18:20:11",
+        "machine_id": "FRM-201A",
+        "alarm": "Warning: Abnormal behavior detected on vibration_main_drive. Inspect machine FRM-201A immediately.",
+        "severity": "medium",
+        "resolved": true,
+        "resolution": "System normalized."
+      },
+      {
+        "time": "18:20:15",
+        "machine_id": "FRM-201A",
+        "alarm": "Warning: Abnormal behavior detected on vibration_main_drive. Inspect machine FRM-201A immediately.",
+        "severity": "medium",
+        "resolved": true,
+        "resolution": "System normalized."
+      }
+    ],
+    "safety_observations": [
+      "All PPE compliance checked \u2014 100%."
+    ],
+    "quality_issues": [],
+    "pending_maintenance": [
+      "FM-101 Motor Bearing Failure"
+    ],
+    "instructions_for_next_shift": [
+      "Monitor the forming mill and welding stand telemetry closely.",
+      "Verify LOTO status on any machines flagged during maintenance inspections.",
+      "Conduct routine visual inspections of hydraulic pumps and bearings at shift start."
+    ],
+    "handover_to": "EMP-007",
+    "handover_acknowledged": true,
+    "handover_time": "2026-06-15T18:21:18.984196"
+  },
+  {
+    "report_id": "SHR-20260615-F793",
+    "shift_id": "A",
+    "date": "2026-06-15",
+    "shift_start": "2026-06-15T06:00:00",
+    "shift_end": "2026-06-15T18:00:00",
+    "supervisor": "EMP-006",
+    "supervisor_name": "Supervisor (Plant Manager)",
+    "crew_present": [
+      "EMP-009",
+      "EMP-012",
+      "EMP-014",
+      "EMP-016"
+    ],
+    "crew_absent": [],
+    "absence_reason": null,
+    "production_summary": {
+      "line_a": {
+        "product": "SP-ERW-50 (50mm OD, Medium)",
+        "coils_processed": 5,
+        "pipes_produced": 850,
+        "achievement_pct": 90
+      }
+    },
+    "machine_status": [
+      {
+        "machine_id": "CNC-101A",
+        "status": "running",
+        "health_notes": "Monitored during Day Shift.",
+        "issues": []
+      },
+      {
+        "machine_id": "FRM-201A",
+        "status": "critical",
+        "health_notes": "Monitored during Day Shift.",
+        "issues": [
+          "FM-101 Motor Bearing Failure"
+        ]
+      },
+      {
+        "machine_id": "WLD-301A",
+        "status": "running",
+        "health_notes": "Monitored during Day Shift.",
+        "issues": []
+      },
+      {
+        "machine_id": "HTR-401A",
+        "status": "running",
+        "health_notes": "Monitored during Day Shift.",
+        "issues": []
+      },
+      {
+        "machine_id": "PKG-501A",
+        "status": "running",
+        "health_notes": "Monitored during Day Shift.",
+        "issues": []
+      }
+    ],
+    "alarms_events": [
+      {
+        "time": "18:21:18",
+        "machine_id": "FRM-201A",
+        "alarm": "Warning: Abnormal behavior detected on vibration_main_drive. Inspect machine FRM-201A immediately.",
+        "severity": "medium",
+        "resolved": true,
+        "resolution": "System normalized."
+      },
+      {
+        "time": "18:21:22",
+        "machine_id": "FRM-201A",
+        "alarm": "Warning: Abnormal behavior detected on vibration_main_drive. Inspect machine FRM-201A immediately.",
+        "severity": "medium",
+        "resolved": true,
+        "resolution": "System normalized."
+      },
+      {
+        "time": "18:21:26",
+        "machine_id": "FRM-201A",
+        "alarm": "Warning: Abnormal behavior detected on vibration_main_drive. Inspect machine FRM-201A immediately.",
+        "severity": "medium",
+        "resolved": true,
+        "resolution": "System normalized."
+      },
+      {
+        "time": "18:21:30",
+        "machine_id": "FRM-201A",
+        "alarm": "Warning: Abnormal behavior detected on vibration_main_drive. Inspect machine FRM-201A immediately.",
+        "severity": "medium",
+        "resolved": true,
+        "resolution": "System normalized."
+      },
+      {
+        "time": "18:21:34",
+        "machine_id": "FRM-201A",
+        "alarm": "Warning: Abnormal behavior detected on vibration_main_drive. Inspect machine FRM-201A immediately.",
+        "severity": "medium",
+        "resolved": true,
+        "resolution": "System normalized."
+      }
+    ],
+    "safety_observations": [
+      "All PPE compliance checked \u2014 100%."
+    ],
+    "quality_issues": [],
+    "pending_maintenance": [
+      "FM-101 Motor Bearing Failure"
+    ],
+    "instructions_for_next_shift": [
+      "Monitor the forming mill and welding stand telemetry closely.",
+      "Verify LOTO status on any machines flagged during maintenance inspections.",
+      "Conduct routine visual inspections of hydraulic pumps and bearings at shift start."
+    ],
+    "handover_to": "EMP-007",
+    "handover_acknowledged": true,
+    "handover_time": "2026-06-15T18:23:20.317014"
+  },
+  {
+    "report_id": "SHR-20260615-B45F",
+    "shift_id": "A",
+    "date": "2026-06-15",
+    "shift_start": "2026-06-15T06:00:00",
+    "shift_end": "2026-06-15T18:00:00",
+    "supervisor": "EMP-006",
+    "supervisor_name": "Supervisor (Plant Manager)",
+    "crew_present": [
+      "EMP-009",
+      "EMP-012",
+      "EMP-014",
+      "EMP-016"
+    ],
+    "crew_absent": [],
+    "absence_reason": null,
+    "production_summary": {
+      "line_a": {
+        "product": "SP-ERW-50 (50mm OD, Medium)",
+        "coils_processed": 5,
+        "pipes_produced": 850,
+        "achievement_pct": 90
+      }
+    },
+    "machine_status": [
+      {
+        "machine_id": "CNC-101A",
+        "status": "running",
+        "health_notes": "Monitored during Day Shift.",
+        "issues": []
+      },
+      {
+        "machine_id": "FRM-201A",
+        "status": "critical",
+        "health_notes": "Monitored during Day Shift.",
+        "issues": [
+          "FM-101 Motor Bearing Failure"
+        ]
+      },
+      {
+        "machine_id": "WLD-301A",
+        "status": "running",
+        "health_notes": "Monitored during Day Shift.",
+        "issues": []
+      },
+      {
+        "machine_id": "HTR-401A",
+        "status": "running",
+        "health_notes": "Monitored during Day Shift.",
+        "issues": []
+      },
+      {
+        "machine_id": "PKG-501A",
+        "status": "running",
+        "health_notes": "Monitored during Day Shift.",
+        "issues": []
+      }
+    ],
+    "alarms_events": [
+      {
+        "time": "18:23:20",
+        "machine_id": "FRM-201A",
+        "alarm": "Warning: Abnormal behavior detected on vibration_main_drive. Inspect machine FRM-201A immediately.",
+        "severity": "medium",
+        "resolved": true,
+        "resolution": "System normalized."
+      },
+      {
+        "time": "18:23:24",
+        "machine_id": "FRM-201A",
+        "alarm": "Warning: Abnormal behavior detected on vibration_main_drive. Inspect machine FRM-201A immediately.",
+        "severity": "medium",
+        "resolved": true,
+        "resolution": "System normalized."
+      },
+      {
+        "time": "18:23:28",
+        "machine_id": "FRM-201A",
+        "alarm": "Warning: Abnormal behavior detected on vibration_main_drive. Inspect machine FRM-201A immediately.",
+        "severity": "medium",
+        "resolved": true,
+        "resolution": "System normalized."
+      },
+      {
+        "time": "18:23:32",
+        "machine_id": "FRM-201A",
+        "alarm": "Warning: Abnormal behavior detected on vibration_main_drive. Inspect machine FRM-201A immediately.",
+        "severity": "medium",
+        "resolved": true,
+        "resolution": "System normalized."
+      },
+      {
+        "time": "18:23:37",
+        "machine_id": "FRM-201A",
+        "alarm": "Warning: Abnormal behavior detected on vibration_main_drive. Inspect machine FRM-201A immediately.",
+        "severity": "medium",
+        "resolved": true,
+        "resolution": "System normalized."
+      }
+    ],
+    "safety_observations": [
+      "All PPE compliance checked \u2014 100%."
+    ],
+    "quality_issues": [],
+    "pending_maintenance": [
+      "FM-101 Motor Bearing Failure"
+    ],
+    "instructions_for_next_shift": [
+      "Monitor the forming mill and welding stand telemetry closely.",
+      "Verify LOTO status on any machines flagged during maintenance inspections.",
+      "Conduct routine visual inspections of hydraulic pumps and bearings at shift start."
+    ],
+    "handover_to": "EMP-007",
+    "handover_acknowledged": true,
+    "handover_time": "2026-06-15T18:28:28.492851"
+  },
+  {
+    "report_id": "SHR-20260615-2B92",
+    "shift_id": "A",
+    "date": "2026-06-15",
+    "shift_start": "2026-06-15T06:00:00",
+    "shift_end": "2026-06-15T18:00:00",
+    "supervisor": "EMP-006",
+    "supervisor_name": "Supervisor (Plant Manager)",
+    "crew_present": [
+      "EMP-009",
+      "EMP-012",
+      "EMP-014",
+      "EMP-016"
+    ],
+    "crew_absent": [],
+    "absence_reason": null,
+    "production_summary": {
+      "line_a": {
+        "product": "SP-ERW-50 (50mm OD, Medium)",
+        "coils_processed": 5,
+        "pipes_produced": 850,
+        "achievement_pct": 90
+      }
+    },
+    "machine_status": [
+      {
+        "machine_id": "CNC-101A",
+        "status": "running",
+        "health_notes": "Monitored during Day Shift.",
+        "issues": []
+      },
+      {
+        "machine_id": "FRM-201A",
+        "status": "running",
+        "health_notes": "Monitored during Day Shift.",
+        "issues": []
+      },
+      {
+        "machine_id": "WLD-301A",
+        "status": "running",
+        "health_notes": "Monitored during Day Shift.",
+        "issues": []
+      },
+      {
+        "machine_id": "HTR-401A",
+        "status": "running",
+        "health_notes": "Monitored during Day Shift.",
+        "issues": []
+      },
+      {
+        "machine_id": "PKG-501A",
+        "status": "running",
+        "health_notes": "Monitored during Day Shift.",
+        "issues": []
+      }
+    ],
+    "alarms_events": [],
+    "safety_observations": [
+      "All PPE compliance checked \u2014 100%."
+    ],
+    "quality_issues": [],
+    "pending_maintenance": [],
+    "instructions_for_next_shift": [
+      "Monitor the forming mill and welding stand telemetry closely.",
+      "Verify LOTO status on any machines flagged during maintenance inspections.",
+      "Conduct routine visual inspections of hydraulic pumps and bearings at shift start."
+    ],
+    "handover_to": "EMP-007",
+    "handover_acknowledged": true,
+    "handover_time": "2026-06-15T18:34:19.440187"
+  },
+  {
+    "report_id": "SHR-20260615-CDE6",
+    "shift_id": "A",
+    "date": "2026-06-15",
+    "shift_start": "2026-06-15T06:00:00",
+    "shift_end": "2026-06-15T18:00:00",
+    "supervisor": "EMP-006",
+    "supervisor_name": "Supervisor (Plant Manager)",
+    "crew_present": [
+      "EMP-009",
+      "EMP-012",
+      "EMP-014",
+      "EMP-016"
+    ],
+    "crew_absent": [],
+    "absence_reason": null,
+    "production_summary": {
+      "line_a": {
+        "product": "SP-ERW-50 (50mm OD, Medium)",
+        "coils_processed": 5,
+        "pipes_produced": 850,
+        "achievement_pct": 90
+      }
+    },
+    "machine_status": [
+      {
+        "machine_id": "CNC-101A",
+        "status": "running",
+        "health_notes": "Monitored during Day Shift.",
+        "issues": []
+      },
+      {
+        "machine_id": "FRM-201A",
+        "status": "running",
+        "health_notes": "Monitored during Day Shift.",
+        "issues": []
+      },
+      {
+        "machine_id": "WLD-301A",
+        "status": "running",
+        "health_notes": "Monitored during Day Shift.",
+        "issues": []
+      },
+      {
+        "machine_id": "HTR-401A",
+        "status": "running",
+        "health_notes": "Monitored during Day Shift.",
+        "issues": []
+      },
+      {
+        "machine_id": "PKG-501A",
+        "status": "running",
+        "health_notes": "Monitored during Day Shift.",
+        "issues": []
+      }
+    ],
+    "alarms_events": [],
+    "safety_observations": [
+      "All PPE compliance checked \u2014 100%."
+    ],
+    "quality_issues": [],
+    "pending_maintenance": [],
+    "instructions_for_next_shift": [
+      "Monitor the forming mill and welding stand telemetry closely.",
+      "Verify LOTO status on any machines flagged during maintenance inspections.",
+      "Conduct routine visual inspections of hydraulic pumps and bearings at shift start."
+    ],
+    "handover_to": "EMP-007",
+    "handover_acknowledged": true,
+    "handover_time": "2026-06-15T18:38:07.793692"
+  },
+  {
+    "report_id": "SHR-20260615-FA2E",
+    "shift_id": "B",
+    "date": "2026-06-15",
+    "shift_start": "2026-06-15T18:00:00",
+    "shift_end": "2026-06-15T06:00:00",
+    "supervisor": "EMP-006",
+    "supervisor_name": "Supervisor (Plant Manager)",
+    "crew_present": [
+      "EMP-009",
+      "EMP-012",
+      "EMP-014",
+      "EMP-016"
+    ],
+    "crew_absent": [],
+    "absence_reason": null,
+    "production_summary": {
+      "line_a": {
+        "product": "SP-ERW-50 (50mm OD, Medium)",
+        "coils_processed": 5,
+        "pipes_produced": 850,
+        "achievement_pct": 90
+      }
+    },
+    "machine_status": [
+      {
+        "machine_id": "CNC-101A",
+        "status": "running",
+        "health_notes": "Monitored during Night Shift.",
+        "issues": []
+      },
+      {
+        "machine_id": "FRM-201A",
+        "status": "running",
+        "health_notes": "Monitored during Night Shift.",
+        "issues": []
+      },
+      {
+        "machine_id": "WLD-301A",
+        "status": "running",
+        "health_notes": "Monitored during Night Shift.",
+        "issues": []
+      },
+      {
+        "machine_id": "HTR-401A",
+        "status": "running",
+        "health_notes": "Monitored during Night Shift.",
+        "issues": []
+      },
+      {
+        "machine_id": "PKG-501A",
+        "status": "running",
+        "health_notes": "Monitored during Night Shift.",
+        "issues": []
+      }
+    ],
+    "alarms_events": [],
+    "safety_observations": [
+      "All PPE compliance checked \u2014 100%."
+    ],
+    "quality_issues": [],
+    "pending_maintenance": [],
+    "instructions_for_next_shift": [
+      "Monitor the forming mill and welding stand telemetry closely.",
+      "Verify LOTO status on any machines flagged during maintenance inspections.",
+      "Conduct routine visual inspections of hydraulic pumps and bearings at shift start."
+    ],
+    "handover_to": "EMP-007",
+    "handover_acknowledged": true,
+    "handover_time": "2026-06-15T18:40:00.181613"
+  },
+  {
+    "report_id": "SHR-20260615-6905",
+    "shift_id": "A",
+    "date": "2026-06-15",
+    "shift_start": "2026-06-15T06:00:00",
+    "shift_end": "2026-06-15T18:00:00",
+    "supervisor": "EMP-006",
+    "supervisor_name": "Supervisor (Plant Manager)",
+    "crew_present": [
+      "EMP-009",
+      "EMP-012",
+      "EMP-014",
+      "EMP-016"
+    ],
+    "crew_absent": [],
+    "absence_reason": null,
+    "production_summary": {
+      "line_a": {
+        "product": "SP-ERW-50 (50mm OD, Medium)",
+        "coils_processed": 5,
+        "pipes_produced": 850,
+        "achievement_pct": 90
+      }
+    },
+    "machine_status": [
+      {
+        "machine_id": "CNC-101A",
+        "status": "running",
+        "health_notes": "Monitored during Day Shift.",
+        "issues": []
+      },
+      {
+        "machine_id": "FRM-201A",
+        "status": "critical",
+        "health_notes": "Monitored during Day Shift.",
+        "issues": [
+          "FM-101 Motor Bearing Failure"
+        ]
+      },
+      {
+        "machine_id": "WLD-301A",
+        "status": "running",
+        "health_notes": "Monitored during Day Shift.",
+        "issues": []
+      },
+      {
+        "machine_id": "HTR-401A",
+        "status": "running",
+        "health_notes": "Monitored during Day Shift.",
+        "issues": []
+      },
+      {
+        "machine_id": "PKG-501A",
+        "status": "running",
+        "health_notes": "Monitored during Day Shift.",
+        "issues": []
+      }
+    ],
+    "alarms_events": [
+      {
+        "time": "18:46:57",
+        "machine_id": "FRM-201A",
+        "alarm": "Warning: Abnormal behavior detected on vibration_main_drive. Inspect machine FRM-201A immediately.",
+        "severity": "medium",
+        "resolved": true,
+        "resolution": "System normalized."
+      },
+      {
+        "time": "18:47:01",
+        "machine_id": "FRM-201A",
+        "alarm": "Warning: Abnormal behavior detected on vibration_main_drive. Inspect machine FRM-201A immediately.",
+        "severity": "medium",
+        "resolved": true,
+        "resolution": "System normalized."
+      },
+      {
+        "time": "18:47:05",
+        "machine_id": "FRM-201A",
+        "alarm": "Warning: Abnormal behavior detected on vibration_main_drive. Inspect machine FRM-201A immediately.",
+        "severity": "medium",
+        "resolved": true,
+        "resolution": "System normalized."
+      },
+      {
+        "time": "18:47:09",
+        "machine_id": "FRM-201A",
+        "alarm": "Warning: Abnormal behavior detected on vibration_main_drive. Inspect machine FRM-201A immediately.",
+        "severity": "medium",
+        "resolved": true,
+        "resolution": "System normalized."
+      },
+      {
+        "time": "18:47:13",
+        "machine_id": "FRM-201A",
+        "alarm": "Warning: Abnormal behavior detected on vibration_main_drive. Inspect machine FRM-201A immediately.",
+        "severity": "medium",
+        "resolved": true,
+        "resolution": "System normalized."
+      }
+    ],
+    "safety_observations": [
+      "All PPE compliance checked \u2014 100%."
+    ],
+    "quality_issues": [],
+    "pending_maintenance": [
+      "FM-101 Motor Bearing Failure"
+    ],
+    "instructions_for_next_shift": [
+      "Monitor the forming mill and welding stand telemetry closely.",
+      "Verify LOTO status on any machines flagged during maintenance inspections.",
+      "Conduct routine visual inspections of hydraulic pumps and bearings at shift start."
+    ],
+    "handover_to": "EMP-007",
+    "handover_acknowledged": true,
+    "handover_time": "2026-06-15T18:53:59.239108"
+  },
+  {
+    "report_id": "SHR-20260615-A42F",
+    "shift_id": "B",
+    "date": "2026-06-15",
+    "shift_start": "2026-06-15T18:00:00",
+    "shift_end": "2026-06-15T06:00:00",
+    "supervisor": "EMP-006",
+    "supervisor_name": "Supervisor (Plant Manager)",
+    "crew_present": [
+      "EMP-009",
+      "EMP-012",
+      "EMP-014",
+      "EMP-016"
+    ],
+    "crew_absent": [],
+    "absence_reason": null,
+    "production_summary": {
+      "line_a": {
+        "product": "SP-ERW-50 (50mm OD, Medium)",
+        "coils_processed": 5,
+        "pipes_produced": 850,
+        "achievement_pct": 90
+      }
+    },
+    "machine_status": [
+      {
+        "machine_id": "CNC-101A",
+        "status": "running",
+        "health_notes": "Monitored during Night Shift.",
+        "issues": []
+      },
+      {
+        "machine_id": "FRM-201A",
+        "status": "critical",
+        "health_notes": "Monitored during Night Shift.",
+        "issues": [
+          "FM-101 Motor Bearing Failure"
+        ]
+      },
+      {
+        "machine_id": "WLD-301A",
+        "status": "running",
+        "health_notes": "Monitored during Night Shift.",
+        "issues": []
+      },
+      {
+        "machine_id": "HTR-401A",
+        "status": "running",
+        "health_notes": "Monitored during Night Shift.",
+        "issues": []
+      },
+      {
+        "machine_id": "PKG-501A",
+        "status": "running",
+        "health_notes": "Monitored during Night Shift.",
+        "issues": []
+      }
+    ],
+    "alarms_events": [
+      {
+        "time": "18:53:59",
+        "machine_id": "FRM-201A",
+        "alarm": "Warning: Abnormal behavior detected on vibration_main_drive. Inspect machine FRM-201A immediately.",
+        "severity": "medium",
+        "resolved": true,
+        "resolution": "System normalized."
+      },
+      {
+        "time": "18:54:03",
+        "machine_id": "FRM-201A",
+        "alarm": "Warning: Abnormal behavior detected on vibration_main_drive. Inspect machine FRM-201A immediately.",
+        "severity": "medium",
+        "resolved": true,
+        "resolution": "System normalized."
+      },
+      {
+        "time": "18:54:07",
+        "machine_id": "FRM-201A",
+        "alarm": "Warning: Abnormal behavior detected on vibration_main_drive. Inspect machine FRM-201A immediately.",
+        "severity": "medium",
+        "resolved": true,
+        "resolution": "System normalized."
+      },
+      {
+        "time": "18:54:11",
+        "machine_id": "FRM-201A",
+        "alarm": "Warning: Abnormal behavior detected on vibration_main_drive. Inspect machine FRM-201A immediately.",
+        "severity": "medium",
+        "resolved": true,
+        "resolution": "System normalized."
+      },
+      {
+        "time": "18:54:15",
+        "machine_id": "FRM-201A",
+        "alarm": "Warning: Abnormal behavior detected on vibration_main_drive. Inspect machine FRM-201A immediately.",
+        "severity": "medium",
+        "resolved": true,
+        "resolution": "System normalized."
+      }
+    ],
+    "safety_observations": [
+      "All PPE compliance checked \u2014 100%."
+    ],
+    "quality_issues": [],
+    "pending_maintenance": [
+      "FM-101 Motor Bearing Failure"
+    ],
+    "instructions_for_next_shift": [
+      "Monitor the forming mill and welding stand telemetry closely.",
+      "Verify LOTO status on any machines flagged during maintenance inspections.",
+      "Conduct routine visual inspections of hydraulic pumps and bearings at shift start."
+    ],
+    "handover_to": "EMP-007",
+    "handover_acknowledged": true,
+    "handover_time": "2026-06-15T19:04:01.277603"
+  },
+  {
+    "report_id": "SHR-20260615-3BDF",
+    "shift_id": "A",
+    "date": "2026-06-15",
+    "shift_start": "2026-06-15T06:00:00",
+    "shift_end": "2026-06-15T18:00:00",
+    "supervisor": "EMP-006",
+    "supervisor_name": "Supervisor (Plant Manager)",
+    "crew_present": [
+      "EMP-009",
+      "EMP-012",
+      "EMP-014",
+      "EMP-016"
+    ],
+    "crew_absent": [],
+    "absence_reason": null,
+    "production_summary": {
+      "line_a": {
+        "product": "SP-ERW-50 (50mm OD, Medium)",
+        "coils_processed": 5,
+        "pipes_produced": 850,
+        "achievement_pct": 90
+      }
+    },
+    "machine_status": [
+      {
+        "machine_id": "CNC-101A",
+        "status": "running",
+        "health_notes": "Monitored during Day Shift.",
+        "issues": []
+      },
+      {
+        "machine_id": "FRM-201A",
+        "status": "running",
+        "health_notes": "Monitored during Day Shift.",
+        "issues": []
+      },
+      {
+        "machine_id": "WLD-301A",
+        "status": "running",
+        "health_notes": "Monitored during Day Shift.",
+        "issues": []
+      },
+      {
+        "machine_id": "HTR-401A",
+        "status": "running",
+        "health_notes": "Monitored during Day Shift.",
+        "issues": []
+      },
+      {
+        "machine_id": "PKG-501A",
+        "status": "running",
+        "health_notes": "Monitored during Day Shift.",
+        "issues": []
+      }
+    ],
+    "alarms_events": [],
+    "safety_observations": [
+      "All PPE compliance checked \u2014 100%."
+    ],
+    "quality_issues": [],
+    "pending_maintenance": [],
+    "instructions_for_next_shift": [
+      "Monitor the forming mill and welding stand telemetry closely.",
+      "Verify LOTO status on any machines flagged during maintenance inspections.",
+      "Conduct routine visual inspections of hydraulic pumps and bearings at shift start."
+    ],
+    "handover_to": "EMP-007",
+    "handover_acknowledged": true,
+    "handover_time": "2026-06-15T19:44:41.108032"
+  },
+  {
+    "report_id": "SHR-20260615-5F91",
+    "shift_id": "A",
+    "date": "2026-06-15",
+    "shift_start": "2026-06-15T06:00:00",
+    "shift_end": "2026-06-15T18:00:00",
+    "supervisor": "EMP-006",
+    "supervisor_name": "Supervisor (Plant Manager)",
+    "crew_present": [
+      "EMP-009",
+      "EMP-012",
+      "EMP-014",
+      "EMP-016"
+    ],
+    "crew_absent": [],
+    "absence_reason": null,
+    "production_summary": {
+      "line_a": {
+        "product": "SP-ERW-50 (50mm OD, Medium)",
+        "coils_processed": 5,
+        "pipes_produced": 850,
+        "achievement_pct": 90
+      }
+    },
+    "machine_status": [
+      {
+        "machine_id": "CNC-101A",
+        "status": "critical",
+        "health_notes": "Monitored during Day Shift.",
+        "issues": [
+          "FM-002 Hydraulic Pressure Drop",
+          "FM-002 Hydraulic Pressure Drop"
+        ]
+      },
+      {
+        "machine_id": "FRM-201A",
+        "status": "critical",
+        "health_notes": "Monitored during Day Shift.",
+        "issues": [
+          "FM-101 Motor Bearing Failure",
+          "FM-101 Motor Bearing Failure"
+        ]
+      },
+      {
+        "machine_id": "WLD-301A",
+        "status": "running",
+        "health_notes": "Monitored during Day Shift.",
+        "issues": []
+      },
+      {
+        "machine_id": "HTR-401A",
+        "status": "running",
+        "health_notes": "Monitored during Day Shift.",
+        "issues": []
+      },
+      {
+        "machine_id": "PKG-501A",
+        "status": "running",
+        "health_notes": "Monitored during Day Shift.",
+        "issues": []
+      }
+    ],
+    "alarms_events": [
+      {
+        "time": "19:54:27",
+        "machine_id": "FRM-201A",
+        "alarm": "Warning: Abnormal behavior detected on vibration_main_drive. Inspect machine FRM-201A immediately.",
+        "severity": "medium",
+        "resolved": true,
+        "resolution": "System normalized."
+      },
+      {
+        "time": "19:54:31",
+        "machine_id": "FRM-201A",
+        "alarm": "Warning: Abnormal behavior detected on vibration_main_drive. Inspect machine FRM-201A immediately.",
+        "severity": "medium",
+        "resolved": true,
+        "resolution": "System normalized."
+      },
+      {
+        "time": "19:54:35",
+        "machine_id": "FRM-201A",
+        "alarm": "Warning: Abnormal behavior detected on vibration_main_drive. Inspect machine FRM-201A immediately.",
+        "severity": "medium",
+        "resolved": true,
+        "resolution": "System normalized."
+      },
+      {
+        "time": "19:54:40",
+        "machine_id": "FRM-201A",
+        "alarm": "Warning: Abnormal behavior detected on vibration_main_drive. Inspect machine FRM-201A immediately.",
+        "severity": "medium",
+        "resolved": true,
+        "resolution": "System normalized."
+      },
+      {
+        "time": "19:54:44",
+        "machine_id": "FRM-201A",
+        "alarm": "Warning: Abnormal behavior detected on vibration_main_drive. Inspect machine FRM-201A immediately.",
+        "severity": "medium",
+        "resolved": true,
+        "resolution": "System normalized."
+      }
+    ],
+    "safety_observations": [
+      "All PPE compliance checked \u2014 100%."
+    ],
+    "quality_issues": [],
+    "pending_maintenance": [
+      "FM-101 Motor Bearing Failure",
+      "FM-002 Hydraulic Pressure Drop"
+    ],
+    "instructions_for_next_shift": [
+      "Monitor the forming mill and welding stand telemetry closely.",
+      "Verify LOTO status on any machines flagged during maintenance inspections.",
+      "Conduct routine visual inspections of hydraulic pumps and bearings at shift start."
+    ],
+    "handover_to": "EMP-007",
+    "handover_acknowledged": true,
+    "handover_time": "2026-06-15T19:59:04.664703"
+  },
+  {
+    "report_id": "SHR-20260615-D3EF",
+    "shift_id": "A",
+    "date": "2026-06-15",
+    "shift_start": "2026-06-15T06:00:00",
+    "shift_end": "2026-06-15T18:00:00",
+    "supervisor": "EMP-006",
+    "supervisor_name": "Supervisor (Plant Manager)",
+    "crew_present": [
+      "EMP-009",
+      "EMP-012",
+      "EMP-014",
+      "EMP-016"
+    ],
+    "crew_absent": [],
+    "absence_reason": null,
+    "production_summary": {
+      "line_a": {
+        "product": "SP-ERW-50 (50mm OD, Medium)",
+        "coils_processed": 5,
+        "pipes_produced": 850,
+        "achievement_pct": 90
+      }
+    },
+    "machine_status": [
+      {
+        "machine_id": "CNC-101A",
+        "status": "critical",
+        "health_notes": "Monitored during Day Shift.",
+        "issues": [
+          "FM-002 Hydraulic Pressure Drop",
+          "FM-002 Hydraulic Pressure Drop"
+        ]
+      },
+      {
+        "machine_id": "FRM-201A",
+        "status": "running",
+        "health_notes": "Monitored during Day Shift.",
+        "issues": []
+      },
+      {
+        "machine_id": "WLD-301A",
+        "status": "running",
+        "health_notes": "Monitored during Day Shift.",
+        "issues": []
+      },
+      {
+        "machine_id": "HTR-401A",
+        "status": "running",
+        "health_notes": "Monitored during Day Shift.",
+        "issues": []
+      },
+      {
+        "machine_id": "PKG-501A",
+        "status": "running",
+        "health_notes": "Monitored during Day Shift.",
+        "issues": []
+      }
+    ],
+    "alarms_events": [
+      {
+        "time": "20:38:50",
+        "machine_id": "CNC-101A",
+        "alarm": "Warning: Abnormal behavior detected on hydraulic_pressure. Inspect machine CNC-101A immediately.",
+        "severity": "medium",
+        "resolved": true,
+        "resolution": "System normalized."
+      },
+      {
+        "time": "20:38:53",
+        "machine_id": "CNC-101A",
+        "alarm": "Warning: Abnormal behavior detected on hydraulic_pressure. Inspect machine CNC-101A immediately.",
+        "severity": "medium",
+        "resolved": true,
+        "resolution": "System normalized."
+      },
+      {
+        "time": "20:38:55",
+        "machine_id": "CNC-101A",
+        "alarm": "Warning: Abnormal behavior detected on hydraulic_pressure. Inspect machine CNC-101A immediately.",
+        "severity": "medium",
+        "resolved": true,
+        "resolution": "System normalized."
+      },
+      {
+        "time": "20:38:58",
+        "machine_id": "CNC-101A",
+        "alarm": "Warning: Abnormal behavior detected on hydraulic_pressure. Inspect machine CNC-101A immediately.",
+        "severity": "medium",
+        "resolved": true,
+        "resolution": "System normalized."
+      },
+      {
+        "time": "20:39:01",
+        "machine_id": "CNC-101A",
+        "alarm": "Warning: Abnormal behavior detected on hydraulic_pressure. Inspect machine CNC-101A immediately.",
+        "severity": "medium",
+        "resolved": true,
+        "resolution": "System normalized."
+      }
+    ],
+    "safety_observations": [
+      "All PPE compliance checked \u2014 100%."
+    ],
+    "quality_issues": [],
+    "pending_maintenance": [
+      "FM-002 Hydraulic Pressure Drop"
+    ],
+    "instructions_for_next_shift": [
+      "Monitor the forming mill and welding stand telemetry closely.",
+      "Verify LOTO status on any machines flagged during maintenance inspections.",
+      "Conduct routine visual inspections of hydraulic pumps and bearings at shift start."
+    ],
+    "handover_to": "EMP-007",
+    "handover_acknowledged": true,
+    "handover_time": "2026-06-15T20:43:24.489311"
+  },
+  {
+    "report_id": "SHR-20260615-06E3",
+    "shift_id": "A",
+    "date": "2026-06-15",
+    "shift_start": "2026-06-15T06:00:00",
+    "shift_end": "2026-06-15T18:00:00",
+    "supervisor": "EMP-006",
+    "supervisor_name": "Supervisor (Plant Manager)",
+    "crew_present": [
+      "EMP-009",
+      "EMP-012",
+      "EMP-014",
+      "EMP-016"
+    ],
+    "crew_absent": [],
+    "absence_reason": null,
+    "production_summary": {
+      "line_a": {
+        "product": "SP-ERW-50 (50mm OD, Medium)",
+        "coils_processed": 5,
+        "pipes_produced": 850,
+        "achievement_pct": 90
+      }
+    },
+    "machine_status": [
+      {
+        "machine_id": "CNC-101A",
+        "status": "critical",
+        "health_notes": "Monitored during Day Shift.",
+        "issues": [
+          "FM-002 Hydraulic Pressure Drop"
+        ]
+      },
+      {
+        "machine_id": "FRM-201A",
+        "status": "critical",
+        "health_notes": "Monitored during Day Shift.",
+        "issues": [
+          "FM-101 Motor Bearing Failure"
+        ]
+      },
+      {
+        "machine_id": "WLD-301A",
+        "status": "running",
+        "health_notes": "Monitored during Day Shift.",
+        "issues": []
+      },
+      {
+        "machine_id": "HTR-401A",
+        "status": "critical",
+        "health_notes": "Monitored during Day Shift.",
+        "issues": [
+          "FM-301 Induction Coil Breakdown"
+        ]
+      },
+      {
+        "machine_id": "PKG-501A",
+        "status": "running",
+        "health_notes": "Monitored during Day Shift.",
+        "issues": []
+      }
+    ],
+    "alarms_events": [
+      {
+        "time": "20:43:50",
+        "machine_id": "FRM-201A",
+        "alarm": "Warning: Abnormal behavior detected on vibration_main_drive. Inspect machine FRM-201A immediately.",
+        "severity": "medium",
+        "resolved": true,
+        "resolution": "System normalized."
+      },
+      {
+        "time": "20:43:53",
+        "machine_id": "FRM-201A",
+        "alarm": "Warning: Abnormal behavior detected on vibration_main_drive. Inspect machine FRM-201A immediately.",
+        "severity": "medium",
+        "resolved": true,
+        "resolution": "System normalized."
+      },
+      {
+        "time": "20:43:56",
+        "machine_id": "FRM-201A",
+        "alarm": "Warning: Abnormal behavior detected on vibration_main_drive. Inspect machine FRM-201A immediately.",
+        "severity": "medium",
+        "resolved": true,
+        "resolution": "System normalized."
+      },
+      {
+        "time": "20:43:58",
+        "machine_id": "FRM-201A",
+        "alarm": "Warning: Abnormal behavior detected on vibration_main_drive. Inspect machine FRM-201A immediately.",
+        "severity": "medium",
+        "resolved": true,
+        "resolution": "System normalized."
+      },
+      {
+        "time": "20:44:01",
+        "machine_id": "FRM-201A",
+        "alarm": "Warning: Abnormal behavior detected on vibration_main_drive. Inspect machine FRM-201A immediately.",
+        "severity": "medium",
+        "resolved": true,
+        "resolution": "System normalized."
+      }
+    ],
+    "safety_observations": [
+      "All PPE compliance checked \u2014 100%."
+    ],
+    "quality_issues": [],
+    "pending_maintenance": [
+      "FM-002 Hydraulic Pressure Drop",
+      "FM-101 Motor Bearing Failure",
+      "FM-301 Induction Coil Breakdown"
+    ],
+    "instructions_for_next_shift": [
+      "Inspect machine FRM-201A immediately due to abnormal behavior detected in its vibration_main_drive."
+    ],
+    "handover_to": "EMP-007",
+    "handover_acknowledged": true,
+    "handover_time": "2026-06-15T20:51:19.261612"
+  },
+  {
+    "report_id": "SHR-20260615-4A85",
+    "shift_id": "A",
+    "date": "2026-06-15",
+    "shift_start": "2026-06-15T06:00:00",
+    "shift_end": "2026-06-15T18:00:00",
+    "supervisor": "EMP-006",
+    "supervisor_name": "Supervisor (Plant Manager)",
+    "crew_present": [
+      "EMP-009",
+      "EMP-012",
+      "EMP-014",
+      "EMP-016"
+    ],
+    "crew_absent": [],
+    "absence_reason": null,
+    "production_summary": {
+      "line_a": {
+        "product": "SP-ERW-50 (50mm OD, Medium)",
+        "coils_processed": 5,
+        "pipes_produced": 850,
+        "achievement_pct": 90
+      }
+    },
+    "machine_status": [
+      {
+        "machine_id": "CNC-101A",
+        "status": "running",
+        "health_notes": "Monitored during Day Shift.",
+        "issues": []
+      },
+      {
+        "machine_id": "FRM-201A",
+        "status": "running",
+        "health_notes": "Monitored during Day Shift.",
+        "issues": []
+      },
+      {
+        "machine_id": "WLD-301A",
+        "status": "running",
+        "health_notes": "Monitored during Day Shift.",
+        "issues": []
+      },
+      {
+        "machine_id": "HTR-401A",
+        "status": "running",
+        "health_notes": "Monitored during Day Shift.",
+        "issues": []
+      },
+      {
+        "machine_id": "PKG-501A",
+        "status": "running",
+        "health_notes": "Monitored during Day Shift.",
+        "issues": []
+      }
+    ],
+    "alarms_events": [],
+    "safety_observations": [
+      "All PPE compliance checked \u2014 100%."
+    ],
+    "quality_issues": [],
+    "pending_maintenance": [],
+    "instructions_for_next_shift": [
+      "Monitor the forming mill and welding stand telemetry closely.",
+      "Verify LOTO status on any machines flagged during maintenance inspections.",
+      "Conduct routine visual inspections of hydraulic pumps and bearings at shift start."
+    ],
+    "handover_to": "EMP-007",
+    "handover_acknowledged": true,
+    "handover_time": "2026-06-15T21:21:33.265959"
+  },
+  {
+    "report_id": "SHR-20260615-5E72",
+    "shift_id": "A",
+    "date": "2026-06-15",
+    "shift_start": "2026-06-15T06:00:00",
+    "shift_end": "2026-06-15T18:00:00",
+    "supervisor": "EMP-006",
+    "supervisor_name": "Supervisor (Plant Manager)",
+    "crew_present": [
+      "EMP-009",
+      "EMP-012",
+      "EMP-014",
+      "EMP-016"
+    ],
+    "crew_absent": [],
+    "absence_reason": null,
+    "production_summary": {
+      "line_a": {
+        "product": "SP-ERW-50 (50mm OD, Medium)",
+        "coils_processed": 5,
+        "pipes_produced": 850,
+        "achievement_pct": 90
+      }
+    },
+    "machine_status": [
+      {
+        "machine_id": "CNC-101A",
+        "status": "running",
+        "health_notes": "Monitored during Day Shift.",
+        "issues": []
+      },
+      {
+        "machine_id": "FRM-201A",
+        "status": "critical",
+        "health_notes": "Monitored during Day Shift.",
+        "issues": [
+          "FM-101 Motor Bearing Failure"
+        ]
+      },
+      {
+        "machine_id": "WLD-301A",
+        "status": "running",
+        "health_notes": "Monitored during Day Shift.",
+        "issues": []
+      },
+      {
+        "machine_id": "HTR-401A",
+        "status": "running",
+        "health_notes": "Monitored during Day Shift.",
+        "issues": []
+      },
+      {
+        "machine_id": "PKG-501A",
+        "status": "running",
+        "health_notes": "Monitored during Day Shift.",
+        "issues": []
+      }
+    ],
+    "alarms_events": [
+      {
+        "time": "21:25:12",
+        "machine_id": "FRM-201A",
+        "alarm": "Warning: Abnormal behavior detected on vibration_main_drive. Inspect machine FRM-201A immediately.",
+        "severity": "medium",
+        "resolved": true,
+        "resolution": "System normalized."
+      },
+      {
+        "time": "21:25:15",
+        "machine_id": "FRM-201A",
+        "alarm": "Warning: Abnormal behavior detected on vibration_main_drive. Inspect machine FRM-201A immediately.",
+        "severity": "medium",
+        "resolved": true,
+        "resolution": "System normalized."
+      },
+      {
+        "time": "21:25:17",
+        "machine_id": "FRM-201A",
+        "alarm": "Warning: Abnormal behavior detected on vibration_main_drive. Inspect machine FRM-201A immediately.",
+        "severity": "medium",
+        "resolved": true,
+        "resolution": "System normalized."
+      },
+      {
+        "time": "21:25:21",
+        "machine_id": "FRM-201A",
+        "alarm": "Warning: Abnormal behavior detected on vibration_main_drive. Inspect machine FRM-201A immediately.",
+        "severity": "medium",
+        "resolved": true,
+        "resolution": "System normalized."
+      },
+      {
+        "time": "21:25:23",
+        "machine_id": "FRM-201A",
+        "alarm": "Warning: Abnormal behavior detected on vibration_main_drive. Inspect machine FRM-201A immediately.",
+        "severity": "medium",
+        "resolved": true,
+        "resolution": "System normalized."
+      }
+    ],
+    "safety_observations": [
+      "All PPE compliance checked \u2014 100%."
+    ],
+    "quality_issues": [],
+    "pending_maintenance": [
+      "FM-101 Motor Bearing Failure"
+    ],
+    "instructions_for_next_shift": [
+      "Inspect machines with vibration issues promptly (FRM-201A, M2, etc.).",
+      "Close all open incidents as soon as possible to avoid further escalation of problems.",
+      "Review and ensure that all safety equipment is in place for each assembly line before starting the shift."
+    ],
+    "handover_to": "EMP-007",
+    "handover_acknowledged": true,
+    "handover_time": "2026-06-15T21:30:16.741525"
+  },
+  {
+    "report_id": "SHR-20260615-EB8C",
+    "shift_id": "A",
+    "date": "2026-06-15",
+    "shift_start": "2026-06-15T06:00:00",
+    "shift_end": "2026-06-15T18:00:00",
+    "supervisor": "EMP-006",
+    "supervisor_name": "Supervisor (Plant Manager)",
+    "crew_present": [
+      "EMP-009",
+      "EMP-012",
+      "EMP-014",
+      "EMP-016"
+    ],
+    "crew_absent": [],
+    "absence_reason": null,
+    "production_summary": {
+      "line_a": {
+        "product": "SP-ERW-50 (50mm OD, Medium)",
+        "coils_processed": 5,
+        "pipes_produced": 850,
+        "achievement_pct": 90
+      }
+    },
+    "machine_status": [
+      {
+        "machine_id": "CNC-101A",
+        "status": "running",
+        "health_notes": "Monitored during Day Shift.",
+        "issues": []
+      },
+      {
+        "machine_id": "FRM-201A",
+        "status": "critical",
+        "health_notes": "Monitored during Day Shift.",
+        "issues": [
+          "FM-101 Motor Bearing Failure"
+        ]
+      },
+      {
+        "machine_id": "WLD-301A",
+        "status": "running",
+        "health_notes": "Monitored during Day Shift.",
+        "issues": []
+      },
+      {
+        "machine_id": "HTR-401A",
+        "status": "running",
+        "health_notes": "Monitored during Day Shift.",
+        "issues": []
+      },
+      {
+        "machine_id": "PKG-501A",
+        "status": "running",
+        "health_notes": "Monitored during Day Shift.",
+        "issues": []
+      }
+    ],
+    "alarms_events": [
+      {
+        "time": "21:30:11",
+        "machine_id": "FRM-201A",
+        "alarm": "Warning: Abnormal behavior detected on vibration_main_drive. Inspect machine FRM-201A immediately.",
+        "severity": "medium",
+        "resolved": true,
+        "resolution": "System normalized."
+      },
+      {
+        "time": "21:30:14",
+        "machine_id": "FRM-201A",
+        "alarm": "Warning: Abnormal behavior detected on vibration_main_drive. Inspect machine FRM-201A immediately.",
+        "severity": "medium",
+        "resolved": true,
+        "resolution": "System normalized."
+      },
+      {
+        "time": "21:30:17",
+        "machine_id": "FRM-201A",
+        "alarm": "Warning: Abnormal behavior detected on vibration_main_drive. Inspect machine FRM-201A immediately.",
+        "severity": "medium",
+        "resolved": true,
+        "resolution": "System normalized."
+      },
+      {
+        "time": "21:30:19",
+        "machine_id": "FRM-201A",
+        "alarm": "Warning: Abnormal behavior detected on vibration_main_drive. Inspect machine FRM-201A immediately.",
+        "severity": "medium",
+        "resolved": true,
+        "resolution": "System normalized."
+      },
+      {
+        "time": "21:30:22",
+        "machine_id": "FRM-201A",
+        "alarm": "Warning: Abnormal behavior detected on vibration_main_drive. Inspect machine FRM-201A immediately.",
+        "severity": "medium",
+        "resolved": true,
+        "resolution": "System normalized."
+      }
+    ],
+    "safety_observations": [
+      "All PPE compliance checked \u2014 100%."
+    ],
+    "quality_issues": [],
+    "pending_maintenance": [
+      "FM-101 Motor Bearing Failure"
+    ],
+    "instructions_for_next_shift": [
+      "Inspect and analyze the machine logs for any additional incidents or abnormal behaviors detected by the shift crew.",
+      "Monitor the latest readings of M1 (Conveyor A), M2 (Motor Unit), M3 (Pump Unit), M4 (Compressor), and M5 (Packaging) to ensure ongoing normal operation.",
+      "Review the status updates for each machine; any deviations from the 'Normal' state should be addressed immediately.",
+      "Close open incidents, particularly FRM-201A's FM-101 Motor Bearing Failure, ensuring all necessary corrective actions are taken."
+    ],
+    "handover_to": "EMP-007",
+    "handover_acknowledged": true,
+    "handover_time": "2026-06-15T21:34:18.150041"
+  },
+  {
+    "report_id": "SHR-20260615-2E74",
+    "shift_id": "A",
+    "date": "2026-06-15",
+    "shift_start": "2026-06-15T06:00:00",
+    "shift_end": "2026-06-15T18:00:00",
+    "supervisor": "EMP-006",
+    "supervisor_name": "Supervisor (Plant Manager)",
+    "crew_present": [
+      "EMP-009",
+      "EMP-012",
+      "EMP-014",
+      "EMP-016"
+    ],
+    "crew_absent": [],
+    "absence_reason": null,
+    "production_summary": {
+      "line_a": {
+        "product": "SP-ERW-50 (50mm OD, Medium)",
+        "coils_processed": 5,
+        "pipes_produced": 850,
+        "achievement_pct": 90
+      }
+    },
+    "machine_status": [
+      {
+        "machine_id": "CNC-101A",
+        "status": "critical",
+        "health_notes": "Monitored during Day Shift.",
+        "issues": [
+          "FM-002 Hydraulic Pressure Drop"
+        ]
+      },
+      {
+        "machine_id": "FRM-201A",
+        "status": "running",
+        "health_notes": "Monitored during Day Shift.",
+        "issues": []
+      },
+      {
+        "machine_id": "WLD-301A",
+        "status": "running",
+        "health_notes": "Monitored during Day Shift.",
+        "issues": []
+      },
+      {
+        "machine_id": "HTR-401A",
+        "status": "running",
+        "health_notes": "Monitored during Day Shift.",
+        "issues": []
+      },
+      {
+        "machine_id": "PKG-501A",
+        "status": "running",
+        "health_notes": "Monitored during Day Shift.",
+        "issues": []
+      }
+    ],
+    "alarms_events": [
+      {
+        "time": "22:06:23",
+        "machine_id": "CAM-Zone B - Welding Bay",
+        "alarm": "PPE violations detected: missing welding-glass",
+        "severity": "medium",
+        "resolved": true,
+        "resolution": "System normalized."
+      },
+      {
+        "time": "22:07:35",
+        "machine_id": "CNC-101A",
+        "alarm": "Warning: Abnormal behavior detected on hydraulic_pressure. Inspect machine CNC-101A immediately.",
+        "severity": "medium",
+        "resolved": true,
+        "resolution": "System normalized."
+      },
+      {
+        "time": "22:07:37",
+        "machine_id": "CNC-101A",
+        "alarm": "Warning: Abnormal behavior detected on hydraulic_pressure. Inspect machine CNC-101A immediately.",
+        "severity": "medium",
+        "resolved": true,
+        "resolution": "System normalized."
+      },
+      {
+        "time": "22:07:40",
+        "machine_id": "CNC-101A",
+        "alarm": "Warning: Abnormal behavior detected on hydraulic_pressure. Inspect machine CNC-101A immediately.",
+        "severity": "medium",
+        "resolved": true,
+        "resolution": "System normalized."
+      },
+      {
+        "time": "22:07:42",
+        "machine_id": "CNC-101A",
+        "alarm": "Warning: Abnormal behavior detected on hydraulic_pressure. Inspect machine CNC-101A immediately.",
+        "severity": "medium",
+        "resolved": true,
+        "resolution": "System normalized."
+      }
+    ],
+    "safety_observations": [
+      "All PPE compliance checked \u2014 100%."
+    ],
+    "quality_issues": [],
+    "pending_maintenance": [
+      "FM-002 Hydraulic Pressure Drop"
+    ],
+    "instructions_for_next_shift": [
+      "Monitor CNC-101A machines for any further hydraulic pressure anomalies as they could be indicative of ongoing issues requiring immediate attention.",
+      "Conduct a thorough inspection and rectify the missing welding-glass violations immediately in CAM-Zone B to prevent future incidents.",
+      "Keep an eye on machine vibration readings, especially the conveyor units, as these indicators can indicate potential equipment wear or malfunction."
+    ],
+    "handover_to": "EMP-007",
+    "handover_acknowledged": true,
+    "handover_time": "2026-06-15T22:08:05.260971"
+  },
+  {
+    "report_id": "SHR-20260615-7B2E",
+    "shift_id": "A",
+    "date": "2026-06-15",
+    "shift_start": "2026-06-15T06:00:00",
+    "shift_end": "2026-06-15T18:00:00",
+    "supervisor": "EMP-006",
+    "supervisor_name": "Supervisor (Plant Manager)",
+    "crew_present": [
+      "EMP-009",
+      "EMP-012",
+      "EMP-014",
+      "EMP-016"
+    ],
+    "crew_absent": [],
+    "absence_reason": null,
+    "production_summary": {
+      "line_a": {
+        "product": "SP-ERW-50 (50mm OD, Medium)",
+        "coils_processed": 5,
+        "pipes_produced": 850,
+        "achievement_pct": 90
+      }
+    },
+    "machine_status": [
+      {
+        "machine_id": "CNC-101A",
+        "status": "critical",
+        "health_notes": "Monitored during Day Shift.",
+        "issues": [
+          "FM-002 Hydraulic Pressure Drop"
+        ]
+      },
+      {
+        "machine_id": "FRM-201A",
+        "status": "running",
+        "health_notes": "Monitored during Day Shift.",
+        "issues": []
+      },
+      {
+        "machine_id": "WLD-301A",
+        "status": "running",
+        "health_notes": "Monitored during Day Shift.",
+        "issues": []
+      },
+      {
+        "machine_id": "HTR-401A",
+        "status": "running",
+        "health_notes": "Monitored during Day Shift.",
+        "issues": []
+      },
+      {
+        "machine_id": "PKG-501A",
+        "status": "running",
+        "health_notes": "Monitored during Day Shift.",
+        "issues": []
+      }
+    ],
+    "alarms_events": [
+      {
+        "time": "22:08:01",
+        "machine_id": "CNC-101A",
+        "alarm": "Warning: Abnormal behavior detected on hydraulic_pressure. Inspect machine CNC-101A immediately.",
+        "severity": "medium",
+        "resolved": true,
+        "resolution": "System normalized."
+      },
+      {
+        "time": "22:08:03",
+        "machine_id": "CNC-101A",
+        "alarm": "Warning: Abnormal behavior detected on hydraulic_pressure. Inspect machine CNC-101A immediately.",
+        "severity": "medium",
+        "resolved": true,
+        "resolution": "System normalized."
+      },
+      {
+        "time": "22:08:06",
+        "machine_id": "CNC-101A",
+        "alarm": "Warning: Abnormal behavior detected on hydraulic_pressure. Inspect machine CNC-101A immediately.",
+        "severity": "medium",
+        "resolved": true,
+        "resolution": "System normalized."
+      },
+      {
+        "time": "22:08:08",
+        "machine_id": "CNC-101A",
+        "alarm": "Warning: Abnormal behavior detected on hydraulic_pressure. Inspect machine CNC-101A immediately.",
+        "severity": "medium",
+        "resolved": true,
+        "resolution": "System normalized."
+      },
+      {
+        "time": "22:08:11",
+        "machine_id": "CNC-101A",
+        "alarm": "Warning: Abnormal behavior detected on hydraulic_pressure. Inspect machine CNC-101A immediately.",
+        "severity": "medium",
+        "resolved": true,
+        "resolution": "System normalized."
+      }
+    ],
+    "safety_observations": [
+      "All PPE compliance checked \u2014 100%."
+    ],
+    "quality_issues": [],
+    "pending_maintenance": [
+      "FM-002 Hydraulic Pressure Drop"
+    ],
+    "instructions_for_next_shift": [
+      "Inspect machine CNC-101A immediately for abnormal behavior of hydraulic pressure warnings.",
+      "Conduct detailed checks on all machines including M1 (Conveyor A), M2 (Motor Unit), M3 (Pump Unit), and M4 (Compressor) to ensure they are operating as normal.",
+      "Review the incident log related to CNC-101A for further details; open it if closed. Focus on any potential root causes of hydraulic pressure drop issues.",
+      "Keep a close watch over machine status indicators, especially vibration readings, and ensure that equipment temperatures remain within safe limits."
+    ],
+    "handover_to": "EMP-007",
+    "handover_acknowledged": true,
+    "handover_time": "2026-06-15T22:09:10.105779"
+  },
+  {
+    "report_id": "SHR-20260615-3158",
+    "shift_id": "A",
+    "date": "2026-06-15",
+    "shift_start": "2026-06-15T06:00:00",
+    "shift_end": "2026-06-15T18:00:00",
+    "supervisor": "EMP-006",
+    "supervisor_name": "Supervisor (Plant Manager)",
+    "crew_present": [
+      "EMP-009",
+      "EMP-012",
+      "EMP-014",
+      "EMP-016"
+    ],
+    "crew_absent": [],
+    "absence_reason": null,
+    "production_summary": {
+      "line_a": {
+        "product": "SP-ERW-50 (50mm OD, Medium)",
+        "coils_processed": 5,
+        "pipes_produced": 850,
+        "achievement_pct": 90
+      }
+    },
+    "machine_status": [
+      {
+        "machine_id": "CNC-101A",
+        "status": "running",
+        "health_notes": "Monitored during Day Shift.",
+        "issues": [
+          "FM-002 Hydraulic Pressure Drop"
+        ]
+      },
+      {
+        "machine_id": "FRM-201A",
+        "status": "critical",
+        "health_notes": "Monitored during Day Shift.",
+        "issues": [
+          "FM-101 Motor Bearing Failure",
+          "FM-101 Motor Bearing Failure"
+        ]
+      },
+      {
+        "machine_id": "WLD-301A",
+        "status": "running",
+        "health_notes": "Monitored during Day Shift.",
+        "issues": []
+      },
+      {
+        "machine_id": "HTR-401A",
+        "status": "running",
+        "health_notes": "Monitored during Day Shift.",
+        "issues": []
+      },
+      {
+        "machine_id": "PKG-501A",
+        "status": "running",
+        "health_notes": "Monitored during Day Shift.",
+        "issues": []
+      }
+    ],
+    "alarms_events": [
+      {
+        "time": "22:10:03",
+        "machine_id": "CNC-101A",
+        "alarm": "Warning: Abnormal behavior detected on hydraulic_pressure. Inspect machine CNC-101A immediately.",
+        "severity": "medium",
+        "resolved": true,
+        "resolution": "System normalized."
+      },
+      {
+        "time": "22:10:06",
+        "machine_id": "CNC-101A",
+        "alarm": "Warning: Abnormal behavior detected on hydraulic_pressure. Inspect machine CNC-101A immediately.",
+        "severity": "medium",
+        "resolved": true,
+        "resolution": "System normalized."
+      },
+      {
+        "time": "22:10:09",
+        "machine_id": "CNC-101A",
+        "alarm": "Warning: Abnormal behavior detected on hydraulic_pressure. Inspect machine CNC-101A immediately.",
+        "severity": "medium",
+        "resolved": true,
+        "resolution": "System normalized."
+      },
+      {
+        "time": "22:10:11",
+        "machine_id": "CNC-101A",
+        "alarm": "Warning: Abnormal behavior detected on hydraulic_pressure. Inspect machine CNC-101A immediately.",
+        "severity": "medium",
+        "resolved": true,
+        "resolution": "System normalized."
+      },
+      {
+        "time": "22:10:14",
+        "machine_id": "CNC-101A",
+        "alarm": "Warning: Abnormal behavior detected on hydraulic_pressure. Inspect machine CNC-101A immediately.",
+        "severity": "medium",
+        "resolved": true,
+        "resolution": "System normalized."
+      }
+    ],
+    "safety_observations": [
+      "All PPE compliance checked \u2014 100%."
+    ],
+    "quality_issues": [],
+    "pending_maintenance": [
+      "FM-101 Motor Bearing Failure"
+    ],
+    "instructions_for_next_shift": [
+      "Review and address open incidents as per plant protocols.",
+      "Monitor vibration readings and machine statuses for signs of unusual behavior in the next shift.",
+      "Ensure that all machines are operating within their normal parameters, particularly focusing on those with close monitoring."
+    ],
+    "handover_to": "EMP-007",
+    "handover_acknowledged": true,
+    "handover_time": "2026-06-15T22:15:13.410222"
+  }
+]

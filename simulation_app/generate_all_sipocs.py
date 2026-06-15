@@ -31,7 +31,7 @@ def generate_all():
         Root Cause: {inc['root_cause']}
         Corrective Action: {inc['corrective_action']}
         
-        Generate a strict JSON array of resolution tasks (SIPOC DAG) to handle this type of incident if it occurs again.
+        Generate a strict JSON array of resolution tasks (Task Generator DAG) to handle this type of incident if it occurs again.
         Each task must follow this JSON schema exactly:
         {{
             "id": "t1",
@@ -39,8 +39,9 @@ def generate_all():
             "type": "automated" or "manual",
             "status": "pending",
             "depends_on": ["previous_task_id", ...],
+            "assigned_to": "Specific Persona (e.g. Maintenance Engineer, Safety Officer) or automated Agent",
             "sipoc": {{
-                "Supplier": "...", "Input": "...", "Process": "...", "Output": "...", "Customer": "..."
+                "Input": "...", "Process": "...", "Output": "..."
             }}
         }}
         Return ONLY the raw JSON array.

@@ -1,0 +1,118 @@
+{
+  "raw_materials": [
+    {
+      "item_id": "RM-HR-1250-2.0",
+      "material_type": "HR Steel Coil",
+      "grade": "IS 2062 E250",
+      "width_mm": 1250,
+      "thickness_mm": 2.0,
+      "target_pipe_size": "25mm OD Light",
+      "stock_quantity_mt": 145.5,
+      "min_stock_mt": 100,
+      "supplier": "Tata Steel",
+      "average_coil_weight_mt": 22.5,
+      "location": "Z1 - Row A",
+      "status": "adequate"
+    },
+    {
+      "item_id": "RM-HR-1250-3.2",
+      "material_type": "HR Steel Coil",
+      "grade": "IS 2062 E250",
+      "width_mm": 1250,
+      "thickness_mm": 3.2,
+      "target_pipe_size": "50mm OD Medium",
+      "stock_quantity_mt": 85.0,
+      "min_stock_mt": 120,
+      "supplier": "JSW Steel",
+      "average_coil_weight_mt": 20.0,
+      "location": "Z1 - Row B",
+      "status": "low_stock"
+    },
+    {
+      "item_id": "RM-HR-1250-4.5",
+      "material_type": "HR Steel Coil",
+      "grade": "IS 2062 E250",
+      "width_mm": 1250,
+      "thickness_mm": 4.5,
+      "target_pipe_size": "75mm OD Heavy",
+      "stock_quantity_mt": 210.8,
+      "min_stock_mt": 150,
+      "supplier": "Tata Steel",
+      "average_coil_weight_mt": 25.0,
+      "location": "Z1 - Row C",
+      "status": "adequate"
+    },
+    {
+      "item_id": "RM-CR-1000-1.2",
+      "material_type": "CR Steel Coil",
+      "grade": "IS 513 CR1",
+      "width_mm": 1000,
+      "thickness_mm": 1.2,
+      "target_pipe_size": "Precision Tubes",
+      "stock_quantity_mt": 42.5,
+      "min_stock_mt": 50,
+      "supplier": "Tata Steel",
+      "average_coil_weight_mt": 15.0,
+      "location": "Z1 - Row D",
+      "status": "low_stock"
+    }
+  ],
+  "consumables": [
+    {
+      "item_id": "CON-INK-001",
+      "description": "Inkjet Printer Ink Cartridge (Black)",
+      "machine": "PKG-501",
+      "stock_quantity": 18,
+      "unit": "cartridge",
+      "min_stock": 20,
+      "supplier": "Videojet",
+      "status": "low_stock"
+    },
+    {
+      "item_id": "CON-STRAP-19",
+      "description": "Steel Strapping Coil 19mm x 0.5mm",
+      "machine": "PKG-501",
+      "stock_quantity": 45,
+      "unit": "coil",
+      "min_stock": 30,
+      "supplier": "Signode",
+      "status": "adequate"
+    },
+    {
+      "item_id": "CON-COOL-01",
+      "description": "Water Soluble Cutting Coolant",
+      "machine": "FRM-201",
+      "stock_quantity": 4,
+      "unit": "barrel (210L)",
+      "min_stock": 3,
+      "supplier": "Castrol",
+      "status": "adequate"
+    },
+    {
+      "item_id": "CON-GAS-CO2",
+      "description": "CO2 Gas Cylinder (Fire Suppression)",
+      "machine": "General",
+      "stock_quantity": 12,
+      "unit": "cylinder",
+      "min_stock": 10,
+      "supplier": "BOC Gases",
+      "status": "adequate"
+    }
+  ],
+  "recent_deliveries": [
+    {
+      "date": "2026-06-10",
+      "item_id": "RM-HR-1250-2.0",
+      "quantity": "67.5 MT",
+      "supplier": "Tata Steel",
+      "grn_number": "GRN-2606-015"
+    },
+    {
+      "date": "2026-06-08",
+      "item_id": "CON-STRAP-19",
+      "quantity": "20 coils",
+      "supplier": "Signode",
+      "grn_number": "GRN-2606-012"
+    }
+  ]
+}

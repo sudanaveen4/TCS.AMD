@@ -1,0 +1,17 @@
+{
+    "image": "test_image2.jpg",
+    "ppe_status": {
+        "glove": false,
+        "helmet": false,
+        "shoes": false,
+        "welding-glass": false
+    },
+    "missing_ppe": [
+        "glove",
+        "helmet",
+        "shoes",
+        "welding-glass"
+    ],
+    "compliant": false,
+    "detections": []
+}

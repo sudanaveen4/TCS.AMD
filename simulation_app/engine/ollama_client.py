@@ -42,11 +42,10 @@ class OllamaClient:
     def _fallback_mock(self, prompt, format):
         """Robust fallback if Ollama is down so the hackathon demo doesn't crash"""
         if format == "json":
-            # Mock SIPOC JSON response
             return json.dumps([
-                {"id": "t1", "title": "Acknowledge Failure", "type": "automated", "status": "pending", "depends_on": [], "sipoc": {"Supplier": "System", "Input": "Alert", "Process": "Log", "Output": "Ack", "Customer": "Manager"}},
-                {"id": "t2", "title": "Visual Inspection", "type": "manual", "status": "pending", "depends_on": ["t1"], "sipoc": {"Supplier": "Technician", "Input": "Sight", "Process": "Inspect", "Output": "Report", "Customer": "Agent"}},
-                {"id": "t3", "title": "Generate RCA", "type": "automated", "status": "pending", "depends_on": ["t2"], "sipoc": {"Supplier": "Agent", "Input": "Timeline", "Process": "Analyze", "Output": "RCA", "Customer": "Database"}}
+                {"id": "t1", "title": "Acknowledge Failure", "type": "automated", "status": "pending", "depends_on": [], "assigned_to": "System Agent", "sipoc": {"Input": "Telemetry Sensor Data & Active Alerts", "Process": "Log the alert in the system database and acknowledge the warning code.", "Output": "Alert logged & acknowledged"}},
+                {"id": "t2", "title": "Visual Inspection", "type": "manual", "status": "pending", "depends_on": ["t1"], "assigned_to": "Maintenance Engineer", "sipoc": {"Input": "Machine location & sensor specifications", "Process": "Conduct visual inspection of the machine to check for wear, heat, or abnormal vibration.", "Output": "Visual inspection verified & logged"}},
+                {"id": "t3", "title": "Generate RCA", "type": "automated", "status": "pending", "depends_on": ["t2"], "assigned_to": "AI Agent", "sipoc": {"Input": "Historical data & inspection notes", "Process": "Generate comprehensive Root Cause Analysis detailing findings and recommendations.", "Output": "RCA report generated"}}
             ])
         return "I am the Fallback Agent. Ollama is currently unreachable, but I am here to assist with your query based on plant protocols."
 

@@ -1,0 +1,154 @@
+[
+    {
+        "id": "t1",
+        "title": "Review Induction Coil Lubrication Schedule",
+        "type": "manual",
+        "status": "pending",
+        "depends_on": [],
+        "assigned_to": "Plant Maintenance Supervisor",
+        "sipoc": {
+            "Supplier": "Maintenance Suppliers and Parts Manufacturer",
+            "Input": "Inspection reports, log data from vibration monitors, material usage records.",
+            "Process": [
+                "Review current lubrication schedule for the induction coils.",
+                "Compare against best practices (e.g., 30% oil level, regular change intervals)."
+            ],
+            "Output": [
+                "Update and implement new maintenance schedule with detailed instructions on how to perform each step."
+            ],
+            "Customer": "Induction Coil Maintenance Team"
+        }
+    },
+    {
+        "id": "t2",
+        "title": "Perform Cleaning of Air Cooling Bed Fans and Rollers",
+        "type": "manual",
+        "status": "pending",
+        "depends_on": [
+            "t1"
+        ],
+        "assigned_to": "Air Cooling Specialist",
+        "sipoc": {
+            "Supplier": "None specified.",
+            "Input": "Tool kit, cleaning solution, fan filters (for 4 \u00d7 15 kW fans).",
+            "Process": [
+                "Disassemble and clean the fans with a brush or vacuum cleaner.",
+                "Replace filters as necessary."
+            ],
+            "Output": [
+                "Logs updated to record cleaning actions performed.",
+                "Fans cleaned to improve efficiency and reduce wear and tear on components."
+            ],
+            "Customer": "Air Cooling Team"
+        }
+    },
+    {
+        "id": "t3",
+        "title": "Perform Rolling Bearings Inspection and Re-chroming if Necessary",
+        "type": "manual",
+        "status": "pending",
+        "depends_on": [
+            "t1"
+        ],
+        "assigned_to": "Machine Maintenance Technician",
+        "sipoc": {
+            "Supplier": "Maintenance Suppliers and Parts Manufacturer",
+            "Input": "Inspectors, new bearings (for 6-roll straightener), old bearings.",
+            "Process": [
+                "Check all rolls for wear using microscopes and measuring tools."
+            ],
+            "Output": [
+                "Logs updated to track any re-chroming operations performed.",
+                "Old bearings sent to supplier for refurbishment if necessary, new ones installed or replaced as required."
+            ],
+            "Customer": "Machine Maintenance Team"
+        }
+    },
+    {
+        "id": "t4",
+        "title": "Perform Megger Tests on Main Motor and Verify Induction Coil Health",
+        "type": "manual",
+        "status": "pending",
+        "depends_on": [
+            "t1"
+        ],
+        "assigned_to": "Electrical Maintenance Team",
+        "sipoc": {
+            "Supplier": "Maintenance Suppliers and Parts Manufacturer",
+            "Input": "Motor, induction coils (for testing).",
+            "Process": [
+                "Perform a megger test on the main motor using a Megger tester.",
+                "Use the same Megger tester to check for insulation resistance in the induction coils."
+            ],
+            "Output": [
+                "Logs updated with results of both tests performed, showing no faults detected in equipment health."
+            ],
+            "Customer": "Electrical Maintenance Team"
+        }
+    },
+    {
+        "id": "t5",
+        "title": "Implement New Lubrication Schedule and Update Induction Coil Log Book",
+        "type": "manual",
+        "status": "pending",
+        "depends_on": [
+            "t1"
+        ],
+        "assigned_to": "Plant Maintenance Supervisor",
+        "sipoc": {
+            "Supplier": "None specified.",
+            "Input": "Previous log entries from the induction coil section, updated lubrication schedule.",
+            "Process": [
+                "Review and update previous log entries to show new maintenance frequency."
+            ],
+            "Output": [
+                "New schedule added to log book for easy reference and future comparisons."
+            ],
+            "Customer": "Maintenance Team"
+        }
+    },
+    {
+        "id": "t6",
+        "title": "Monitor Overhead Hood System and Bag Filter Performance",
+        "type": "manual",
+        "status": "pending",
+        "depends_on": [
+            "t1"
+        ],
+        "assigned_to": "Plant Maintenance Supervisor",
+        "sipoc": {
+            "Supplier": "Maintenance Suppliers and Parts Manufacturer",
+            "Input": "Observation of hood performance, filter logs.",
+            "Process": [
+                "Monitor the hood's efficiency against standards to ensure proper containment."
+            ],
+            "Output": [
+                "Logs updated with results indicating whether system needs adjustments or further maintenance."
+            ],
+            "Customer": "Plant Maintenance Team"
+        }
+    },
+    {
+        "id": "Root Cause Analysis",
+        "title": "Perform Root Cause Analysis to Identify Failure Mode 'FM-305 Cooling Bed Roller Seize'",
+        "type": "manual",
+        "status": "pending",
+        "depends_on": [
+            "all previous tasks"
+        ],
+        "assigned_to": "Engineering Team Lead",
+        "sipoc": {
+            "Supplier": "None specified.",
+            "Input": "Inspection reports, log data from the cooling bed roller system, equipment history."
+        },
+        "Process": [
+            "Review logs and observations for patterns indicating failures in the rolling bearings of the entry/exit roller tables.",
+            "Analyze historical records to identify when and where this issue first appeared within the plant.",
+            "Conduct interviews with maintenance personnel to gather detailed information about common issues encountered."
+        ],
+        "Output": [
+            "Report submitted, including a detailed analysis and recommendations for preventive measures based on the findings."
+        ],
+        "Customer": "Engineering Team Lead"
+    }
+]

@@ -80,13 +80,15 @@ class RAGStore:
         return context.strip()
 
 # Singleton-ish instantiation for easy app-wide usage
-def get_rag_store(data_path="d:/amd_tcs_hackathon/plant_data"):
+def get_rag_store(data_path=None):
     # Ensure this only builds once per process
     if not hasattr(get_rag_store, "store"):
+        if data_path is None:
+            data_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'plant_data')
         get_rag_store.store = RAGStore(data_path)
     return get_rag_store.store
 
 if __name__ == "__main__":
-    store = RAGStore("d:/amd_tcs_hackathon/plant_data")
+    store = RAGStore(os.path.join(os.path.dirname(os.path.dirname(__file__)), 'plant_data'))
     print("Testing Query:")
     print(store.retrieve_context("What should I do if the pump bearing fails?"))

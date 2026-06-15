@@ -1,0 +1,173 @@
+[
+    {
+        "title": "Replace WLD-301A Cooling Fan",
+        "type": "manual",
+        "status": "pending",
+        "depends_on": [
+            "t2",
+            "t4"
+        ],
+        "assigned_to": "Facility Maintenance Team",
+        "sipoc": {
+            "Supplier": "Parts Manufacturer, Inc.",
+            "Input": "[Query DB for parts available for replacement, consider IGBT module as well. Additional data points: frequency of cooling fan replacements, previous issues related to fans on similar machines]",
+            "Process": "Review recommended part for quality and fitment compatibility; order new cooling fan from Parts Manufacturer, Inc.; inspect the installation process.",
+            "Output": "[Log entry updated with equipment replacement, feedback from supplier. Logs showing replacement parts installed properly.]",
+            "Customer": "WLD-301A Decoiler Machine Operator"
+        },
+        "id": "t1"
+    },
+    {
+        "title": "Monitor and Analyze IGBT Module Performance",
+        "type": "manual",
+        "status": "pending",
+        "depends_on": [
+            "t5"
+        ],
+        "assigned_to": "Process Engineer",
+        "sipoc": {
+            "Supplier": "Vendor of IGBT modules, Inc.",
+            "Input": "[Log data from production line showing failure patterns]",
+            "Process": "Analyze historical performance trends and current machine parameters; identify if there is a correlation with recent equipment changes or maintenance practices.",
+            "Output": "[Update the database with real-time monitoring log entries. Logs indicating no significant changes in IGBT module failure rates since last update.]",
+            "Customer": "Machine Operator, WLD-301A"
+        },
+        "id": "t2"
+    },
+    {
+        "title": "Review and Adjust Production Parameters",
+        "type": "manual",
+        "status": "pending",
+        "depends_on": [
+            "t6"
+        ],
+        "assigned_to": "Quality Control Technician",
+        "sipoc": {
+            "Supplier": "Machine Operator, Inc.",
+            "Input": "[Log data from production line showing machine performance metrics; parameters such as temperature and vibration recorded before the incident]",
+            "Process": "Review log entries for operational conditions leading up to failure; adjust process settings if necessary to ensure that no new factors have contributed to the failures.",
+            "Output": "[Update database with adjusted parameters. System states updated after adjustment, showing improved performance metrics.]",
+            "Customer": "WLD-301A Decoiler Operator"
+        },
+        "id": "t3"
+    },
+    {
+        "title": "Conduct Root Cause Analysis (RCA)",
+        "type": "automated",
+        "status": "pending",
+        "depends_on": [
+            "t5"
+        ],
+        "assigned_to": "Operations Team",
+        "sipoc": {
+            "Supplier": "N/A",
+            "Input": "[Log data from multiple sources: production line recordings, operator reports, database entries]",
+            "Process": "Automatically analyze the log files and production records for patterns that may suggest a potential cause of failure; this could involve pattern recognition algorithms or statistical analysis.",
+            "Output": "[Generate detailed report on RCA findings. Logs updated to indicate ongoing investigation.]",
+            "Customer": "Operations Team Lead"
+        },
+        "id": "t4"
+    },
+    {
+        "title": "Immediate Shutdown and Site Inspection",
+        "type": "manual",
+        "status": "pending",
+        "depends_on": [
+            "t6"
+        ],
+        "assigned_to": "Facility Supervisor, WLD-301A Operator",
+        "sipoc": {
+            "Supplier": "N/A",
+            "Input": "[Log data showing power supply transients and cooling fan issues]",
+            "Process": "Inspect the production line for indications of vibration, temperature spikes, dust accumulation; conduct a quick walk-through inspection to identify contributing factors.",
+            "Output": "[Record findings in log entries. Logs updated with observations.]",
+            "Customer": "WLD-301A Decoiler Operator"
+        },
+        "id": "t5"
+    },
+    {
+        "title": "Prepare for Root Cause Analysis (RCA)",
+        "type": "manual",
+        "status": "pending",
+        "depends_on": [
+            "t7"
+        ],
+        "assigned_to": "Operations Team Leader, WLD-301A",
+        "sipoc": {
+            "Supplier": "N/A",
+            "Input": "[Log entries from the incident and previous occurrences]",
+            "Process": "Prepare detailed log records; ensure that all necessary equipment parameters and performance metrics are saved for further analysis.",
+            "Output": "[Update database with RCA logs. Logs updated to indicate upcoming RCA.]",
+            "Customer": "Operations Team Leader, WLD-301A"
+        },
+        "id": "t6"
+    },
+    {
+        "title": "Automated Root Cause Analysis (RCA)",
+        "type": "automated",
+        "status": "pending",
+        "depends_on": [
+            ""
+        ],
+        "assigned_to": "Operations Manager, WLD-301A Maintenance Team",
+        "sipoc": {
+            "Supplier": "N/A",
+            "Input": "[Logs and reports compiled by previous tasks]",
+            "Process": "Automatically perform a comprehensive analysis of the RCA findings; this may involve integrating insights from multiple sources.",
+            "Output": "[Generate detailed RCA report. Logs updated with final results.]",
+            "Customer": "Operations Team Lead, WLD-301A"
+        },
+        "id": "t7"
+    },
+    {
+        "title": "Post-RCA Monitoring and Preventive Measures Implementation",
+        "type": "manual",
+        "status": "pending",
+        "depends_on": [
+            "t9"
+        ],
+        "assigned_to": "Operations Team, WLD-301A",
+        "sipoc": {
+            "Supplier": "N/A",
+            "Input": "[RCA report with recommendations]",
+            "Process": "Review and implement the recommended preventive measures; this includes retesting of components like cooling fans and IGBT modules.",
+            "Output": "[Log entry updated to reflect actions taken. Logs indicating implementation of corrective actions.]",
+            "Customer": "WLD-301A Decoiler Operator"
+        },
+        "id": "t8"
+    },
+    {
+        "title": "Update Log Records with Action Plan Completion Status",
+        "type": "manual",
+        "status": "pending",
+        "depends_on": [
+            "t8"
+        ],
+        "assigned_to": "Operations Team, WLD-301A",
+        "sipoc": {
+            "Supplier": "N/A",
+            "Input": "[RCA report with recommendations]",
+            "Process": "Update the log records to reflect that the action plan has been completed; this ensures accountability for the task.",
+            "Output": "[Log entry updated to show completion status. Logs indicating resolution tasks are no longer pending.]",
+            "Customer": "N/A"
+        },
+        "id": "t9"
+    },
+    {
+        "title": "Automated System Performance Monitoring Setup",
+        "type": "automated",
+        "status": "pending",
+        "depends_on": [
+            ""
+        ],
+        "assigned_to": "Operations Team, WLD-301A Maintenance Team",
+        "sipoc": {
+            "Supplier": "N/A",
+            "Input": "[Log data from previous incidents and RCA findings]",
+            "Process": "Automatically set up system monitoring to track performance metrics such as temperature and vibration, with alerts for any abnormalities that may indicate similar failures.",
+            "Output": "[Log entry updated to show setup. Logs indicating automated monitoring is in place.]",
+            "Customer": "Operations Team Lead, WLD-301A"
+        },
+        "id": "t10"
+    }
+]

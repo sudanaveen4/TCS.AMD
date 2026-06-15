@@ -1,4 +1,4 @@
-const API_URL = "http://127.0.0.1:5000/api";
+const API_URL = "/api";
 
 let machineConfig = [];
 let failureModes = {};
@@ -39,6 +39,20 @@ async function init() {
         populateUI();
         setInterval(pollData, 1000);
         setInterval(updateShiftClock, 1000);
+        
+        // Dynamically load GPU info from the backend status endpoint
+        fetch(`${API_URL}/status`)
+            .then(res => res.json())
+            .then(statusData => {
+                if (statusData.gpu) {
+                    const footerGpu = document.getElementById('gpu-status-footer');
+                    if (footerGpu) {
+                        footerGpu.innerHTML = `<i class="fa-solid fa-server"></i> GPU: ${statusData.gpu}`;
+                    }
+                }
+            })
+            .catch(err => console.error("Failed to load GPU status:", err));
+            
     } catch (err) {
         console.error("Failed to init:", err);
     }
@@ -336,7 +350,24 @@ async function openSipocModal(incident_id) {
                     }
                 }
                 
+                // Check if this task has an associated image (PPE safety incidents)
+                let imageHtml = '';
+                if (t.image_path) {
+                    imageHtml = `
+                    <div style="margin:0.8rem 0; padding:0.8rem; background:#080c16; border-radius:8px; border:1px solid var(--panel-border);">
+                        <div style="font-size:0.75rem; color:var(--text-muted); margin-bottom:0.5rem; font-weight:600; text-transform:uppercase;"><i class="fa-solid fa-camera"></i> AI Detection Image — Review Required</div>
+                        <img src="${API_URL}/document/${t.image_path}" style="width:100%; max-height:300px; object-fit:contain; border-radius:6px; border:1px solid var(--panel-border);" alt="Detection Image" />
+                        ${t.original_image_path ? `<div style="margin-top:0.5rem;"><a href="${API_URL}/document/${t.original_image_path}" target="_blank" style="color:var(--color-primary); font-size:0.75rem;"><i class="fa-solid fa-external-link"></i> View Original Image</a></div>` : ''}
+                    </div>`;
+                }
+
                 const sipoc = t.sipoc || {};
+                const inputVal = sipoc.Input || t.inputs || '-';
+                const processVal = sipoc.Process || t.procedure || t.process || '-';
+                const outputVal = sipoc.Output || t.outputs || '-';
+                
+                const taskTypeDisplay = t.type === 'manual' ? (t.assigned_to || 'Manual').toUpperCase() : (t.type || 'auto').toUpperCase();
+
                 const taskEl = document.createElement('div');
                 taskEl.className = 'panel';
                 taskEl.style.cssText = `padding:1rem;border-left:4px solid ${statusColor};margin-bottom:0.5rem;`;
@@ -344,18 +375,17 @@ async function openSipocModal(incident_id) {
                 taskEl.innerHTML = `
                     <div style="display:flex;justify-content:space-between;align-items:center;">
                         <h3 style="font-size:1rem;"><i class="fa-solid ${statusIcon}" style="color:${statusColor};margin-right:0.5rem;"></i>${t.title} 
-                            <span class="badge" style="font-size:0.6rem;margin-left:0.5rem;">${(t.type || 'auto').toUpperCase()}</span>
-                            ${t.assigned_to ? `<span style="font-size:0.7rem;color:var(--text-muted);margin-left:0.5rem;"><i class="fa-solid fa-user"></i> ${t.assigned_to}</span>` : ''}
+                            <span class="badge" style="font-size:0.65rem;margin-left:0.5rem;background:${t.type === 'manual' ? 'var(--color-primary-dim)' : ''};color:${t.type === 'manual' ? 'var(--color-primary)' : ''};">${taskTypeDisplay}</span>
+                            ${(t.type !== 'manual' && t.assigned_to) ? `<span style="font-size:0.7rem;color:var(--text-muted);margin-left:0.5rem;"><i class="fa-solid fa-user"></i> ${t.assigned_to}</span>` : ''}
                         </h3>
                         <span style="color:${statusColor};font-weight:bold;font-size:0.85rem;">${(t.status || 'pending').toUpperCase()}</span>
                     </div>
-                    <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:0.5rem;margin:0.8rem 0;font-size:0.75rem;">
-                        <div style="background:rgba(59,130,246,0.1);padding:0.5rem;border-radius:4px;text-align:center;"><strong style="color:#3b82f6;">S</strong><br>${sipoc.Supplier || '-'}</div>
-                        <div style="background:rgba(168,85,247,0.1);padding:0.5rem;border-radius:4px;text-align:center;"><strong style="color:#a855f7;">I</strong><br>${sipoc.Input || '-'}</div>
-                        <div style="background:rgba(245,158,11,0.1);padding:0.5rem;border-radius:4px;text-align:center;"><strong style="color:#f59e0b;">P</strong><br>${sipoc.Process || '-'}</div>
-                        <div style="background:rgba(34,197,94,0.1);padding:0.5rem;border-radius:4px;text-align:center;"><strong style="color:#22c55e;">O</strong><br>${sipoc.Output || '-'}</div>
-                        <div style="background:rgba(239,68,68,0.1);padding:0.5rem;border-radius:4px;text-align:center;"><strong style="color:#ef4444;">C</strong><br>${sipoc.Customer || '-'}</div>
+                    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:0.5rem;margin:0.8rem 0;font-size:0.75rem;">
+                        <div style="background:rgba(168,85,247,0.1);padding:0.5rem;border-radius:4px;text-align:center;"><strong style="color:#a855f7;">Inputs</strong><br>${inputVal}</div>
+                        <div style="background:rgba(245,158,11,0.1);padding:0.5rem;border-radius:4px;text-align:center;"><strong style="color:#f59e0b;">Procedure</strong><br>${processVal}</div>
+                        <div style="background:rgba(34,197,94,0.1);padding:0.5rem;border-radius:4px;text-align:center;"><strong style="color:#22c55e;">Outputs</strong><br>${outputVal}</div>
                     </div>
+                    ${imageHtml}
                     ${t.depends_on && t.depends_on.length > 0 ? `<div style="font-size:0.75rem;color:var(--text-muted);"><i class="fa-solid fa-link"></i> Depends on: ${t.depends_on.join(', ')}</div>` : ''}
                     ${t.notes ? `<div style="font-size:0.8rem;margin-top:0.5rem;padding:0.5rem;background:rgba(34,197,94,0.05);border-radius:4px;border-left:3px solid var(--color-success);"><i class="fa-solid fa-note-sticky"></i> ${t.notes}</div>` : ''}
                     <div style="margin-top:0.8rem;">${actionHtml}</div>
@@ -440,6 +470,12 @@ function updateShiftClock() {
     let elapsedMs = now - shiftStartTime;
     
     if (elapsedMs > SHIFT_DURATION_MS) {
+        // Trigger auto shift handover generation on shift completion
+        if (shiftCycle === 'day' || shiftCycle === 'night') {
+            const shiftName = shiftCycle === 'day' ? 'Day Shift' : 'Night Shift';
+            triggerAutoShiftHandover(shiftName);
+        }
+        
         elapsedMs = 0;
         shiftStartTime = now;
         if (shiftCycle === 'day') shiftCycle = 'break1';
@@ -475,7 +511,7 @@ function updateShiftClock() {
 
 // ===== VIEW SWITCHING =====
 function switchView(viewName) {
-    const views = ['dashboard', 'incidents', 'chat', 'documents', 'rca', 'ontology', 'database'];
+    const views = ['dashboard', 'alerts', 'incidents', 'assistant', 'documents', 'rca', 'ontology', 'database', 'shift-handover'];
     views.forEach(v => {
         const el = document.getElementById(`view-${v}`);
         if (el) el.style.display = 'none';
@@ -496,13 +532,22 @@ function switchView(viewName) {
         'assistant': 'Multi-Agent AI Copilot',
         'documents': 'Knowledge Base Documents',
         'database': 'System Database (Live)',
-        'ontology': 'Agentic Ontology Generator',
-        'rca': 'Root Cause Analysis Reports'
+        'ontology': 'Agentic Task Generator',
+        'rca': 'Root Cause Analysis Reports',
+        'shift-handover': 'Shift Handover & Operations Log'
     };
     
     const targetView = document.getElementById(`view-${viewName}`);
     const targetNav = document.getElementById(`nav-${viewName}`);
-    if (targetView) targetView.style.display = viewName === 'dashboard' ? 'block' : 'flex';
+    if (targetView) {
+        if (viewName === 'dashboard') {
+            targetView.style.display = 'block';
+        } else if (viewName === 'shift-handover') {
+            targetView.style.display = 'block';
+        } else {
+            targetView.style.display = 'flex';
+        }
+    }
     if (targetNav) targetNav.classList.add('active');
     if (pageTitle) pageTitle.textContent = titles[viewName] || viewName;
     
@@ -512,6 +557,7 @@ function switchView(viewName) {
     if (viewName === 'ontology') fetchOntologyCache();
     if (viewName === 'database') fetchDatabases();
     if (viewName === 'incidents') fetchIncidents();
+    if (viewName === 'shift-handover') fetchShiftDocuments();
 }
 
 // ===== DOCUMENT VIEWER =====
@@ -546,30 +592,107 @@ async function fetchDocuments() {
             
             groups[folder].forEach(doc => {
                 const el = document.createElement('div');
-                el.style.cssText = 'padding:0.5rem 0.5rem 0.5rem 1.5rem;margin:2px 0;background:rgba(255,255,255,0.03);border-radius:4px;cursor:pointer;font-size:0.8rem;transition:background 0.2s;';
-                el.onmouseenter = () => el.style.background = 'rgba(255,255,255,0.08)';
-                el.onmouseleave = () => el.style.background = 'rgba(255,255,255,0.03)';
+                el.className = 'doc-file';
+                el.style.cssText = 'padding:0.5rem 0.5rem 0.5rem 1.5rem;margin:2px 0;background:rgba(255,255,255,0.03);border:1px solid transparent;border-radius:4px;cursor:pointer;font-size:0.8rem;transition:all 0.2s;';
                 el.innerHTML = `<i class="fa-solid ${doc.icon || 'fa-file'}" style="color:var(--color-primary);margin-right:0.5rem;"></i>${doc.name}`;
-                el.onclick = () => {
-                    document.getElementById('pdf-viewer-title').textContent = doc.name;
-                    if (doc.ext === '.md' || doc.ext === '.json' || doc.ext === '.txt') {
-                        // Fetch and render text content
-                        fetch(`${API_URL}/document/${doc.path}`)
-                            .then(r => r.text())
-                            .then(text => {
-                                const iframe = document.getElementById('pdf-iframe');
-                                const htmlContent = `<html><head><style>body{background:#1e1e2e;color:#cdd6f4;font-family:'Segoe UI',sans-serif;padding:2rem;white-space:pre-wrap;font-size:14px;line-height:1.6;} pre{background:#313244;padding:1rem;border-radius:8px;overflow-x:auto;} code{color:#a6e3a1;} h1,h2,h3{color:#89b4fa;} strong{color:#f9e2af;} table{border-collapse:collapse;width:100%;} th,td{border:1px solid #45475a;padding:8px;text-align:left;} th{background:#313244;}</style></head><body>${escapeHtml(text)}</body></html>`;
-                                iframe.srcdoc = htmlContent;
-                            });
-                    } else {
-                        document.getElementById('pdf-iframe').src = `${API_URL}/document/${doc.path}`;
-                    }
-                };
+                el.onclick = () => openDocument(doc);
                 folderEl.appendChild(el);
             });
             explorer.appendChild(folderEl);
         });
     } catch(e) { console.error("Failed to load documents:", e); }
+}
+
+function openDocument(doc) {
+    document.getElementById('pdf-viewer-title').textContent = doc.name;
+    const iframe = document.getElementById('pdf-iframe');
+    
+    if (doc.ext === '.md' || doc.ext === '.txt') {
+        fetch(`${API_URL}/document/${doc.path}`)
+            .then(r => r.text())
+            .then(text => {
+                const parsedHtml = parseMarkdownToHTML(text);
+                iframe.srcdoc = buildDocViewerHTML(parsedHtml);
+            });
+    } else if (doc.ext === '.json') {
+        fetch(`${API_URL}/document/${doc.path}`)
+            .then(r => r.text())
+            .then(text => {
+                const prettyJson = JSON.stringify(JSON.parse(text), null, 2);
+                const htmlContent = `<html><head><style>body{background:#090e17;color:#10b981;font-family:'Consolas','Courier New',monospace;padding:2rem;white-space:pre-wrap;font-size:13px;line-height:1.6;}</style></head><body>${escapeHtml(prettyJson)}</body></html>`;
+                iframe.srcdoc = htmlContent;
+            });
+    } else if (doc.ext === '.png' || doc.ext === '.jpg' || doc.ext === '.svg') {
+        iframe.src = `${API_URL}/document/${doc.path}`;
+    } else {
+        iframe.src = `${API_URL}/document/${doc.path}`;
+    }
+}
+
+function buildDocViewerHTML(bodyHtml) {
+    return `<html><head><style>
+        body {
+            background:#090e17;
+            color:#cbd5e1;
+            font-family:'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+            padding:2rem;
+            line-height:1.7;
+            font-size:14px;
+        }
+        h1, h2, h3, h4 { color: #8b5cf6; font-weight: 600; margin-top: 1.5rem; }
+        h1 { font-size: 1.5rem; color: #f0f4f8; }
+        h2 { color: #3b82f6; border-bottom: 2px solid #232d45; padding-bottom: 0.5rem; font-size: 1.2rem; }
+        h3 { color: #8b5cf6; font-size: 1.05rem; }
+        strong { color: #f8fafc; }
+        em { color: #94a3b8; }
+        a { color: #3b82f6; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        pre {
+            background:#141b2d;
+            border: 1px solid #232d45;
+            padding:1rem;
+            border-radius:8px;
+            overflow-x:auto;
+        }
+        code {
+            color:#10b981;
+            font-family: Consolas, 'Courier New', monospace;
+        }
+        img {
+            max-width: 100%;
+            border-radius: 8px;
+            border: 1px solid #232d45;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+            margin: 1rem 0;
+        }
+        table {
+            width:100%;
+            border-collapse:collapse;
+            margin:1.5rem 0;
+        }
+        th, td {
+            border-bottom:1px solid #232d45;
+            padding:8px 12px;
+            text-align:left;
+        }
+        th {
+            background:#0d131f;
+            color:#94a3b8;
+            font-size:0.75rem;
+            text-transform:uppercase;
+            letter-spacing:0.5px;
+        }
+        ul, ol { padding-left:1.5rem; }
+        li { margin-bottom:0.4rem; }
+        blockquote {
+            border-left: 3px solid #3b82f6;
+            padding-left: 1rem;
+            color: #94a3b8;
+            font-style: italic;
+            margin: 1rem 0;
+        }
+        hr { border: none; border-top: 1px solid #232d45; margin: 1.5rem 0; }
+    </style></head><body>${bodyHtml}</body></html>`;
 }
 
 function escapeHtml(text) {
@@ -579,60 +702,136 @@ function escapeHtml(text) {
 // ===== DATABASE VIEWER =====
 async function fetchDatabases() {
     try {
-        // Fetch databases list
         const dbListRes = await fetch(`${API_URL}/databases`);
         const dbListData = await dbListRes.json();
         
-        // Also fetch incidents
+        // Build sidebar list
+        const sidebar = document.getElementById('db-sidebar-list');
+        if (!sidebar) return;
+        sidebar.innerHTML = '';
+        
+        if (dbListData.databases && dbListData.databases.length > 0) {
+            dbListData.databases.forEach(db => {
+                const el = document.createElement('div');
+                el.className = 'doc-file';
+                el.style.cssText = 'padding:0.7rem 0.8rem;margin:3px 0;background:rgba(255,255,255,0.03);border:1px solid transparent;border-radius:6px;cursor:pointer;font-size:0.8rem;transition:all 0.2s;display:flex;justify-content:space-between;align-items:center;';
+                el.innerHTML = `
+                    <span><i class="fa-solid fa-database" style="color:var(--color-primary);margin-right:0.5rem;"></i>${db.name.replace(/_/g, ' ')}</span>
+                    <span class="badge" style="background:var(--color-primary-dim);color:var(--color-primary);border:1px solid rgba(59,130,246,0.2);font-size:0.65rem;">${db.record_count}</span>
+                `;
+                el.onclick = () => loadDatabaseTable(db.name);
+                sidebar.appendChild(el);
+            });
+        }
+        
+        // Also load incidents view
         const incRes = await fetch(`${API_URL}/incidents`);
         const incData = await incRes.json();
-        
         const rcaRes = await fetch(`${API_URL}/rca_reports`);
         const rcaData = await rcaRes.json();
         const rcaMap = {};
         rcaData.reports.forEach(r => { rcaMap[r.incident_id] = r; });
         
-        const tbody = document.getElementById('db-table-body');
-        tbody.innerHTML = '';
+        // Add incidents as a special entry
+        const incEl = document.createElement('div');
+        incEl.className = 'doc-file';
+        incEl.style.cssText = 'padding:0.7rem 0.8rem;margin:3px 0;background:rgba(239,68,68,0.04);border:1px solid rgba(239,68,68,0.15);border-radius:6px;cursor:pointer;font-size:0.8rem;transition:all 0.2s;display:flex;justify-content:space-between;align-items:center;';
+        incEl.innerHTML = `
+            <span><i class="fa-solid fa-triangle-exclamation" style="color:var(--color-danger);margin-right:0.5rem;"></i>Incident Reports</span>
+            <span class="badge red">${(incData.incidents || []).length}</span>
+        `;
+        incEl.onclick = () => loadIncidentTable(incData.incidents || [], rcaMap);
+        sidebar.insertBefore(incEl, sidebar.firstChild);
         
-        // Show incidents
-        if (incData.incidents && incData.incidents.length > 0) {
-            incData.incidents.forEach(inc => {
-                const tr = document.createElement('tr');
-                tr.style.cssText = 'border-bottom:1px solid rgba(255,255,255,0.1);cursor:pointer;';
-                tr.onclick = () => openSipocModal(inc.id);
-                
-                const hasRca = rcaMap[inc.id] ? '<span class="badge green">Generated</span>' : '<span class="badge gray">Pending</span>';
-                const completedTasks = (inc.tasks || []).filter(t => t.status === 'completed').length;
-                const totalTasks = (inc.tasks || []).length;
-                
-                tr.innerHTML = `
-                    <td style="padding:0.8rem;">${inc.id}</td>
-                    <td style="padding:0.8rem;">${inc.machine_id}</td>
-                    <td style="padding:0.8rem;">${inc.failure_mode}</td>
-                    <td style="padding:0.8rem;"><span class="badge ${inc.status === 'open' ? 'red' : 'green'}">${inc.status.toUpperCase()}</span> ${completedTasks}/${totalTasks}</td>
-                    <td style="padding:0.8rem;">${hasRca}</td>
-                `;
-                tbody.appendChild(tr);
-            });
-        } else {
-            tbody.innerHTML = '<tr><td colspan="5" style="padding:1rem;color:var(--text-muted);text-align:center;">No incidents recorded yet. Inject a failure from the Simulation Controller.</td></tr>';
-        }
+        // Auto-load first item (incidents)
+        loadIncidentTable(incData.incidents || [], rcaMap);
         
-        // Also show database files info below the table
-        const dbInfoEl = document.getElementById('db-files-info');
-        if (dbInfoEl && dbListData.databases) {
-            dbInfoEl.innerHTML = '<h4 style="margin-bottom:0.5rem;"><i class="fa-solid fa-database"></i> Available Plant Databases</h4>';
-            dbListData.databases.forEach(db => {
-                const chip = document.createElement('span');
-                chip.style.cssText = 'display:inline-block;padding:0.3rem 0.8rem;margin:0.2rem;background:rgba(59,130,246,0.1);border:1px solid rgba(59,130,246,0.3);border-radius:20px;font-size:0.75rem;color:#3b82f6;';
-                chip.textContent = `${db.name} (${db.record_count} records)`;
-                dbInfoEl.appendChild(chip);
-            });
-        }
     } catch (e) {
         console.error(e);
     }
+}
+
+async function loadDatabaseTable(dbName) {
+    const container = document.getElementById('db-table-container');
+    container.innerHTML = '<div style="text-align:center;padding:2rem;"><i class="fa-solid fa-circle-notch fa-spin fa-2x" style="color:var(--color-primary);"></i></div>';
+    
+    try {
+        const res = await fetch(`${API_URL}/db_content/${dbName}`);
+        const result = await res.json();
+        
+        if (result.error) {
+            container.innerHTML = `<div style="padding:1rem;color:var(--color-danger);">${result.error}</div>`;
+            return;
+        }
+        
+        const data = result.data;
+        const displayName = dbName.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+        
+        let html = `<div style="padding:0.8rem 1rem;border-bottom:1px solid var(--panel-border);display:flex;justify-content:space-between;align-items:center;">
+            <h3 style="font-size:0.95rem;"><i class="fa-solid fa-table" style="color:var(--color-primary);margin-right:0.5rem;"></i>${displayName}</h3>
+            <span class="badge" style="background:var(--color-primary-dim);color:var(--color-primary);">${Array.isArray(data) ? data.length : 1} records</span>
+        </div>`;
+        
+        if (Array.isArray(data) && data.length > 0) {
+            // Get columns from first object
+            const columns = Object.keys(data[0]).slice(0, 8); // Limit columns for readability
+            
+            html += '<div style="overflow-x:auto;">';
+            html += '<table class="data-table">';
+            html += '<thead><tr>';
+            columns.forEach(col => {
+                html += `<th>${col.replace(/_/g, ' ')}</th>`;
+            });
+            html += '</tr></thead><tbody>';
+            
+            data.forEach(row => {
+                html += '<tr>';
+                columns.forEach(col => {
+                    let val = row[col];
+                    if (val === null || val === undefined) val = '—';
+                    else if (typeof val === 'object') val = JSON.stringify(val).substring(0, 60) + '...';
+                    else val = String(val).substring(0, 80);
+                    html += `<td>${val}</td>`;
+                });
+                html += '</tr>';
+            });
+            
+            html += '</tbody></table></div>';
+        } else if (typeof data === 'object') {
+            html += '<div style="padding:1rem;"><pre style="background:#0d131f;padding:1rem;border-radius:8px;border:1px solid var(--panel-border);color:#10b981;font-size:0.82rem;overflow:auto;max-height:500px;">' + JSON.stringify(data, null, 2) + '</pre></div>';
+        }
+        
+        container.innerHTML = html;
+    } catch (e) {
+        container.innerHTML = `<div style="padding:1rem;color:var(--color-danger);">Error: ${e.message}</div>`;
+    }
+}
+
+function loadIncidentTable(incidents, rcaMap) {
+    const container = document.getElementById('db-table-container');
+    let html = `<div style="padding:0.8rem 1rem;border-bottom:1px solid var(--panel-border);">
+        <h3 style="font-size:0.95rem;"><i class="fa-solid fa-triangle-exclamation" style="color:var(--color-danger);margin-right:0.5rem;"></i>Incident Reports</h3>
+    </div>`;
+    
+    if (incidents.length === 0) {
+        html += '<div style="padding:2rem;text-align:center;color:var(--text-muted);">No incidents recorded yet.</div>';
+    } else {
+        html += '<table class="data-table"><thead><tr><th>ID</th><th>Machine</th><th>Failure</th><th>Status</th><th>RCA</th></tr></thead><tbody>';
+        incidents.forEach(inc => {
+            const hasRca = rcaMap[inc.id] ? '<span class="badge green">Generated</span>' : '<span class="badge gray">Pending</span>';
+            const completedTasks = (inc.tasks || []).filter(t => t.status === 'completed').length;
+            const totalTasks = (inc.tasks || []).length;
+            html += `<tr style="cursor:pointer;" onclick="openSipocModal('${inc.id}')">
+                <td>${inc.id}</td>
+                <td>${inc.machine_id}</td>
+                <td style="max-width:200px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">${inc.failure_mode}</td>
+                <td><span class="badge ${inc.status === 'open' ? 'red' : 'green'}">${inc.status.toUpperCase()}</span> ${completedTasks}/${totalTasks}</td>
+                <td>${hasRca}</td>
+            </tr>`;
+        });
+        html += '</tbody></table>';
+    }
+    container.innerHTML = html;
 }
 
 // ==========================================
@@ -640,36 +839,28 @@ async function fetchDatabases() {
 // ==========================================
 async function fetchRCA() {
     try {
-        const res = await fetch('/api/documents');
+        const res = await fetch(`${API_URL}/documents`);
         const data = await res.json();
         const tree = document.getElementById('rca-explorer');
         tree.innerHTML = '';
         
-        // We only care about the rca_documents folder
-        const buildRCATree = (node, path) => {
-            let html = '';
-            for (const [key, value] of Object.entries(node)) {
-                const currentPath = path ? `${path}/${key}` : key;
-                if (key === 'rca_documents' && typeof value === 'object') {
-                    for (const [rcaKey, rcaValue] of Object.entries(value)) {
-                        if (typeof rcaValue === 'string') continue;
-                        html += `
-                        <div class="doc-file" onclick="openRCA('${currentPath}/${rcaKey}')">
-                            <i class="fa-solid fa-file-contract"></i> ${rcaKey}
-                        </div>`;
-                    }
-                } else if (typeof value === 'object') {
-                    html += buildRCATree(value, currentPath);
+        let html = '';
+        if (data.documents && data.documents.length > 0) {
+            data.documents.forEach(doc => {
+                if (doc.folder === 'rca_documents') {
+                    html += `
+                    <div class="doc-file" style="padding:0.6rem 0.8rem; margin:4px 0; background:rgba(255,255,255,0.03); border-radius:6px; cursor:pointer; font-size:0.8rem; transition:background 0.2s; display:flex; align-items:center; gap:0.5rem;" onclick="openRCA('${doc.path}')">
+                        <i class="fa-solid fa-file-contract" style="color:var(--color-primary);"></i>
+                        <span style="overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">${doc.name}</span>
+                    </div>`;
                 }
-            }
-            return html;
-        };
+            });
+        }
         
-        const rcaFiles = buildRCATree(data.documents, '');
-        if (!rcaFiles) {
-            tree.innerHTML = '<div style="padding: 1rem; color: var(--text-muted);">No RCA reports generated yet.</div>';
+        if (!html) {
+            tree.innerHTML = '<div style="padding: 1rem; color: var(--text-muted); font-size:0.8rem;">No RCA reports generated yet.</div>';
         } else {
-            tree.innerHTML = rcaFiles;
+            tree.innerHTML = html;
         }
     } catch (e) {
         console.error(e);
@@ -678,7 +869,92 @@ async function fetchRCA() {
 
 function openRCA(path) {
     document.getElementById('rca-viewer-title').innerText = path.split('/').pop();
-    document.getElementById('rca-iframe').src = `/api/document/${path}`;
+    
+    const ext = path.split('.').pop().toLowerCase();
+    if (ext === 'md' || ext === 'txt') {
+        fetch(`${API_URL}/document/${path}`)
+            .then(r => r.text())
+            .then(text => {
+                const iframe = document.getElementById('rca-iframe');
+                const parsedHtml = parseMarkdownToHTML(text);
+                iframe.srcdoc = buildDocViewerHTML(parsedHtml);
+            });
+    } else {
+        document.getElementById('rca-iframe').src = `${API_URL}/document/${path}`;
+    }
+}
+
+function parseMarkdownToHTML(md) {
+    let html = md;
+    
+    // Code blocks
+    html = html.replace(/```(\w*)\n([\s\S]*?)```/g, (match, lang, code) => {
+        return `<pre><code>${escapeHtml(code)}</code></pre>`;
+    });
+
+    // Inline code
+    html = html.replace(/`([^`]+)`/g, '<code>$1</code>');
+
+    // Images: ![alt](url)
+    html = html.replace(/!\[([^\]]*)\]\(([^)]+)\)/g, '<div style="text-align:center; margin:1.5rem 0;"><img src="$2" alt="$1" style="max-width:100%; border-radius:8px; border:1px solid #232d45; box-shadow:0 10px 25px rgba(0,0,0,0.5);" /><p style="color:#94a3b8; font-size:0.8rem; margin-top:0.5rem; font-style:italic;">$1</p></div>');
+
+    // Links: [text](url)
+    html = html.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" style="color:#3b82f6; text-decoration:none;">$1</a>');
+
+    // Headers
+    html = html.replace(/^### (.*?)$/gm, '<h4>$1</h4>');
+    html = html.replace(/^## (.*?)$/gm, '<h2>$1</h2>');
+    html = html.replace(/^# (.*?)$/gm, '<h1>$1</h1>');
+
+    // Bold & Italic
+    html = html.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
+    html = html.replace(/\*([^*]+)\*/g, '<em>$1</em>');
+
+    // Tables
+    const tableRegex = /((?:\|[^\n]*\|(?:\n|$))+)/g;
+    html = html.replace(tableRegex, (match) => {
+        const lines = match.trim().split('\n');
+        if (lines.length < 2) return match;
+        
+        let tableHtml = '<table>';
+        
+        const headers = lines[0].split('|').map(x => x.trim()).filter(x => x !== '');
+        tableHtml += '<thead><tr>';
+        headers.forEach(h => {
+            tableHtml += `<th>${h}</th>`;
+        });
+        tableHtml += '</tr></thead><tbody>';
+        
+        for (let i = 2; i < lines.length; i++) {
+            const cols = lines[i].split('|').map(x => x.trim()).filter(x => x !== '');
+            if (cols.length === 0) continue;
+            tableHtml += '<tr>';
+            cols.forEach(c => {
+                tableHtml += `<td>${c}</td>`;
+            });
+            tableHtml += '</tr>';
+        }
+        
+        tableHtml += '</tbody></table>';
+        return tableHtml;
+    });
+
+    // Unordered lists
+    html = html.replace(/^\s*-\s+(.*?)$/gm, '<li>$1</li>');
+    // Wrap lists
+    html = html.replace(/((?:<li>[\s\S]*?<\/li>\n?)+)/g, '<ul>$1</ul>');
+
+    // Paragraphs
+    const paragraphs = html.split(/\n\n+/);
+    html = paragraphs.map(p => {
+        const trimmed = p.trim();
+        if (trimmed.startsWith('<pre') || trimmed.startsWith('<table') || trimmed.startsWith('<ul') || trimmed.startsWith('<h') || trimmed.startsWith('<div')) {
+            return p;
+        }
+        return `<p style="line-height:1.6; color:#cbd5e1; margin-bottom:1rem; font-size:0.95rem;">${p.replace(/\n/g, '<br>')}</p>`;
+    }).join('\n');
+
+    return html;
 }
 
 // ==========================================
@@ -687,7 +963,7 @@ function openRCA(path) {
 async function generateAllOntologies() {
     alert("Starting Mass Ontology Generation. Check the 'Incidents' tab in a few moments as incidents are simulated.");
     try {
-        await fetch('/api/generate_all_ontologies', { method: 'POST' });
+        await fetch(`${API_URL}/generate_all_ontologies`, { method: 'POST' });
         setTimeout(() => switchView('incidents'), 2000);
     } catch (e) {
         console.error(e);
@@ -698,7 +974,7 @@ async function generateOntology() {
     const failureMode = document.getElementById('ontology-failure-select').value;
     const container = document.getElementById('ontology-results');
     
-    container.innerHTML = `<div style="text-align:center;color:var(--color-primary);padding:2rem;"><i class="fa-solid fa-circle-notch fa-spin fa-2x"></i><br><br>Querying RAG Vector Store & generating SIPOC DAG via Ollama...<br><small style="color:var(--text-muted);">This may take 10-30 seconds</small></div>`;
+    container.innerHTML = `<div style="text-align:center;color:var(--color-primary);padding:2rem;"><i class="fa-solid fa-circle-notch fa-spin fa-2x"></i><br><br>Querying RAG Vector Store & generating resolution tasks via Ollama...<br><small style="color:var(--text-muted);">This may take 10-30 seconds</small></div>`;
     
     try {
         const response = await fetch(`${API_URL}/generate_ontology`, {
@@ -721,6 +997,12 @@ async function generateOntology() {
         
         (data.tasks || []).forEach((t, idx) => {
             const sipoc = t.sipoc || {};
+            const inputVal = sipoc.Input || t.inputs || '-';
+            const processVal = sipoc.Process || t.procedure || t.process || '-';
+            const outputVal = sipoc.Output || t.outputs || '-';
+            
+            const taskTypeDisplay = t.type === 'manual' ? (t.assigned_to || 'Manual').toUpperCase() : (t.type||'auto').toUpperCase();
+
             const taskEl = document.createElement('div');
             taskEl.className = 'panel';
             taskEl.style.cssText = 'padding:1rem;border-left:4px solid var(--color-primary);margin-bottom:0.5rem;';
@@ -728,16 +1010,14 @@ async function generateOntology() {
             taskEl.innerHTML = `
                 <div style="display:flex;justify-content:space-between;align-items:center;">
                     <h3 style="font-size:0.95rem;">${t.id || `t${idx+1}`}. ${t.title} 
-                        <span class="badge" style="font-size:0.6rem;">${(t.type||'auto').toUpperCase()}</span>
-                        ${t.assigned_to ? `<span style="font-size:0.7rem;color:var(--text-muted);margin-left:0.5rem;"><i class="fa-solid fa-user"></i> ${t.assigned_to}</span>` : ''}
+                        <span class="badge" style="font-size:0.65rem;background:${t.type === 'manual' ? 'var(--color-primary-dim)' : ''};color:${t.type === 'manual' ? 'var(--color-primary)' : ''};">${taskTypeDisplay}</span>
+                        ${(t.type !== 'manual' && t.assigned_to) ? `<span style="font-size:0.7rem;color:var(--text-muted);margin-left:0.5rem;"><i class="fa-solid fa-user"></i> ${t.assigned_to}</span>` : ''}
                     </h3>
                 </div>
-                <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:0.5rem;margin:0.8rem 0;font-size:0.75rem;">
-                    <div style="background:rgba(59,130,246,0.1);padding:0.4rem;border-radius:4px;text-align:center;"><strong style="color:#3b82f6;">S</strong><br>${sipoc.Supplier || '-'}</div>
-                    <div style="background:rgba(168,85,247,0.1);padding:0.4rem;border-radius:4px;text-align:center;"><strong style="color:#a855f7;">I</strong><br>${sipoc.Input || '-'}</div>
-                    <div style="background:rgba(245,158,11,0.1);padding:0.4rem;border-radius:4px;text-align:center;"><strong style="color:#f59e0b;">P</strong><br>${sipoc.Process || '-'}</div>
-                    <div style="background:rgba(34,197,94,0.1);padding:0.4rem;border-radius:4px;text-align:center;"><strong style="color:#22c55e;">O</strong><br>${sipoc.Output || '-'}</div>
-                    <div style="background:rgba(239,68,68,0.1);padding:0.4rem;border-radius:4px;text-align:center;"><strong style="color:#ef4444;">C</strong><br>${sipoc.Customer || '-'}</div>
+                <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:0.5rem;margin:0.8rem 0;font-size:0.75rem;">
+                    <div style="background:rgba(168,85,247,0.1);padding:0.4rem;border-radius:4px;text-align:center;"><strong style="color:#a855f7;">Inputs</strong><br>${inputVal}</div>
+                    <div style="background:rgba(245,158,11,0.1);padding:0.4rem;border-radius:4px;text-align:center;"><strong style="color:#f59e0b;">Procedure</strong><br>${processVal}</div>
+                    <div style="background:rgba(34,197,94,0.1);padding:0.4rem;border-radius:4px;text-align:center;"><strong style="color:#22c55e;">Outputs</strong><br>${outputVal}</div>
                 </div>
                 <div style="font-size:0.75rem;color:var(--text-muted);"><i class="fa-solid fa-link"></i> Depends on: ${(t.depends_on||[]).join(', ') || 'None (Start)'}</div>
             `;
@@ -819,6 +1099,165 @@ async function sendChatMessage() {
         errMsg.innerHTML = `<div class="chat-bubble" style="border-left:3px solid var(--color-danger);">Error: ${e.message}</div>`;
         historyEl.appendChild(errMsg);
     }
+}
+
+// ===== SHIFT HANDOVER LOGIC =====
+async function triggerAutoShiftHandover(shiftName) {
+    try {
+        const response = await fetch(`${API_URL}/generate_shift_handover`, {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({
+                shift_name: shiftName,
+                supervisor: 'Supervisor (Plant Manager)',
+                manual: false
+            })
+        });
+        const data = await response.json();
+        if (data.success) {
+            showToastNotification("Shift Handover Completed", `Handover document for ${shiftName} generated automatically.`, "success");
+            if (document.getElementById('nav-shift-handover')?.classList.contains('active')) {
+                fetchShiftDocuments();
+            }
+        }
+    } catch (err) {
+        console.error("Auto-handover failed:", err);
+    }
+}
+
+async function generateShiftHandover() {
+    const currentShift = shiftCycle === 'day' ? 'Day Shift' : (shiftCycle === 'night' ? 'Night Shift' : 'Break Handover');
+    
+    showToastNotification("Generating Report", "Compiling telemetry, active incidents, and LLM summary...", "info");
+    
+    try {
+        const response = await fetch(`${API_URL}/generate_shift_handover`, {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({
+                shift_name: currentShift,
+                supervisor: 'Supervisor (Plant Manager)',
+                manual: true
+            })
+        });
+        const data = await response.json();
+        if (data.success) {
+            showToastNotification("Report Generated", `Handover report ready to view.`, "success");
+            switchView('shift-handover');
+            await fetchShiftDocuments(); // will auto-open the newest
+        } else {
+            showToastNotification("Generation Failed", data.error || "Unknown error occurred.", "error");
+        }
+    } catch (err) {
+        showToastNotification("Generation Failed", err.message, "error");
+    }
+}
+
+async function fetchShiftDocuments() {
+    try {
+        const response = await fetch(`${API_URL}/shift_documents`);
+        const data = await response.json();
+        const explorer = document.getElementById('shift-doc-explorer');
+        if (!explorer) return;
+        
+        explorer.innerHTML = '';
+        if (!data.documents || data.documents.length === 0) {
+            explorer.innerHTML = '<div style="color:var(--text-muted); text-align:center; font-size:0.85rem; padding-top:2rem;"><i class="fa-solid fa-folder-open" style="font-size:2rem;display:block;margin-bottom:0.5rem;opacity:0.3;"></i>No handover reports found.<br><small>Click "Generate Handover" to create one.</small></div>';
+            return;
+        }
+        
+        data.documents.forEach((doc, idx) => {
+            const el = document.createElement('div');
+            el.className = 'doc-file';
+            el.style.cssText = 'padding:0.7rem 0.8rem; margin:4px 0; background:rgba(255,255,255,0.03); border:1px solid transparent; border-radius:6px; cursor:pointer; font-size:0.8rem; display:flex; align-items:center; gap:0.5rem;';
+            
+            // Clean filename display by replacing either extension
+            const displayName = doc.name.replace('_Handover.html', '').replace('_Handover.md', '');
+            
+            el.innerHTML = `
+                <i class="fa-solid fa-file-contract" style="color:var(--color-primary); flex-shrink:0;"></i>
+                <div style="overflow:hidden; flex:1;">
+                    <div style="overflow:hidden; text-overflow:ellipsis; white-space:nowrap; color:var(--text-main); font-weight:500;">${displayName}</div>
+                    <div style="font-size:0.72rem; color:var(--text-muted); margin-top:1px;">${doc.date} &middot; ${(doc.size/1024).toFixed(1)} KB</div>
+                </div>
+            `;
+            el.onclick = () => openShiftDocument(doc.path, el);
+            explorer.appendChild(el);
+            
+            // Auto-open the first (most recent) document
+            if (idx === 0) {
+                setTimeout(() => openShiftDocument(doc.path, el), 100);
+            }
+        });
+    } catch (err) {
+        console.error("Failed to load shift documents:", err);
+    }
+}
+
+function openShiftDocument(path, clickedEl) {
+    // Highlight active
+    document.querySelectorAll('#shift-doc-explorer .doc-file').forEach(el => {
+        el.style.background = 'rgba(255,255,255,0.03)';
+        el.style.borderColor = 'transparent';
+    });
+    if (clickedEl) {
+        clickedEl.style.background = 'rgba(59,130,246,0.1)';
+        clickedEl.style.borderColor = 'rgba(59,130,246,0.4)';
+    }
+    
+    const filename = path.split('/').pop();
+    const titleEl = document.getElementById('shift-viewer-title');
+    if (titleEl) {
+        titleEl.textContent = filename.replace('_Handover.html', ' — Shift Handover Report').replace('_Handover.md', ' — Shift Handover Report');
+    }
+    
+    const iframe = document.getElementById('shift-iframe');
+    if (!iframe) return;
+    
+    // Serve HTML directly via iframe src
+    iframe.src = `${API_URL}/document/${path}`;
+}
+
+function showToastNotification(title, message, type='info') {
+    if (!document.getElementById('toast-styles')) {
+        const style = document.createElement('style');
+        style.id = 'toast-styles';
+        style.innerHTML = `
+            @keyframes slideIn { from { transform: translateX(120%); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
+            @keyframes slideOut { from { transform: translateX(0); opacity: 1; } to { transform: translateX(120%); opacity: 0; } }
+        `;
+        document.head.appendChild(style);
+    }
+
+    const toast = document.createElement('div');
+    toast.style.cssText = `
+        position: fixed;
+        bottom: 50px;
+        right: 20px;
+        background: var(--panel-bg);
+        border-left: 4px solid ${type === 'error' ? 'var(--color-danger)' : (type === 'info' ? 'var(--color-primary)' : 'var(--color-success)')};
+        border-top: 1px solid var(--panel-border);
+        border-right: 1px solid var(--panel-border);
+        border-bottom: 1px solid var(--panel-border);
+        padding: 1rem;
+        border-radius: 8px;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+        z-index: 10000;
+        max-width: 320px;
+        animation: slideIn 0.3s ease-out;
+    `;
+    toast.innerHTML = `
+        <div style="font-weight:bold; color: white; display:flex; align-items:center; gap:0.5rem; margin-bottom: 0.2rem;">
+            <i class="fa-solid ${type === 'error' ? 'fa-triangle-exclamation' : (type === 'info' ? 'fa-circle-info' : 'fa-circle-check')}" style="color:${type === 'error' ? 'var(--color-danger)' : (type === 'info' ? 'var(--color-primary)' : 'var(--color-success)')};"></i>
+            ${title}
+        </div>
+        <div style="font-size:0.8rem; color: var(--text-muted); line-height:1.4;">${message}</div>
+    `;
+    document.body.appendChild(toast);
+    setTimeout(() => {
+        toast.style.animation = 'slideOut 0.3s ease-in';
+        setTimeout(() => toast.remove(), 300);
+    }, 5000);
 }
 
 // Boot

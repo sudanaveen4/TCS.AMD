@@ -13,18 +13,28 @@
             padding: 2rem;
             display: flex;
             flex-direction: column;
-            gap: 2rem;
+            gap: 1.5rem;
             height: 100vh;
             overflow-y: auto;
+            background: linear-gradient(180deg, var(--bg-dark) 0%, var(--bg-dark-alt) 100%);
         }
         .control-header {
             display: flex; justify-content: space-between; align-items: center;
         }
+        .control-header h1 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #f0f4f8, #94a3b8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
         .controls-panel {
-            background-color: var(--panel-bg);
+            background: var(--gradient-surface);
+            backdrop-filter: blur(12px);
             border: 1px solid var(--panel-border);
             padding: 1.5rem;
-            border-radius: 8px;
+            border-radius: var(--radius-md);
             display: flex;
             gap: 1.5rem;
             align-items: flex-end;
@@ -33,20 +43,27 @@
             display: flex; flex-direction: column; gap: 0.5rem;
             flex: 1;
         }
-        .control-group label { color: var(--text-muted); font-size: 0.85rem; }
+        .control-group label { color: var(--text-muted); font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
         .control-group select {
             padding: 0.6rem; background-color: var(--bg-dark); color: white;
-            border: 1px solid var(--panel-border); border-radius: 4px; outline: none;
+            border: 1px solid var(--panel-border); border-radius: var(--radius-sm); outline: none;
+            font-family: var(--font-family); font-size: 0.85rem;
+            transition: border-color var(--transition-fast);
         }
+        .control-group select:focus { border-color: var(--color-primary); }
         .action-group {
             display: flex; gap: 1rem;
         }
         .action-group button {
-            padding: 0.6rem 1.5rem; border: none; border-radius: 4px;
+            padding: 0.6rem 1.5rem; border: none; border-radius: var(--radius-sm);
             font-weight: 600; cursor: pointer; color: white;
+            font-family: var(--font-family); font-size: 0.85rem;
+            transition: all var(--transition-normal);
         }
-        .btn-inject { background-color: var(--color-danger); }
-        .btn-resolve { background-color: var(--color-success); }
+        .btn-inject { background: linear-gradient(135deg, var(--color-danger), #dc2626); }
+        .btn-inject:hover { box-shadow: var(--shadow-glow-danger); transform: translateY(-1px); }
+        .btn-resolve { background: linear-gradient(135deg, var(--color-success), #059669); }
+        .btn-resolve:hover { box-shadow: var(--shadow-glow-success); transform: translateY(-1px); }
         
         .charts-container {
             display: grid;
@@ -55,14 +72,106 @@
             flex-grow: 1;
         }
         .chart-box {
-            background-color: var(--panel-bg);
+            background: var(--gradient-surface);
+            backdrop-filter: blur(12px);
             border: 1px solid var(--panel-border);
-            border-radius: 8px;
+            border-radius: var(--radius-md);
             padding: 1rem;
             height: 350px;
             position: relative;
         }
-        #status-msg { margin-top: 1rem; color: var(--color-warning); font-weight: bold; }
+        #status-msg { margin-top: 0.5rem; color: var(--color-warning); font-weight: bold; font-size: 0.85rem; }
+
+        /* === VISION SECTION === */
+        .vision-section {
+            background: var(--gradient-surface);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--panel-border);
+            border-radius: var(--radius-md);
+            overflow: hidden;
+        }
+        .vision-header {
+            padding: 1rem 1.5rem;
+            border-bottom: 1px solid var(--panel-border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: linear-gradient(135deg, rgba(139,92,246,0.06), rgba(59,130,246,0.04));
+        }
+        .vision-header h2 {
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+        .vision-header h2 i { color: var(--color-purple); }
+        .vision-body {
+            display: grid;
+            grid-template-columns: 1fr 1.8fr;
+            gap: 0;
+        }
+        .vision-controls {
+            padding: 1.5rem;
+            border-right: 1px solid var(--panel-border);
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        .vision-results {
+            padding: 1.5rem;
+            min-height: 400px;
+        }
+        .vision-image-preview {
+            width: 100%;
+            border-radius: var(--radius-sm);
+            border: 1px solid var(--panel-border);
+            max-height: 350px;
+            object-fit: contain;
+            background: #080c16;
+        }
+        .compliance-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.4rem 1rem;
+            border-radius: var(--radius-xl);
+            font-size: 0.85rem;
+            font-weight: 700;
+        }
+        .compliance-badge.compliant {
+            background: var(--color-success-dim);
+            color: var(--color-success);
+            border: 1px solid rgba(16,185,129,0.3);
+        }
+        .compliance-badge.violation {
+            background: var(--color-danger-dim);
+            color: var(--color-danger);
+            border: 1px solid rgba(239,68,68,0.3);
+            animation: flashBorder 1.2s ease-in-out infinite alternate;
+        }
+        .detection-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+            margin-top: 1rem;
+        }
+        .detection-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.5rem 0.8rem;
+            background: rgba(255,255,255,0.03);
+            border-radius: var(--radius-sm);
+            font-size: 0.82rem;
+            border-left: 3px solid;
+        }
+        .detection-item.safe { border-color: var(--color-success); }
+        .detection-item.unsafe { border-color: var(--color-danger); }
+        .section-divider {
+            border: none;
+            border-top: 1px solid var(--panel-border);
+            margin: 0.5rem 0;
+        }
     </style>
 </head>
 <body>
@@ -70,11 +179,12 @@
         <div class="control-header">
             <div>
                 <h1><i class="fa-solid fa-sliders"></i> Simulation Controller</h1>
-                <p style="color: var(--text-muted); margin-top: 0.5rem;">Inject anomalies and monitor raw telemetry signal deflections.</p>
+                <p style="color: var(--text-muted); margin-top: 0.5rem; font-size: 0.85rem;">Inject anomalies, monitor raw telemetry signal deflections, and analyze safety camera feeds.</p>
             </div>
-            <a href="/" style="color: var(--color-primary); text-decoration: none;"><i class="fa-solid fa-arrow-left"></i> Back to Dashboard</a>
+            <a href="/" class="btn-outline" style="text-decoration:none;"><i class="fa-solid fa-arrow-left"></i> Back to Dashboard</a>
         </div>
         
+        <!-- Failure Injection Panel -->
         <div class="controls-panel">
             <div class="control-group">
                 <label>Target Machine</label>
@@ -95,9 +205,46 @@
         </div>
         <div id="status-msg"></div>
 
+        <!-- Vision / Safety Camera Section -->
+        <div class="vision-section">
+            <div class="vision-header">
+                <h2><i class="fa-solid fa-camera-retro"></i> Safety Camera — PPE Compliance Analysis</h2>
+                <span class="badge" style="background:var(--color-purple-dim);color:var(--color-purple);border:1px solid rgba(139,92,246,0.3);"><i class="fa-solid fa-microchip"></i> YOLOv8 + AMD Inference</span>
+            </div>
+            <div class="vision-body">
+                <div class="vision-controls">
+                    <div class="control-group">
+                        <label><i class="fa-solid fa-video"></i> Camera Zone</label>
+                        <select id="camera-zone-select">
+                            <option value="">Loading cameras...</option>
+                        </select>
+                    </div>
+                    <div class="control-group">
+                        <label><i class="fa-solid fa-image"></i> Select Image</label>
+                        <select id="camera-image-select">
+                            <option value="">Loading images...</option>
+                        </select>
+                    </div>
+                    <button class="btn-primary" id="btn-analyze" style="width:100%;">
+                        <i class="fa-solid fa-magnifying-glass-chart"></i> Analyze for PPE Compliance
+                    </button>
+                    <hr class="section-divider">
+                    <div id="vision-status" style="font-size:0.82rem;color:var(--text-muted);"></div>
+                    <div id="vision-detections"></div>
+                </div>
+                <div class="vision-results" id="vision-results">
+                    <div style="text-align:center; padding:3rem; color:var(--text-muted);">
+                        <i class="fa-solid fa-camera" style="font-size:3rem; color:var(--panel-border); margin-bottom:1rem;"></i>
+                        <p>Select a camera zone and image, then click <strong>Analyze</strong> to run AI-powered PPE detection.</p>
+                        <p style="font-size:0.75rem; margin-top:0.5rem;">Model: YOLOv8m trained on PPE dataset | Classes: helmet, glove, shoes, welding-glass</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Telemetry Charts -->
         <div class="charts-container" id="charts-container">
-            <!-- Dynamic charts will be inserted here -->
-            <div style="color: var(--text-muted); text-align: center; padding: 2rem;">Select a machine to view raw telemetry streams.</div>
+            <div style="color: var(--text-muted); text-align: center; padding: 2rem;">Select a machine above to view raw telemetry signal streams.</div>
         </div>
     </div>
 

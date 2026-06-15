@@ -27,29 +27,20 @@
                 <li class="active" id="nav-dashboard" onclick="switchView('dashboard')"><i class="fa-solid fa-chart-line"></i> Live Overview</li>
                 <li id="nav-alerts" onclick="switchView('alerts')"><i class="fa-solid fa-bell"></i> Alerts</li>
                 <li id="nav-incidents" onclick="switchView('incidents')"><i class="fa-solid fa-triangle-exclamation"></i> Incidents</li>
-                <li id="nav-assistant" onclick="switchView('assistant')"><i class="fa-solid fa-robot"></i> AI Assistant <span class="badge red" style="margin-left:auto; font-size: 0.6rem">RAG</span></li>
-                <li><i class="fa-solid fa-sliders"></i> Simulation Control</li>
-                <li><i class="fa-solid fa-wrench"></i> Maintenance</li>
-                <li><i class="fa-solid fa-shield-halved"></i> Safety</li>
-                <li><i class="fa-solid fa-industry"></i> Production</li>
-                <li><i class="fa-solid fa-people-arrows"></i> Shift Handover</li>
-                <li><i class="fa-solid fa-file-lines"></i> Reports Hub</li>
-                <li id="nav-documents" onclick="switchView('documents')"><i class="fa-solid fa-folder-tree"></i> Documents</li>
+                <li id="nav-assistant" onclick="switchView('assistant')"><i class="fa-solid fa-robot"></i> AI Copilot <span class="badge red" style="margin-left:auto; font-size: 0.6rem">RAG</span></li>
+                <li id="nav-shift-handover" onclick="switchView('shift-handover')"><i class="fa-solid fa-people-arrows"></i> Shift Handover</li>
                 <li id="nav-rca" onclick="switchView('rca')"><i class="fa-solid fa-file-contract"></i> RCA Reports</li>
-                <li id="nav-ontology" onclick="switchView('ontology')"><i class="fa-solid fa-diagram-project"></i> Ontology Generator</li>
+                <li id="nav-documents" onclick="switchView('documents')"><i class="fa-solid fa-folder-tree"></i> Documents</li>
                 <li id="nav-database" onclick="switchView('database')"><i class="fa-solid fa-database"></i> System Database</li>
-                <li><i class="fa-solid fa-list-check"></i> Task Manager</li>
-                <li><i class="fa-solid fa-gauge-high"></i> KPI Dashboard</li>
-                <li><i class="fa-solid fa-map"></i> Plant Blueprint</li>
-                <li><i class="fa-solid fa-gear"></i> Settings</li>
-                <li><i class="fa-solid fa-terminal"></i> System Logs</li>
+                <li id="nav-ontology" onclick="switchView('ontology')"><i class="fa-solid fa-diagram-project"></i> Task Generator</li>
+                <li onclick="window.open('/control','_blank')"><i class="fa-solid fa-sliders"></i> Simulation Control <i class="fa-solid fa-arrow-up-right-from-square" style="font-size:0.65rem;margin-left:auto;"></i></li>
             </ul>
             
             <div class="shift-timer-box">
                 <p>Active Shift Time</p>
                 <h2 id="shift-clock">05:24:38</h2>
                 <p class="shift-name">Day Shift<br>06:00 AM - 06:00 PM</p>
-                <button class="btn-handover"><i class="fa-solid fa-arrow-right-arrow-left"></i> Shift Handover</button>
+                <button class="btn-handover" onclick="generateShiftHandover()"><i class="fa-solid fa-arrow-right-arrow-left"></i> Shift Handover</button>
             </div>
             
             <div class="system-status-footer">
@@ -319,31 +310,27 @@
             </div>
             
             <!-- Database View -->
-            <div id="view-database" style="display: none; padding-top: 1rem;">
-                <div class="panel" style="flex-grow: 1; display: flex; flex-direction: column;">
-                    <div class="panel-header">
-                        <h2>System Database (Live)</h2>
-                        <button class="btn-outline" onclick="fetchDatabase()"><i class="fa-solid fa-rotate-right"></i> Refresh</button>
+            <div id="view-database" style="display: none; padding-top: 1rem; height: calc(100vh - 120px);">
+                <div style="display: flex; gap: 1rem; height: 100%; width: 100%;">
+                    <!-- Database Sidebar -->
+                    <div class="panel" style="width: 280px; display: flex; flex-direction: column; overflow: hidden;">
+                        <div class="panel-header" style="border-bottom: 1px solid var(--panel-border); padding-bottom: 1rem;">
+                            <h2><i class="fa-solid fa-database"></i> Plant Databases</h2>
+                            <button class="btn-outline" onclick="fetchDatabases()" style="padding:0.3rem;"><i class="fa-solid fa-rotate-right"></i></button>
+                        </div>
+                        <div id="db-sidebar-list" style="flex-grow: 1; padding: 0.8rem; overflow-y: auto;">
+                            <!-- JS populated -->
+                        </div>
                     </div>
-                    <div style="padding: 1rem; overflow-y: auto;">
-                        <table style="width: 100%; border-collapse: collapse; text-align: left;">
-                            <thead>
-                                <tr style="border-bottom: 2px solid var(--panel-border);">
-                                    <th style="padding: 0.5rem;">Incident ID</th>
-                                    <th style="padding: 0.5rem;">Machine</th>
-                                    <th style="padding: 0.5rem;">Failure Mode</th>
-                                    <th style="padding: 0.5rem;">Status</th>
-                                    <th style="padding: 0.5rem;">RCA Report</th>
-                                </tr>
-                            </thead>
-                            <tbody id="db-table-body">
-                                <!-- JS populated -->
-                            </tbody>
-                        </table>
-                        <div id="db-files-info" style="margin-top:1rem;padding-top:1rem;border-top:1px solid var(--panel-border);"></div>
+                    <!-- Table Content -->
+                    <div class="panel" style="flex-grow: 1; display: flex; flex-direction: column; overflow: hidden;">
+                        <div id="db-table-container" style="flex-grow: 1; overflow: auto;">
+                            <div style="padding:2rem;text-align:center;color:var(--text-muted);">Select a database or view incidents.</div>
+                        </div>
                     </div>
                 </div>
             </div>
+
             
             <!-- RCA Reports View -->
             <div id="view-rca" style="display: none; padding-top: 1rem;">
@@ -366,11 +353,11 @@
                 </div>
             </div>
             
-            <!-- Ontology Generator View -->
+            <!-- Task Generator View -->
             <div id="view-ontology" style="display: none; padding-top: 1rem;">
                 <div class="panel" style="flex-grow: 1; display: flex; flex-direction: column;">
                     <div class="panel-header">
-                        <h2>Agentic Ontology Generator (Lab)</h2>
+                        <h2>Agentic Task Generator (Lab)</h2>
                     </div>
                     <div style="padding: 1rem; border-bottom: 1px solid var(--panel-border);">
                         <label>Simulate Failure Mode: </label>
@@ -383,7 +370,38 @@
                         </button>
                     </div>
                     <div id="ontology-results" style="padding: 1rem; overflow-y: auto; display: flex; flex-direction: column; gap: 1rem;">
-                        <p style="color: var(--text-muted);">Select a failure mode and click generate. The LLM will query the RAG vector store and output a dynamic SIPOC DAG.</p>
+                        <p style="color: var(--text-muted);">Select a failure mode and click generate. The LLM will query the RAG vector store and output dynamic resolution tasks (Inputs, Procedure, Outputs).</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Shift Handover View -->
+            <div id="view-shift-handover" style="display: none; padding-top: 1rem; height: calc(100vh - 120px); width: 100%;">
+                <div style="display: flex; gap: 1rem; height: 100%; width: 100%;">
+                    <!-- Reports List Panel -->
+                    <div class="panel" style="width: 320px; display: flex; flex-direction: column; overflow: hidden; height: 100%;">
+                        <div class="panel-header" style="border-bottom: 1px solid var(--panel-border); padding-bottom: 1rem;">
+                            <h2><i class="fa-solid fa-people-arrows"></i> Shift Handover Docs</h2>
+                        </div>
+                        <div style="padding: 1rem; border-bottom: 1px solid var(--panel-border); display: flex; flex-direction: column; gap: 0.5rem;">
+                            <button class="btn-primary" onclick="generateShiftHandover()"><i class="fa-solid fa-wand-magic-sparkles"></i> Generate Handover Doc</button>
+                            <button class="btn-outline" onclick="fetchShiftDocuments()"><i class="fa-solid fa-rotate-right"></i> Refresh List</button>
+                        </div>
+                        <div id="shift-doc-explorer" style="flex-grow: 1; padding: 1rem; overflow-y: auto;">
+                            <!-- Populated by JS -->
+                            <div style="color: var(--text-muted); text-align: center; font-size: 0.8rem; padding-top: 2rem;">
+                                No documents fetched.
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Document Viewer Panel -->
+                    <div class="panel" style="flex-grow: 1; display: flex; flex-direction: column; overflow: hidden; height: 100%;">
+                        <div class="panel-header" style="border-bottom: 1px solid var(--panel-border); padding-bottom: 1rem;">
+                            <h2 id="shift-viewer-title">Select a shift document</h2>
+                        </div>
+                        <div style="flex-grow: 1; background: #090e17; height: 100%;">
+                            <iframe id="shift-iframe" style="width: 100%; height: 100%; border: none;"></iframe>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -411,7 +429,7 @@
         </div>
         <div class="footer-right">
             <span><i class="fa-solid fa-microchip"></i> Local LLM: qwen2.5 (2B)</span>
-            <span><i class="fa-solid fa-server"></i> GPU: AMD Instinct MI300X</span>
+            <span id="gpu-status-footer"><i class="fa-solid fa-server"></i> GPU: AMD Instinct MI300X</span>
             <span>v1.0.0</span>
         </div>
     </footer>
